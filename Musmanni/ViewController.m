@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "Singleton.h"
 
 @interface ViewController ()
-
+@property (nonatomic, weak) UINavigationBar *barra;
 @end
 
 @implementation ViewController

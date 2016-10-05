@@ -7,6 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0A8BCD1DA5749F008CC9F3 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0A8BCA1DA5749F008CC9F3 /* Singleton.m */; };
+		4C0A8BCE1DA5749F008CC9F3 /* WSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0A8BCC1DA5749F008CC9F3 /* WSManager.m */; };
+		4C0A8C311DA59847008CC9F3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0A8C301DA59847008CC9F3 /* LoginViewController.m */; };
+		4C0A8DBD1DA5AE88008CC9F3 /* Ajustes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D871DA5AE88008CC9F3 /* Ajustes.png */; };
+		4C0A8DBE1DA5AE88008CC9F3 /* Ajustes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D881DA5AE88008CC9F3 /* Ajustes@2x.png */; };
+		4C0A8DBF1DA5AE88008CC9F3 /* Ajustes@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D891DA5AE88008CC9F3 /* Ajustes@3x.png */; };
+		4C0A8DC01DA5AE88008CC9F3 /* Atras.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D8A1DA5AE88008CC9F3 /* Atras.png */; };
+		4C0A8DC11DA5AE88008CC9F3 /* Atras@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D8B1DA5AE88008CC9F3 /* Atras@2x.png */; };
+		4C0A8DC21DA5AE88008CC9F3 /* Atras@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D8C1DA5AE88008CC9F3 /* Atras@3x.png */; };
+		4C0A8DC31DA5AE88008CC9F3 /* Candado.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D8D1DA5AE88008CC9F3 /* Candado.png */; };
+		4C0A8DC41DA5AE88008CC9F3 /* Candado@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D8E1DA5AE88008CC9F3 /* Candado@2x.png */; };
+		4C0A8DC51DA5AE88008CC9F3 /* Candado@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D8F1DA5AE88008CC9F3 /* Candado@3x.png */; };
+		4C0A8DC61DA5AE88008CC9F3 /* Configuraciones.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D901DA5AE88008CC9F3 /* Configuraciones.png */; };
+		4C0A8DC71DA5AE88008CC9F3 /* Configuraciones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D911DA5AE88008CC9F3 /* Configuraciones@2x.png */; };
+		4C0A8DC81DA5AE88008CC9F3 /* Configuraciones@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D921DA5AE88008CC9F3 /* Configuraciones@3x.png */; };
+		4C0A8DC91DA5AE88008CC9F3 /* Contacto.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D931DA5AE88008CC9F3 /* Contacto.png */; };
+		4C0A8DCA1DA5AE88008CC9F3 /* Contacto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D941DA5AE88008CC9F3 /* Contacto@2x.png */; };
+		4C0A8DCB1DA5AE88008CC9F3 /* Contacto@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D951DA5AE88008CC9F3 /* Contacto@3x.png */; };
+		4C0A8DCC1DA5AE88008CC9F3 /* Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D961DA5AE88008CC9F3 /* Facebook.png */; };
+		4C0A8DCD1DA5AE88008CC9F3 /* Facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D971DA5AE88008CC9F3 /* Facebook@2x.png */; };
+		4C0A8DCE1DA5AE88008CC9F3 /* Facebook@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D981DA5AE88008CC9F3 /* Facebook@3x.png */; };
+		4C0A8DCF1DA5AE88008CC9F3 /* fondo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D991DA5AE88008CC9F3 /* fondo.png */; };
+		4C0A8DD01DA5AE88008CC9F3 /* fondo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D9A1DA5AE88008CC9F3 /* fondo@2x.png */; };
+		4C0A8DD11DA5AE88008CC9F3 /* fondo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D9B1DA5AE88008CC9F3 /* fondo@3x.png */; };
+		4C0A8DD21DA5AE88008CC9F3 /* Login lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D9C1DA5AE88008CC9F3 /* Login lock.png */; };
+		4C0A8DD31DA5AE88008CC9F3 /* Login lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D9D1DA5AE88008CC9F3 /* Login lock@2x.png */; };
+		4C0A8DD41DA5AE88008CC9F3 /* Login lock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D9E1DA5AE88008CC9F3 /* Login lock@3x.png */; };
+		4C0A8DD51DA5AE88008CC9F3 /* Login mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8D9F1DA5AE88008CC9F3 /* Login mail.png */; };
+		4C0A8DD61DA5AE88008CC9F3 /* Login mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA01DA5AE88008CC9F3 /* Login mail@2x.png */; };
+		4C0A8DD71DA5AE88008CC9F3 /* Login mail@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA11DA5AE88008CC9F3 /* Login mail@3x.png */; };
+		4C0A8DD81DA5AE88008CC9F3 /* Logo Central.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA21DA5AE88008CC9F3 /* Logo Central.png */; };
+		4C0A8DD91DA5AE88008CC9F3 /* Logo Central@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA31DA5AE88008CC9F3 /* Logo Central@2x.png */; };
+		4C0A8DDA1DA5AE88008CC9F3 /* Logo Central@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA41DA5AE88008CC9F3 /* Logo Central@3x.png */; };
+		4C0A8DDB1DA5AE88008CC9F3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA51DA5AE88008CC9F3 /* logo.png */; };
+		4C0A8DDC1DA5AE88008CC9F3 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA61DA5AE88008CC9F3 /* logo@2x.png */; };
+		4C0A8DDD1DA5AE88008CC9F3 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA71DA5AE88008CC9F3 /* logo@3x.png */; };
+		4C0A8DDE1DA5AE88008CC9F3 /* Mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA81DA5AE88008CC9F3 /* Mail.png */; };
+		4C0A8DDF1DA5AE88008CC9F3 /* Mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DA91DA5AE88008CC9F3 /* Mail@2x.png */; };
+		4C0A8DE01DA5AE88008CC9F3 /* Mail@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DAA1DA5AE88008CC9F3 /* Mail@3x.png */; };
+		4C0A8DE11DA5AE88008CC9F3 /* monedero.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DAB1DA5AE88008CC9F3 /* monedero.png */; };
+		4C0A8DE21DA5AE88008CC9F3 /* monedero@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DAC1DA5AE88008CC9F3 /* monedero@2x.png */; };
+		4C0A8DE31DA5AE88008CC9F3 /* monedero@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DAD1DA5AE88008CC9F3 /* monedero@3x.png */; };
+		4C0A8DE41DA5AE88008CC9F3 /* Promociones.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DAE1DA5AE88008CC9F3 /* Promociones.png */; };
+		4C0A8DE51DA5AE88008CC9F3 /* Promociones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DAF1DA5AE88008CC9F3 /* Promociones@2x.png */; };
+		4C0A8DE61DA5AE88008CC9F3 /* Promociones@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB01DA5AE88008CC9F3 /* Promociones@3x.png */; };
+		4C0A8DE71DA5AE88008CC9F3 /* Recargas.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB11DA5AE88008CC9F3 /* Recargas.png */; };
+		4C0A8DE81DA5AE88008CC9F3 /* Recargas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB21DA5AE88008CC9F3 /* Recargas@2x.png */; };
+		4C0A8DE91DA5AE88008CC9F3 /* Recargas@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB31DA5AE88008CC9F3 /* Recargas@3x.png */; };
+		4C0A8DEA1DA5AE88008CC9F3 /* Telefono.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB41DA5AE88008CC9F3 /* Telefono.png */; };
+		4C0A8DEB1DA5AE88008CC9F3 /* Telefono@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB51DA5AE88008CC9F3 /* Telefono@2x.png */; };
+		4C0A8DEC1DA5AE88008CC9F3 /* Telefono@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB61DA5AE88008CC9F3 /* Telefono@3x.png */; };
+		4C0A8DED1DA5AE88008CC9F3 /* Ubicaciones.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB71DA5AE88008CC9F3 /* Ubicaciones.png */; };
+		4C0A8DEE1DA5AE88008CC9F3 /* Ubicaciones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB81DA5AE88008CC9F3 /* Ubicaciones@2x.png */; };
+		4C0A8DEF1DA5AE88008CC9F3 /* Ubicaciones@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DB91DA5AE88008CC9F3 /* Ubicaciones@3x.png */; };
+		4C0A8DF01DA5AE88008CC9F3 /* Web.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DBA1DA5AE88008CC9F3 /* Web.png */; };
+		4C0A8DF11DA5AE88008CC9F3 /* Web@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DBB1DA5AE88008CC9F3 /* Web@2x.png */; };
+		4C0A8DF21DA5AE88008CC9F3 /* Web@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DBC1DA5AE88008CC9F3 /* Web@3x.png */; };
+		4C0A8E031DA5B25B008CC9F3 /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DF41DA5B25B008CC9F3 /* Oswald-Bold.ttf */; };
+		4C0A8E041DA5B25B008CC9F3 /* Oswald-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DF51DA5B25B008CC9F3 /* Oswald-BoldItalic.ttf */; };
+		4C0A8E051DA5B25B008CC9F3 /* Oswald-Demi-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DF61DA5B25B008CC9F3 /* Oswald-Demi-BoldItalic.ttf */; };
+		4C0A8E061DA5B25B008CC9F3 /* Oswald-DemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DF71DA5B25B008CC9F3 /* Oswald-DemiBold.ttf */; };
+		4C0A8E071DA5B25B008CC9F3 /* Oswald-Extra-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DF81DA5B25B008CC9F3 /* Oswald-Extra-LightItalic.ttf */; };
+		4C0A8E081DA5B25B008CC9F3 /* Oswald-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DF91DA5B25B008CC9F3 /* Oswald-ExtraLight.ttf */; };
+		4C0A8E091DA5B25B008CC9F3 /* Oswald-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DFA1DA5B25B008CC9F3 /* Oswald-Heavy.ttf */; };
+		4C0A8E0A1DA5B25B008CC9F3 /* Oswald-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DFB1DA5B25B008CC9F3 /* Oswald-HeavyItalic.ttf */; };
+		4C0A8E0B1DA5B25B008CC9F3 /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DFC1DA5B25B008CC9F3 /* Oswald-Light.ttf */; };
+		4C0A8E0C1DA5B25B008CC9F3 /* Oswald-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DFD1DA5B25B008CC9F3 /* Oswald-LightItalic.ttf */; };
+		4C0A8E0D1DA5B25B008CC9F3 /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DFE1DA5B25B008CC9F3 /* Oswald-Medium.ttf */; };
+		4C0A8E0E1DA5B25B008CC9F3 /* Oswald-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8DFF1DA5B25B008CC9F3 /* Oswald-MediumItalic.ttf */; };
+		4C0A8E0F1DA5B25B008CC9F3 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8E001DA5B25B008CC9F3 /* Oswald-Regular.ttf */; };
+		4C0A8E101DA5B25B008CC9F3 /* Oswald-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8E011DA5B25B008CC9F3 /* Oswald-RegularItalic.ttf */; };
+		4C0A8E111DA5B25B008CC9F3 /* Oswald-Stencil.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A8E021DA5B25B008CC9F3 /* Oswald-Stencil.ttf */; };
 		4CE8434E1DA5480D00502CC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8434D1DA5480D00502CC9 /* main.m */; };
 		4CE843511DA5480D00502CC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE843501DA5480D00502CC9 /* AppDelegate.m */; };
 		4CE843541DA5480D00502CC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE843531DA5480D00502CC9 /* ViewController.m */; };
@@ -16,6 +88,10 @@
 		4CE8435F1DA5480D00502CC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE8435D1DA5480D00502CC9 /* LaunchScreen.storyboard */; };
 		4CE8436A1DA5480D00502CC9 /* MusmanniTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE843691DA5480D00502CC9 /* MusmanniTests.m */; };
 		4CE843751DA5480D00502CC9 /* MusmanniUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE843741DA5480D00502CC9 /* MusmanniUITests.m */; };
+		4CE843851DA5486300502CC9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE843841DA5486300502CC9 /* MapKit.framework */; };
+		A7C7F4E27165CBFCCF53EBE9 /* libPods-MusmanniUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8F109A2F1A850A2D9544B8 /* libPods-MusmanniUITests.a */; };
+		E6DC0166DA1E17835DBC4A6A /* libPods-MusmanniTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B03537E8C09FC1E49F1CD9 /* libPods-MusmanniTests.a */; };
+		F3BE02549185CFF982D5495B /* libPods-Musmanni.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 909C502FF2CDAB6C3FED5199 /* libPods-Musmanni.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +112,83 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02CE35E3F81E177C6C223813 /* Pods-Musmanni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musmanni.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Musmanni/Pods-Musmanni.debug.xcconfig"; sourceTree = "<group>"; };
+		1459DF1FD00284ABAEEC379C /* Pods-MusmanniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniTests/Pods-MusmanniTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4C0A8BC91DA5749F008CC9F3 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = Manager/Singleton.h; sourceTree = "<group>"; };
+		4C0A8BCA1DA5749F008CC9F3 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Singleton.m; path = Manager/Singleton.m; sourceTree = "<group>"; };
+		4C0A8BCB1DA5749F008CC9F3 /* WSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WSManager.h; path = Manager/WSManager.h; sourceTree = "<group>"; };
+		4C0A8BCC1DA5749F008CC9F3 /* WSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WSManager.m; path = Manager/WSManager.m; sourceTree = "<group>"; };
+		4C0A8C2F1DA59847008CC9F3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controllers/LoginViewController.h; sourceTree = "<group>"; };
+		4C0A8C301DA59847008CC9F3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
+		4C0A8D871DA5AE88008CC9F3 /* Ajustes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ajustes.png; sourceTree = "<group>"; };
+		4C0A8D881DA5AE88008CC9F3 /* Ajustes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ajustes@2x.png"; sourceTree = "<group>"; };
+		4C0A8D891DA5AE88008CC9F3 /* Ajustes@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ajustes@3x.png"; sourceTree = "<group>"; };
+		4C0A8D8A1DA5AE88008CC9F3 /* Atras.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Atras.png; sourceTree = "<group>"; };
+		4C0A8D8B1DA5AE88008CC9F3 /* Atras@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Atras@2x.png"; sourceTree = "<group>"; };
+		4C0A8D8C1DA5AE88008CC9F3 /* Atras@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Atras@3x.png"; sourceTree = "<group>"; };
+		4C0A8D8D1DA5AE88008CC9F3 /* Candado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Candado.png; sourceTree = "<group>"; };
+		4C0A8D8E1DA5AE88008CC9F3 /* Candado@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Candado@2x.png"; sourceTree = "<group>"; };
+		4C0A8D8F1DA5AE88008CC9F3 /* Candado@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Candado@3x.png"; sourceTree = "<group>"; };
+		4C0A8D901DA5AE88008CC9F3 /* Configuraciones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Configuraciones.png; sourceTree = "<group>"; };
+		4C0A8D911DA5AE88008CC9F3 /* Configuraciones@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Configuraciones@2x.png"; sourceTree = "<group>"; };
+		4C0A8D921DA5AE88008CC9F3 /* Configuraciones@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Configuraciones@3x.png"; sourceTree = "<group>"; };
+		4C0A8D931DA5AE88008CC9F3 /* Contacto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contacto.png; sourceTree = "<group>"; };
+		4C0A8D941DA5AE88008CC9F3 /* Contacto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contacto@2x.png"; sourceTree = "<group>"; };
+		4C0A8D951DA5AE88008CC9F3 /* Contacto@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contacto@3x.png"; sourceTree = "<group>"; };
+		4C0A8D961DA5AE88008CC9F3 /* Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook.png; sourceTree = "<group>"; };
+		4C0A8D971DA5AE88008CC9F3 /* Facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook@2x.png"; sourceTree = "<group>"; };
+		4C0A8D981DA5AE88008CC9F3 /* Facebook@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook@3x.png"; sourceTree = "<group>"; };
+		4C0A8D991DA5AE88008CC9F3 /* fondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo.png; sourceTree = "<group>"; };
+		4C0A8D9A1DA5AE88008CC9F3 /* fondo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondo@2x.png"; sourceTree = "<group>"; };
+		4C0A8D9B1DA5AE88008CC9F3 /* fondo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondo@3x.png"; sourceTree = "<group>"; };
+		4C0A8D9C1DA5AE88008CC9F3 /* Login lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login lock.png"; sourceTree = "<group>"; };
+		4C0A8D9D1DA5AE88008CC9F3 /* Login lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login lock@2x.png"; sourceTree = "<group>"; };
+		4C0A8D9E1DA5AE88008CC9F3 /* Login lock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login lock@3x.png"; sourceTree = "<group>"; };
+		4C0A8D9F1DA5AE88008CC9F3 /* Login mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login mail.png"; sourceTree = "<group>"; };
+		4C0A8DA01DA5AE88008CC9F3 /* Login mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login mail@2x.png"; sourceTree = "<group>"; };
+		4C0A8DA11DA5AE88008CC9F3 /* Login mail@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login mail@3x.png"; sourceTree = "<group>"; };
+		4C0A8DA21DA5AE88008CC9F3 /* Logo Central.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Central.png"; sourceTree = "<group>"; };
+		4C0A8DA31DA5AE88008CC9F3 /* Logo Central@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Central@2x.png"; sourceTree = "<group>"; };
+		4C0A8DA41DA5AE88008CC9F3 /* Logo Central@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Central@3x.png"; sourceTree = "<group>"; };
+		4C0A8DA51DA5AE88008CC9F3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		4C0A8DA61DA5AE88008CC9F3 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		4C0A8DA71DA5AE88008CC9F3 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
+		4C0A8DA81DA5AE88008CC9F3 /* Mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mail.png; sourceTree = "<group>"; };
+		4C0A8DA91DA5AE88008CC9F3 /* Mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mail@2x.png"; sourceTree = "<group>"; };
+		4C0A8DAA1DA5AE88008CC9F3 /* Mail@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mail@3x.png"; sourceTree = "<group>"; };
+		4C0A8DAB1DA5AE88008CC9F3 /* monedero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monedero.png; sourceTree = "<group>"; };
+		4C0A8DAC1DA5AE88008CC9F3 /* monedero@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monedero@2x.png"; sourceTree = "<group>"; };
+		4C0A8DAD1DA5AE88008CC9F3 /* monedero@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monedero@3x.png"; sourceTree = "<group>"; };
+		4C0A8DAE1DA5AE88008CC9F3 /* Promociones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Promociones.png; sourceTree = "<group>"; };
+		4C0A8DAF1DA5AE88008CC9F3 /* Promociones@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Promociones@2x.png"; sourceTree = "<group>"; };
+		4C0A8DB01DA5AE88008CC9F3 /* Promociones@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Promociones@3x.png"; sourceTree = "<group>"; };
+		4C0A8DB11DA5AE88008CC9F3 /* Recargas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Recargas.png; sourceTree = "<group>"; };
+		4C0A8DB21DA5AE88008CC9F3 /* Recargas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Recargas@2x.png"; sourceTree = "<group>"; };
+		4C0A8DB31DA5AE88008CC9F3 /* Recargas@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Recargas@3x.png"; sourceTree = "<group>"; };
+		4C0A8DB41DA5AE88008CC9F3 /* Telefono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Telefono.png; sourceTree = "<group>"; };
+		4C0A8DB51DA5AE88008CC9F3 /* Telefono@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Telefono@2x.png"; sourceTree = "<group>"; };
+		4C0A8DB61DA5AE88008CC9F3 /* Telefono@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Telefono@3x.png"; sourceTree = "<group>"; };
+		4C0A8DB71DA5AE88008CC9F3 /* Ubicaciones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ubicaciones.png; sourceTree = "<group>"; };
+		4C0A8DB81DA5AE88008CC9F3 /* Ubicaciones@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ubicaciones@2x.png"; sourceTree = "<group>"; };
+		4C0A8DB91DA5AE88008CC9F3 /* Ubicaciones@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ubicaciones@3x.png"; sourceTree = "<group>"; };
+		4C0A8DBA1DA5AE88008CC9F3 /* Web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Web.png; sourceTree = "<group>"; };
+		4C0A8DBB1DA5AE88008CC9F3 /* Web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Web@2x.png"; sourceTree = "<group>"; };
+		4C0A8DBC1DA5AE88008CC9F3 /* Web@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Web@3x.png"; sourceTree = "<group>"; };
+		4C0A8DF41DA5B25B008CC9F3 /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
+		4C0A8DF51DA5B25B008CC9F3 /* Oswald-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4C0A8DF61DA5B25B008CC9F3 /* Oswald-Demi-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Demi-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4C0A8DF71DA5B25B008CC9F3 /* Oswald-DemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-DemiBold.ttf"; sourceTree = "<group>"; };
+		4C0A8DF81DA5B25B008CC9F3 /* Oswald-Extra-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Extra-LightItalic.ttf"; sourceTree = "<group>"; };
+		4C0A8DF91DA5B25B008CC9F3 /* Oswald-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-ExtraLight.ttf"; sourceTree = "<group>"; };
+		4C0A8DFA1DA5B25B008CC9F3 /* Oswald-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Heavy.ttf"; sourceTree = "<group>"; };
+		4C0A8DFB1DA5B25B008CC9F3 /* Oswald-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		4C0A8DFC1DA5B25B008CC9F3 /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
+		4C0A8DFD1DA5B25B008CC9F3 /* Oswald-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-LightItalic.ttf"; sourceTree = "<group>"; };
+		4C0A8DFE1DA5B25B008CC9F3 /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Medium.ttf"; sourceTree = "<group>"; };
+		4C0A8DFF1DA5B25B008CC9F3 /* Oswald-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-MediumItalic.ttf"; sourceTree = "<group>"; };
+		4C0A8E001DA5B25B008CC9F3 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		4C0A8E011DA5B25B008CC9F3 /* Oswald-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-RegularItalic.ttf"; sourceTree = "<group>"; };
+		4C0A8E021DA5B25B008CC9F3 /* Oswald-Stencil.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Stencil.ttf"; sourceTree = "<group>"; };
 		4CE843491DA5480D00502CC9 /* Musmanni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musmanni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8434D1DA5480D00502CC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CE8434F1DA5480D00502CC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +206,15 @@
 		4CE843701DA5480D00502CC9 /* MusmanniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusmanniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE843741DA5480D00502CC9 /* MusmanniUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusmanniUITests.m; sourceTree = "<group>"; };
 		4CE843761DA5480D00502CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CE843821DA5485900502CC9 /* Musmanni.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Musmanni.entitlements; sourceTree = "<group>"; };
+		4CE843841DA5486300502CC9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		594FEDF291A57A01BAA66C5E /* Pods-Musmanni.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musmanni.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musmanni/Pods-Musmanni.release.xcconfig"; sourceTree = "<group>"; };
+		694119BB3CA1AD9EC9C6528E /* Pods-MusmanniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests.release.xcconfig"; sourceTree = "<group>"; };
+		906C629B436314503A519208 /* Pods-MusmanniUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		909C502FF2CDAB6C3FED5199 /* libPods-Musmanni.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Musmanni.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC8F109A2F1A850A2D9544B8 /* libPods-MusmanniUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusmanniUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F47E4CA2808C5B68AB347C17 /* Pods-MusmanniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniTests/Pods-MusmanniTests.release.xcconfig"; sourceTree = "<group>"; };
+		F9B03537E8C09FC1E49F1CD9 /* libPods-MusmanniTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusmanniTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +222,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE843851DA5486300502CC9 /* MapKit.framework in Frameworks */,
+				F3BE02549185CFF982D5495B /* libPods-Musmanni.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6DC0166DA1E17835DBC4A6A /* libPods-MusmanniTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +239,138 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C7F4E27165CBFCCF53EBE9 /* libPods-MusmanniUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C6F6304DC5951B9EBB292FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02CE35E3F81E177C6C223813 /* Pods-Musmanni.debug.xcconfig */,
+				594FEDF291A57A01BAA66C5E /* Pods-Musmanni.release.xcconfig */,
+				1459DF1FD00284ABAEEC379C /* Pods-MusmanniTests.debug.xcconfig */,
+				F47E4CA2808C5B68AB347C17 /* Pods-MusmanniTests.release.xcconfig */,
+				906C629B436314503A519208 /* Pods-MusmanniUITests.debug.xcconfig */,
+				694119BB3CA1AD9EC9C6528E /* Pods-MusmanniUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4C0A8BC71DA5746F008CC9F3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C0A8C2F1DA59847008CC9F3 /* LoginViewController.h */,
+				4C0A8C301DA59847008CC9F3 /* LoginViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4C0A8BC81DA57479008CC9F3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				4C0A8BC91DA5749F008CC9F3 /* Singleton.h */,
+				4C0A8BCA1DA5749F008CC9F3 /* Singleton.m */,
+				4C0A8BCB1DA5749F008CC9F3 /* WSManager.h */,
+				4C0A8BCC1DA5749F008CC9F3 /* WSManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		4C0A8BCF1DA58341008CC9F3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4C0A8DF31DA5B1FE008CC9F3 /* Fonts */,
+				4C0A8D841DA5AE67008CC9F3 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4C0A8D841DA5AE67008CC9F3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4C0A8D871DA5AE88008CC9F3 /* Ajustes.png */,
+				4C0A8D881DA5AE88008CC9F3 /* Ajustes@2x.png */,
+				4C0A8D891DA5AE88008CC9F3 /* Ajustes@3x.png */,
+				4C0A8D8A1DA5AE88008CC9F3 /* Atras.png */,
+				4C0A8D8B1DA5AE88008CC9F3 /* Atras@2x.png */,
+				4C0A8D8C1DA5AE88008CC9F3 /* Atras@3x.png */,
+				4C0A8D8D1DA5AE88008CC9F3 /* Candado.png */,
+				4C0A8D8E1DA5AE88008CC9F3 /* Candado@2x.png */,
+				4C0A8D8F1DA5AE88008CC9F3 /* Candado@3x.png */,
+				4C0A8D901DA5AE88008CC9F3 /* Configuraciones.png */,
+				4C0A8D911DA5AE88008CC9F3 /* Configuraciones@2x.png */,
+				4C0A8D921DA5AE88008CC9F3 /* Configuraciones@3x.png */,
+				4C0A8D931DA5AE88008CC9F3 /* Contacto.png */,
+				4C0A8D941DA5AE88008CC9F3 /* Contacto@2x.png */,
+				4C0A8D951DA5AE88008CC9F3 /* Contacto@3x.png */,
+				4C0A8D961DA5AE88008CC9F3 /* Facebook.png */,
+				4C0A8D971DA5AE88008CC9F3 /* Facebook@2x.png */,
+				4C0A8D981DA5AE88008CC9F3 /* Facebook@3x.png */,
+				4C0A8D991DA5AE88008CC9F3 /* fondo.png */,
+				4C0A8D9A1DA5AE88008CC9F3 /* fondo@2x.png */,
+				4C0A8D9B1DA5AE88008CC9F3 /* fondo@3x.png */,
+				4C0A8D9C1DA5AE88008CC9F3 /* Login lock.png */,
+				4C0A8D9D1DA5AE88008CC9F3 /* Login lock@2x.png */,
+				4C0A8D9E1DA5AE88008CC9F3 /* Login lock@3x.png */,
+				4C0A8D9F1DA5AE88008CC9F3 /* Login mail.png */,
+				4C0A8DA01DA5AE88008CC9F3 /* Login mail@2x.png */,
+				4C0A8DA11DA5AE88008CC9F3 /* Login mail@3x.png */,
+				4C0A8DA21DA5AE88008CC9F3 /* Logo Central.png */,
+				4C0A8DA31DA5AE88008CC9F3 /* Logo Central@2x.png */,
+				4C0A8DA41DA5AE88008CC9F3 /* Logo Central@3x.png */,
+				4C0A8DA51DA5AE88008CC9F3 /* logo.png */,
+				4C0A8DA61DA5AE88008CC9F3 /* logo@2x.png */,
+				4C0A8DA71DA5AE88008CC9F3 /* logo@3x.png */,
+				4C0A8DA81DA5AE88008CC9F3 /* Mail.png */,
+				4C0A8DA91DA5AE88008CC9F3 /* Mail@2x.png */,
+				4C0A8DAA1DA5AE88008CC9F3 /* Mail@3x.png */,
+				4C0A8DAB1DA5AE88008CC9F3 /* monedero.png */,
+				4C0A8DAC1DA5AE88008CC9F3 /* monedero@2x.png */,
+				4C0A8DAD1DA5AE88008CC9F3 /* monedero@3x.png */,
+				4C0A8DAE1DA5AE88008CC9F3 /* Promociones.png */,
+				4C0A8DAF1DA5AE88008CC9F3 /* Promociones@2x.png */,
+				4C0A8DB01DA5AE88008CC9F3 /* Promociones@3x.png */,
+				4C0A8DB11DA5AE88008CC9F3 /* Recargas.png */,
+				4C0A8DB21DA5AE88008CC9F3 /* Recargas@2x.png */,
+				4C0A8DB31DA5AE88008CC9F3 /* Recargas@3x.png */,
+				4C0A8DB41DA5AE88008CC9F3 /* Telefono.png */,
+				4C0A8DB51DA5AE88008CC9F3 /* Telefono@2x.png */,
+				4C0A8DB61DA5AE88008CC9F3 /* Telefono@3x.png */,
+				4C0A8DB71DA5AE88008CC9F3 /* Ubicaciones.png */,
+				4C0A8DB81DA5AE88008CC9F3 /* Ubicaciones@2x.png */,
+				4C0A8DB91DA5AE88008CC9F3 /* Ubicaciones@3x.png */,
+				4C0A8DBA1DA5AE88008CC9F3 /* Web.png */,
+				4C0A8DBB1DA5AE88008CC9F3 /* Web@2x.png */,
+				4C0A8DBC1DA5AE88008CC9F3 /* Web@3x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		4C0A8DF31DA5B1FE008CC9F3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4C0A8DF41DA5B25B008CC9F3 /* Oswald-Bold.ttf */,
+				4C0A8DF51DA5B25B008CC9F3 /* Oswald-BoldItalic.ttf */,
+				4C0A8DF61DA5B25B008CC9F3 /* Oswald-Demi-BoldItalic.ttf */,
+				4C0A8DF71DA5B25B008CC9F3 /* Oswald-DemiBold.ttf */,
+				4C0A8DF81DA5B25B008CC9F3 /* Oswald-Extra-LightItalic.ttf */,
+				4C0A8DF91DA5B25B008CC9F3 /* Oswald-ExtraLight.ttf */,
+				4C0A8DFA1DA5B25B008CC9F3 /* Oswald-Heavy.ttf */,
+				4C0A8DFB1DA5B25B008CC9F3 /* Oswald-HeavyItalic.ttf */,
+				4C0A8DFC1DA5B25B008CC9F3 /* Oswald-Light.ttf */,
+				4C0A8DFD1DA5B25B008CC9F3 /* Oswald-LightItalic.ttf */,
+				4C0A8DFE1DA5B25B008CC9F3 /* Oswald-Medium.ttf */,
+				4C0A8DFF1DA5B25B008CC9F3 /* Oswald-MediumItalic.ttf */,
+				4C0A8E001DA5B25B008CC9F3 /* Oswald-Regular.ttf */,
+				4C0A8E011DA5B25B008CC9F3 /* Oswald-RegularItalic.ttf */,
+				4C0A8E021DA5B25B008CC9F3 /* Oswald-Stencil.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		4CE843401DA5480D00502CC9 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +378,8 @@
 				4CE843681DA5480D00502CC9 /* MusmanniTests */,
 				4CE843731DA5480D00502CC9 /* MusmanniUITests */,
 				4CE8434A1DA5480D00502CC9 /* Products */,
+				4CE843831DA5486300502CC9 /* Frameworks */,
+				0C6F6304DC5951B9EBB292FE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +396,10 @@
 		4CE8434B1DA5480D00502CC9 /* Musmanni */ = {
 			isa = PBXGroup;
 			children = (
+				4C0A8BCF1DA58341008CC9F3 /* Resources */,
+				4C0A8BC81DA57479008CC9F3 /* Manager */,
+				4C0A8BC71DA5746F008CC9F3 /* Controllers */,
+				4CE843821DA5485900502CC9 /* Musmanni.entitlements */,
 				4CE8434F1DA5480D00502CC9 /* AppDelegate.h */,
 				4CE843501DA5480D00502CC9 /* AppDelegate.m */,
 				4CE843521DA5480D00502CC9 /* ViewController.h */,
@@ -143,6 +440,17 @@
 			path = MusmanniUITests;
 			sourceTree = "<group>";
 		};
+		4CE843831DA5486300502CC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CE843841DA5486300502CC9 /* MapKit.framework */,
+				909C502FF2CDAB6C3FED5199 /* libPods-Musmanni.a */,
+				F9B03537E8C09FC1E49F1CD9 /* libPods-MusmanniTests.a */,
+				DC8F109A2F1A850A2D9544B8 /* libPods-MusmanniUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +458,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CE843791DA5480D00502CC9 /* Build configuration list for PBXNativeTarget "Musmanni" */;
 			buildPhases = (
+				76E0E52290B4B74925373042 /* [CP] Check Pods Manifest.lock */,
 				4CE843451DA5480D00502CC9 /* Sources */,
 				4CE843461DA5480D00502CC9 /* Frameworks */,
 				4CE843471DA5480D00502CC9 /* Resources */,
+				CD1499B7DB4316C0E2C03A7B /* [CP] Embed Pods Frameworks */,
+				DFB444E8276E44493460A434 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +478,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CE8437C1DA5480D00502CC9 /* Build configuration list for PBXNativeTarget "MusmanniTests" */;
 			buildPhases = (
+				1ADC059B590B6F5BAA95DA7F /* [CP] Check Pods Manifest.lock */,
 				4CE843611DA5480D00502CC9 /* Sources */,
 				4CE843621DA5480D00502CC9 /* Frameworks */,
 				4CE843631DA5480D00502CC9 /* Resources */,
+				139C34F16A7E80DA46A186CE /* [CP] Embed Pods Frameworks */,
+				CA124159B88CAB33C8987A87 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +499,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CE8437F1DA5480D00502CC9 /* Build configuration list for PBXNativeTarget "MusmanniUITests" */;
 			buildPhases = (
+				84FC683ED8BA10D11486C1D5 /* [CP] Check Pods Manifest.lock */,
 				4CE8436C1DA5480D00502CC9 /* Sources */,
 				4CE8436D1DA5480D00502CC9 /* Frameworks */,
 				4CE8436E1DA5480D00502CC9 /* Resources */,
+				AC9741A1BD6BD93560A4EEA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,6 +528,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 5YEZP3WG9S;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					4CE843641DA5480D00502CC9 = {
 						CreatedOnToolsVersion = 8.0;
@@ -252,9 +576,78 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0A8DE11DA5AE88008CC9F3 /* monedero.png in Resources */,
+				4C0A8DD11DA5AE88008CC9F3 /* fondo@3x.png in Resources */,
+				4C0A8DC81DA5AE88008CC9F3 /* Configuraciones@3x.png in Resources */,
+				4C0A8DE71DA5AE88008CC9F3 /* Recargas.png in Resources */,
+				4C0A8DD61DA5AE88008CC9F3 /* Login mail@2x.png in Resources */,
+				4C0A8DCA1DA5AE88008CC9F3 /* Contacto@2x.png in Resources */,
+				4C0A8DD81DA5AE88008CC9F3 /* Logo Central.png in Resources */,
+				4C0A8DCD1DA5AE88008CC9F3 /* Facebook@2x.png in Resources */,
+				4C0A8DC01DA5AE88008CC9F3 /* Atras.png in Resources */,
+				4C0A8DF21DA5AE88008CC9F3 /* Web@3x.png in Resources */,
+				4C0A8DDE1DA5AE88008CC9F3 /* Mail.png in Resources */,
 				4CE8435F1DA5480D00502CC9 /* LaunchScreen.storyboard in Resources */,
+				4C0A8DC61DA5AE88008CC9F3 /* Configuraciones.png in Resources */,
+				4C0A8DC41DA5AE88008CC9F3 /* Candado@2x.png in Resources */,
+				4C0A8E101DA5B25B008CC9F3 /* Oswald-RegularItalic.ttf in Resources */,
+				4C0A8DDF1DA5AE88008CC9F3 /* Mail@2x.png in Resources */,
+				4C0A8DEE1DA5AE88008CC9F3 /* Ubicaciones@2x.png in Resources */,
+				4C0A8E041DA5B25B008CC9F3 /* Oswald-BoldItalic.ttf in Resources */,
+				4C0A8E081DA5B25B008CC9F3 /* Oswald-ExtraLight.ttf in Resources */,
+				4C0A8DE51DA5AE88008CC9F3 /* Promociones@2x.png in Resources */,
+				4C0A8DE41DA5AE88008CC9F3 /* Promociones.png in Resources */,
+				4C0A8DDD1DA5AE88008CC9F3 /* logo@3x.png in Resources */,
+				4C0A8DD91DA5AE88008CC9F3 /* Logo Central@2x.png in Resources */,
+				4C0A8DC31DA5AE88008CC9F3 /* Candado.png in Resources */,
+				4C0A8DCC1DA5AE88008CC9F3 /* Facebook.png in Resources */,
+				4C0A8DEC1DA5AE88008CC9F3 /* Telefono@3x.png in Resources */,
+				4C0A8DBD1DA5AE88008CC9F3 /* Ajustes.png in Resources */,
+				4C0A8E0A1DA5B25B008CC9F3 /* Oswald-HeavyItalic.ttf in Resources */,
+				4C0A8DE91DA5AE88008CC9F3 /* Recargas@3x.png in Resources */,
+				4C0A8DCB1DA5AE88008CC9F3 /* Contacto@3x.png in Resources */,
+				4C0A8DC21DA5AE88008CC9F3 /* Atras@3x.png in Resources */,
+				4C0A8E061DA5B25B008CC9F3 /* Oswald-DemiBold.ttf in Resources */,
+				4C0A8DCF1DA5AE88008CC9F3 /* fondo.png in Resources */,
 				4CE8435C1DA5480D00502CC9 /* Assets.xcassets in Resources */,
+				4C0A8E091DA5B25B008CC9F3 /* Oswald-Heavy.ttf in Resources */,
+				4C0A8E0C1DA5B25B008CC9F3 /* Oswald-LightItalic.ttf in Resources */,
+				4C0A8DE31DA5AE88008CC9F3 /* monedero@3x.png in Resources */,
+				4C0A8DD21DA5AE88008CC9F3 /* Login lock.png in Resources */,
+				4C0A8DC71DA5AE88008CC9F3 /* Configuraciones@2x.png in Resources */,
+				4C0A8DDA1DA5AE88008CC9F3 /* Logo Central@3x.png in Resources */,
+				4C0A8DD51DA5AE88008CC9F3 /* Login mail.png in Resources */,
+				4C0A8DDB1DA5AE88008CC9F3 /* logo.png in Resources */,
+				4C0A8E051DA5B25B008CC9F3 /* Oswald-Demi-BoldItalic.ttf in Resources */,
+				4C0A8DEB1DA5AE88008CC9F3 /* Telefono@2x.png in Resources */,
+				4C0A8DD01DA5AE88008CC9F3 /* fondo@2x.png in Resources */,
+				4C0A8E071DA5B25B008CC9F3 /* Oswald-Extra-LightItalic.ttf in Resources */,
+				4C0A8E0F1DA5B25B008CC9F3 /* Oswald-Regular.ttf in Resources */,
+				4C0A8DE81DA5AE88008CC9F3 /* Recargas@2x.png in Resources */,
+				4C0A8DEF1DA5AE88008CC9F3 /* Ubicaciones@3x.png in Resources */,
+				4C0A8DD31DA5AE88008CC9F3 /* Login lock@2x.png in Resources */,
+				4C0A8DDC1DA5AE88008CC9F3 /* logo@2x.png in Resources */,
+				4C0A8E0D1DA5B25B008CC9F3 /* Oswald-Medium.ttf in Resources */,
+				4C0A8DE61DA5AE88008CC9F3 /* Promociones@3x.png in Resources */,
+				4C0A8DC91DA5AE88008CC9F3 /* Contacto.png in Resources */,
+				4C0A8DC11DA5AE88008CC9F3 /* Atras@2x.png in Resources */,
+				4C0A8E111DA5B25B008CC9F3 /* Oswald-Stencil.ttf in Resources */,
+				4C0A8DE21DA5AE88008CC9F3 /* monedero@2x.png in Resources */,
+				4C0A8DCE1DA5AE88008CC9F3 /* Facebook@3x.png in Resources */,
+				4C0A8DF11DA5AE88008CC9F3 /* Web@2x.png in Resources */,
+				4C0A8E0E1DA5B25B008CC9F3 /* Oswald-MediumItalic.ttf in Resources */,
+				4C0A8DBF1DA5AE88008CC9F3 /* Ajustes@3x.png in Resources */,
+				4C0A8DBE1DA5AE88008CC9F3 /* Ajustes@2x.png in Resources */,
+				4C0A8DC51DA5AE88008CC9F3 /* Candado@3x.png in Resources */,
+				4C0A8DE01DA5AE88008CC9F3 /* Mail@3x.png in Resources */,
+				4C0A8DED1DA5AE88008CC9F3 /* Ubicaciones.png in Resources */,
+				4C0A8DD71DA5AE88008CC9F3 /* Login mail@3x.png in Resources */,
+				4C0A8DD41DA5AE88008CC9F3 /* Login lock@3x.png in Resources */,
+				4C0A8DEA1DA5AE88008CC9F3 /* Telefono.png in Resources */,
+				4C0A8DF01DA5AE88008CC9F3 /* Web.png in Resources */,
+				4C0A8E0B1DA5B25B008CC9F3 /* Oswald-Light.ttf in Resources */,
 				4CE843571DA5480D00502CC9 /* Main.storyboard in Resources */,
+				4C0A8E031DA5B25B008CC9F3 /* Oswald-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +667,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		139C34F16A7E80DA46A186CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusmanniTests/Pods-MusmanniTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1ADC059B590B6F5BAA95DA7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		76E0E52290B4B74925373042 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84FC683ED8BA10D11486C1D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AC9741A1BD6BD93560A4EEA2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA124159B88CAB33C8987A87 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusmanniTests/Pods-MusmanniTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD1499B7DB4316C0E2C03A7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Musmanni/Pods-Musmanni-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFB444E8276E44493460A434 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Musmanni/Pods-Musmanni-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4CE843451DA5480D00502CC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -283,6 +799,9 @@
 				4CE8435A1DA5480D00502CC9 /* Musmanni.xcdatamodeld in Sources */,
 				4CE843511DA5480D00502CC9 /* AppDelegate.m in Sources */,
 				4CE8434E1DA5480D00502CC9 /* main.m in Sources */,
+				4C0A8C311DA59847008CC9F3 /* LoginViewController.m in Sources */,
+				4C0A8BCD1DA5749F008CC9F3 /* Singleton.m in Sources */,
+				4C0A8BCE1DA5749F008CC9F3 /* WSManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,30 +946,35 @@
 		};
 		4CE8437A1DA5480D00502CC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02CE35E3F81E177C6C223813 /* Pods-Musmanni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Musmanni/Musmanni.entitlements;
 				DEVELOPMENT_TEAM = 5YEZP3WG9S;
 				INFOPLIST_FILE = Musmanni/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fifco.Musmanni;
+				PRODUCT_BUNDLE_IDENTIFIER = fifco.musmanni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		4CE8437B1DA5480D00502CC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 594FEDF291A57A01BAA66C5E /* Pods-Musmanni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Musmanni/Musmanni.entitlements;
 				DEVELOPMENT_TEAM = 5YEZP3WG9S;
 				INFOPLIST_FILE = Musmanni/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fifco.Musmanni;
+				PRODUCT_BUNDLE_IDENTIFIER = fifco.musmanni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 		4CE8437D1DA5480D00502CC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1459DF1FD00284ABAEEC379C /* Pods-MusmanniTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 5YEZP3WG9S;
@@ -464,6 +988,7 @@
 		};
 		4CE8437E1DA5480D00502CC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F47E4CA2808C5B68AB347C17 /* Pods-MusmanniTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 5YEZP3WG9S;
@@ -477,6 +1002,7 @@
 		};
 		4CE843801DA5480D00502CC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 906C629B436314503A519208 /* Pods-MusmanniUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5YEZP3WG9S;
 				INFOPLIST_FILE = MusmanniUITests/Info.plist;
@@ -489,6 +1015,7 @@
 		};
 		4CE843811DA5480D00502CC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 694119BB3CA1AD9EC9C6528E /* Pods-MusmanniUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5YEZP3WG9S;
 				INFOPLIST_FILE = MusmanniUITests/Info.plist;
@@ -518,6 +1045,7 @@
 				4CE8437B1DA5480D00502CC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CE8437C1DA5480D00502CC9 /* Build configuration list for PBXNativeTarget "MusmanniTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +1054,7 @@
 				4CE8437E1DA5480D00502CC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CE8437F1DA5480D00502CC9 /* Build configuration list for PBXNativeTarget "MusmanniUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +1063,7 @@
 				4CE843811DA5480D00502CC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
