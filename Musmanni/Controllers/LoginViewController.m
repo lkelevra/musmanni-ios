@@ -13,14 +13,17 @@
 @end
 
 @implementation LoginViewController
-
+    @synthesize txtEmail, txtPassword, btnIngresar, btnIngresarFacebook;
+    
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    btnIngresar.layer.cornerRadius = 17;
+    btnIngresarFacebook.layer.cornerRadius = 17;
     UIView *statusBG = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 21)];
     statusBG.backgroundColor = [UIColor colorWithRed:0.85 green:0.36 blue:0.15 alpha:1.0];
     [self.view addSubview:statusBG];
-    // Do any additional setup after loading the view.
+    
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{

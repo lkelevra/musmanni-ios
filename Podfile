@@ -13,6 +13,7 @@ target 'Musmanni' do
     pod 'MBProgressHUD', '~> 0.9.1'
     pod 'JFMinimalNotifications', '~> 0.0.4'
     pod 'SpinKit', '~> 1.1'
+    pod 'IQKeyboardManager'
     
   target 'MusmanniTests' do
     inherit! :search_paths

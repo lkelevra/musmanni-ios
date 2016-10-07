@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
-
+    @property (weak, nonatomic) IBOutlet UIButton *btnIngresar;
+    @property (weak, nonatomic) IBOutlet UIButton *btnIngresarFacebook;
+    @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
+    @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @end
