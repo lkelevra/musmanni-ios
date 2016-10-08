@@ -92,7 +92,7 @@ static Singleton *instance      = nil;
                                                   cancelButtonTitle:@"Cerrar"
                                                   otherButtonTitles:nil];
             [alert show];
-
+            
         } @catch (NSException *exception) {
             NSLog(@"NO SE PUEDE MOSTRAR ALERTA %@",[exception description]);
         } @finally { }

@@ -84,6 +84,9 @@
                                 <state key="normal" title="INGRESAR">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Lyh-bV-BiO" kind="show" id="Bep-YO-Oeu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXW-Xr-iou">
                                 <color key="backgroundColor" red="0.1105308309" green="0.40477478500000003" blue="0.70371675489999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -160,12 +163,160 @@
             </objects>
             <point key="canvasLocation" x="70" y="-46"/>
         </scene>
+        <!--Recargas-->
+        <scene sceneID="J24-Hq-Whh">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksJ-Ui-nm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="70g-8u-o3I" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wn4-pR-ABo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dcv-0C-NI1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="peI-DQ-YHG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Recargas" image="recargas.png" selectedImage="recargas.png" id="JYG-qv-59Q"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1854" y="285"/>
+        </scene>
+        <!--Promociones-->
+        <scene sceneID="Gqk-B4-SLs">
+            <objects>
+                <viewController id="b7G-Ng-wNh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kze-3w-CRu"/>
+                        <viewControllerLayoutGuide type="bottom" id="5B9-XC-URg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FEw-Ox-dMX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Promociones" image="promociones.png" selectedImage="promociones.png" id="cr5-lc-rSB"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ik4-nr-XoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="999"/>
+        </scene>
+        <!--Ubicaciones-->
+        <scene sceneID="9IK-g6-DTb">
+            <objects>
+                <viewController id="Elt-ex-aXG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uOt-1p-ksf"/>
+                        <viewControllerLayoutGuide type="bottom" id="bYx-BY-Fd9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5sR-gN-A3t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Ubicaciones" image="ubicaciones.png" selectedImage="ubicaciones.png" id="qCv-gA-7HN"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V4j-Tt-v62" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1854" y="1706"/>
+        </scene>
+        <!--Contacto-->
+        <scene sceneID="PmL-vj-dZj">
+            <objects>
+                <viewController id="Cbd-sf-gM1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k1b-Qc-sSI"/>
+                        <viewControllerLayoutGuide type="bottom" id="B53-uy-SW6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Byv-Yg-Fqa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Contacto" image="telefono.png" selectedImage="telefono.png" id="kmc-eI-oHC"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQd-Cg-sJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="2432"/>
+        </scene>
+        <!--Monedero-->
+        <scene sceneID="Nht-13-JhM">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4V-rq-RCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="orq-Nc-n1d" customClass="MonederoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JP7-Vv-fyI"/>
+                        <viewControllerLayoutGuide type="bottom" id="2vL-Tj-o91"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FUr-VB-q0Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo_monedero.png" translatesAutoresizingMaskIntoConstraints="NO" id="YbK-WV-iNJ"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVC-Rr-y8n">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monedero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NV-Cr-HfR">
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98743730783462524" green="0.14355471730232239" blue="0.18264332413673401" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="V0S-sb-fcl"/>
+                                    <constraint firstItem="0NV-Cr-HfR" firstAttribute="centerX" secondItem="rVC-Rr-y8n" secondAttribute="centerX" constant="0.75" id="sHO-K0-jv5"/>
+                                    <constraint firstItem="0NV-Cr-HfR" firstAttribute="top" secondItem="rVC-Rr-y8n" secondAttribute="top" constant="14" id="tjW-jR-VrH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rVC-Rr-y8n" firstAttribute="leading" secondItem="FUr-VB-q0Z" secondAttribute="leading" id="2ed-74-dLa"/>
+                            <constraint firstItem="YbK-WV-iNJ" firstAttribute="leading" secondItem="FUr-VB-q0Z" secondAttribute="leading" id="2sg-E7-7Yi"/>
+                            <constraint firstAttribute="trailing" secondItem="YbK-WV-iNJ" secondAttribute="trailing" id="Rul-c3-EGT"/>
+                            <constraint firstAttribute="trailing" secondItem="rVC-Rr-y8n" secondAttribute="trailing" id="Tmh-wf-agb"/>
+                            <constraint firstItem="rVC-Rr-y8n" firstAttribute="top" secondItem="JP7-Vv-fyI" secondAttribute="bottom" id="aRz-WJ-TD0"/>
+                            <constraint firstItem="YbK-WV-iNJ" firstAttribute="top" secondItem="JP7-Vv-fyI" secondAttribute="bottom" constant="42" id="enD-l3-nYb"/>
+                            <constraint firstItem="2vL-Tj-o91" firstAttribute="top" secondItem="YbK-WV-iNJ" secondAttribute="bottom" constant="-12" id="qYJ-42-dum"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Monedero" image="monedero.png" selectedImage="monedero.png" id="vMm-Q0-2o6"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1853.5999999999999" y="-378.26086956521743"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="JZ9-Wm-Aeo">
+            <objects>
+                <tabBarController id="Lyh-bV-BiO" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="0dQ-a2-mvA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="orq-Nc-n1d" kind="relationship" relationship="viewControllers" id="ISY-b1-VJ3"/>
+                        <segue destination="70g-8u-o3I" kind="relationship" relationship="viewControllers" id="2nb-UE-chx"/>
+                        <segue destination="b7G-Ng-wNh" kind="relationship" relationship="viewControllers" id="JXg-us-gbf"/>
+                        <segue destination="Elt-ex-aXG" kind="relationship" relationship="viewControllers" id="Iv2-cJ-PG5"/>
+                        <segue destination="Cbd-sf-gM1" kind="relationship" relationship="viewControllers" id="ssX-OJ-Phd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5hL-u8-wnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="-46"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="7mZ-K9-doS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jh5-Uh-aHO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ga4-kl-rad">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ga4-kl-rad">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -183,6 +334,12 @@
         <image name="Login lock.png" width="30" height="37"/>
         <image name="Login mail.png" width="40" height="27"/>
         <image name="fondo.png" width="640" height="1103"/>
+        <image name="fondo_monedero.png" width="640" height="1065"/>
         <image name="logo.png" width="568" height="109"/>
+        <image name="monedero.png" width="30" height="28"/>
+        <image name="promociones.png" width="35" height="30"/>
+        <image name="recargas.png" width="30" height="27"/>
+        <image name="telefono.png" width="30" height="30"/>
+        <image name="ubicaciones.png" width="25" height="29"/>
     </resources>
 </document>
