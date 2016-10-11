@@ -7,19 +7,30 @@
 //
 
 #import "MonederoViewController.h"
+#import "LoginViewController.h"
 
 @interface MonederoViewController ()
 
 @end
 
 @implementation MonederoViewController
+@synthesize viewInfoPerfil, viewUserData, viewBarCode, ivProfilePicture, lblSaldo, lblNombre, btnFormaCanje, btnTerminosCondiciones;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+        
+    ivProfilePicture.layer.cornerRadius = 50;
+    ivProfilePicture.clipsToBounds = YES;
+    ivProfilePicture.layer.borderWidth = 7.0f;
+    ivProfilePicture.layer.borderColor = [UIColor whiteColor].CGColor;
     
-    UIView *statusBG = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 21)];
-    statusBG.backgroundColor = [UIColor colorWithRed:0.99 green:0.15 blue:0.18 alpha:1.0];
-    [self.view addSubview:statusBG];
+    btnTerminosCondiciones.layer.cornerRadius = 16;
+    btnTerminosCondiciones.layer.borderWidth = 2;
+    btnTerminosCondiciones.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    btnFormaCanje.layer.cornerRadius = 16;
+    btnFormaCanje.layer.borderWidth = 2;
+    btnFormaCanje.layer.borderColor = [UIColor whiteColor].CGColor;
 }
     
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -30,16 +41,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-    
-- (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
+
+-(IBAction)prueba:(UIButton *)sender{
+//    [self dismissViewControllerAnimated:TRUE completion:nil];
+    LoginViewController *__weak loginView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginView];
+    [self presentViewController:nav animated:TRUE completion:nil];
 }
-    
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
-}
+
 
 /*
 #pragma mark - Navigation
