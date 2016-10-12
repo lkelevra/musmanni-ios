@@ -21,13 +21,31 @@
     
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Oswald-Regular" size:20.0]}];
-    
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
     [[UITabBar appearance] setTranslucent:NO];
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.99 green:0.15 blue:0.18 alpha:1.0]];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.44 green:0.05 blue:0.09 alpha:1.0]];
     [[UITabBar appearance] setUnselectedItemTintColor:[UIColor whiteColor]];
-        
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+    }
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"El token es: (%@)", token);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Falló al registrar el token: %@, %@", error, error.localizedDescription);
 }
 
 

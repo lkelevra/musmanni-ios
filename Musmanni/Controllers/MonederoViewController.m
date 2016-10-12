@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
     ivProfilePicture.layer.cornerRadius = 50;
     ivProfilePicture.clipsToBounds = YES;
     ivProfilePicture.layer.borderWidth = 7.0f;
