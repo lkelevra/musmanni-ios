@@ -32,7 +32,18 @@
     btnFormaCanje.layer.borderWidth = 2;
     btnFormaCanje.layer.borderColor = [UIColor whiteColor].CGColor;
 }
-    
+
+-(void) viewDidAppear:(BOOL)animated{
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    if ([pref valueForKey:@"data_user"]) {
+        
+    } else {
+        LoginViewController *__weak loginView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginView];
+        [self presentViewController:nav animated:TRUE completion:nil];
+    }
+}
+
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
@@ -43,10 +54,6 @@
 }
 
 -(IBAction)prueba:(UIButton *)sender{
-//    [self dismissViewControllerAnimated:TRUE completion:nil];
-    LoginViewController *__weak loginView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginView];
-    [self presentViewController:nav animated:TRUE completion:nil];
 }
 
 

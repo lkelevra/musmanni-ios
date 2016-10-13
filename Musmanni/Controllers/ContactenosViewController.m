@@ -68,7 +68,6 @@
         [cell.lblDetail setText:@"facebook.com/musi"];
     }
 
-    
     return cell;
 }
 

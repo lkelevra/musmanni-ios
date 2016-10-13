@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Singleton.h"
+#import "WSManager.h"
 
 @interface MonederoViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *viewInfoPerfil;

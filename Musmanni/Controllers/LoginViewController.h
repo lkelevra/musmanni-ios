@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Singleton.h"
+#import "WSManager.h"
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate>
+@interface LoginViewController : UIViewController <UITextFieldDelegate, WSManagerDelegateF>
     @property (weak, nonatomic) IBOutlet UIButton *btnIngresar;
     @property (weak, nonatomic) IBOutlet UIButton *btnIngresarFacebook;
     @property (weak, nonatomic) IBOutlet UITextField *txtEmail;

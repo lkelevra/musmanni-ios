@@ -16,18 +16,18 @@
 
 @interface WSManager: NSObject;
 
-@property id<WSManagerDelegateF>  delegate;                          // el objeto que recibirá la notificación que la operación a finalizado
-@property (nonatomic, strong          ) NSString  *servicio;        // protocolo://server:port
-@property (nonatomic, strong          ) NSString  *servidor;        // protocolo://server:port
-@property (nonatomic, strong          ) NSString  *metodo;          // GET o POST o PUT o DELETE
-@property (nonatomic                  ) BOOL      certificado;      // usa ceritificado?
-@property (nonatomic, strong          ) NSNumber  *timeout;         // tiempo máximo de espera
-@property (nonatomic, strong, readonly) id        respuesta;        // respuesta de la operación del WS
-@property (nonatomic, strong, readonly) NSString  *mensaje;         // descripción de falla al llamar al WS
-@property (nonatomic,         readonly) BOOL      resultado;        // indica si se pudo ejecutar el WS o no
-@property (nonatomic, strong, readonly) NSString  *tag;             // descripción de falla al llamar al WS
-@property (nonatomic, strong, readonly) NSMutableDictionary  *parametros;      // parametros a enviar
-@property (nonatomic, strong, readonly) NSString  *apiKey;             // descripción de falla al llamar al WS
+@property id<WSManagerDelegateF>  delegate;                        
+@property (nonatomic, strong          ) NSString  *servicio;
+@property (nonatomic, strong          ) NSString  *servidor;
+@property (nonatomic, strong          ) NSString  *metodo;
+@property (nonatomic                  ) BOOL      certificado;
+@property (nonatomic, strong          ) NSNumber  *timeout;
+@property (nonatomic, strong, readonly) id        respuesta;
+@property (nonatomic, strong, readonly) NSString  *mensaje;
+@property (nonatomic,         readonly) BOOL      resultado;
+@property (nonatomic, strong, readonly) NSString  *tag;
+@property (nonatomic, strong, readonly) NSMutableDictionary  *parametros;
+@property (nonatomic, strong, readonly) NSString  *apiKey;
 
 
 // Metodo para asignarle la api que se va usar

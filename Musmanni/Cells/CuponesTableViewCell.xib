@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oswald-Regular.ttf">
+            <string>Oswald-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CuponesTableViewCell" rowHeight="245" id="KGk-i7-Jjw" customClass="CuponesTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="433" height="239"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GhK-xx-WBo">
+                        <subviews>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmu-Oy-1et">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagen_promocion.png" translatesAutoresizingMaskIntoConstraints="NO" id="dvD-9R-pov">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="5h4-4L-HEr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título de la promoción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9A-JL-v9P">
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="17"/>
+                                        <color key="textColor" red="0.40779560799999998" green="0.40787053109999999" blue="0.40779092909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acá debe ir la descripción de la promoción, a lo sumo debe llevar 2 líneas" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAc-He-IlA">
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK8-he-uJS">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="BdA-ZQ-944"/>
+                                            <constraint firstAttribute="width" constant="20" id="yhG-8T-fkg"/>
+                                        </constraints>
+                                        <state key="normal" image="favorito.png"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLO-Nc-wBk">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="5cp-rR-6hm"/>
+                                            <constraint firstAttribute="width" constant="20" id="OJy-sL-lHr"/>
+                                        </constraints>
+                                        <state key="normal" image="compartir.png"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Bebidas" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CJ-UJ-bQ9">
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="P9A-JL-v9P" secondAttribute="trailing" constant="8" id="4Sp-mY-kMs"/>
+                                    <constraint firstAttribute="trailing" secondItem="CAc-He-IlA" secondAttribute="trailing" constant="64" id="4ZA-8Y-yNG"/>
+                                    <constraint firstAttribute="bottom" secondItem="zLO-Nc-wBk" secondAttribute="bottom" constant="6" id="7kJ-aJ-tR7"/>
+                                    <constraint firstItem="CAc-He-IlA" firstAttribute="leading" secondItem="hmu-Oy-1et" secondAttribute="leading" constant="8" id="Do0-oa-Wpb"/>
+                                    <constraint firstItem="CAc-He-IlA" firstAttribute="top" secondItem="dvD-9R-pov" secondAttribute="bottom" constant="30" id="PBl-lY-y8P"/>
+                                    <constraint firstItem="dvD-9R-pov" firstAttribute="top" secondItem="hmu-Oy-1et" secondAttribute="top" id="TMP-EX-8ap"/>
+                                    <constraint firstItem="5CJ-UJ-bQ9" firstAttribute="top" secondItem="hmu-Oy-1et" secondAttribute="top" constant="8" id="UgO-Eh-lh5"/>
+                                    <constraint firstItem="P9A-JL-v9P" firstAttribute="top" secondItem="dvD-9R-pov" secondAttribute="bottom" constant="8" id="VTh-6J-kYf"/>
+                                    <constraint firstItem="5CJ-UJ-bQ9" firstAttribute="leading" secondItem="hmu-Oy-1et" secondAttribute="leading" constant="8" id="VyN-U1-XKm"/>
+                                    <constraint firstAttribute="bottom" secondItem="qK8-he-uJS" secondAttribute="bottom" constant="6" id="cov-FK-yEp"/>
+                                    <constraint firstAttribute="trailing" secondItem="dvD-9R-pov" secondAttribute="trailing" id="mqa-JG-Wn5"/>
+                                    <constraint firstItem="dvD-9R-pov" firstAttribute="leading" secondItem="hmu-Oy-1et" secondAttribute="leading" id="o7t-NG-6z8"/>
+                                    <constraint firstAttribute="trailing" secondItem="zLO-Nc-wBk" secondAttribute="trailing" constant="8" id="s8v-hg-P4j"/>
+                                    <constraint firstItem="P9A-JL-v9P" firstAttribute="leading" secondItem="hmu-Oy-1et" secondAttribute="leading" constant="8" id="sPm-xb-MgM"/>
+                                    <constraint firstAttribute="trailing" secondItem="5CJ-UJ-bQ9" secondAttribute="trailing" constant="8" id="x6q-jr-X01"/>
+                                    <constraint firstItem="zLO-Nc-wBk" firstAttribute="leading" secondItem="qK8-he-uJS" secondAttribute="trailing" constant="8" id="xch-S7-Y2y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78422755002975464" green="0.78436332941055298" blue="0.78421896696090698" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hmu-Oy-1et" firstAttribute="leading" secondItem="GhK-xx-WBo" secondAttribute="leading" constant="8" id="3t0-SG-Ppk"/>
+                            <constraint firstAttribute="height" constant="241" id="5VV-YO-bRh"/>
+                            <constraint firstItem="hmu-Oy-1et" firstAttribute="top" secondItem="GhK-xx-WBo" secondAttribute="top" constant="8" id="8Z7-Wj-Vqh"/>
+                            <constraint firstAttribute="bottom" secondItem="hmu-Oy-1et" secondAttribute="bottom" constant="8" id="OcR-bK-Yao"/>
+                            <constraint firstAttribute="trailing" secondItem="hmu-Oy-1et" secondAttribute="trailing" constant="8" id="h3Q-B9-t40"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GhK-xx-WBo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="857-nb-RAu"/>
+                    <constraint firstItem="GhK-xx-WBo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hpy-tI-3NN"/>
+                    <constraint firstAttribute="trailing" secondItem="GhK-xx-WBo" secondAttribute="trailing" id="lfr-Kv-wuV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="viewDescrip" destination="hmu-Oy-1et" id="cMe-hT-MhK"/>
+            </connections>
+            <point key="canvasLocation" x="90.5" y="184"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="compartir.png" width="23" height="28"/>
+        <image name="favorito.png" width="30" height="28"/>
+        <image name="imagen_promocion.png" width="611" height="238"/>
+    </resources>
+</document>

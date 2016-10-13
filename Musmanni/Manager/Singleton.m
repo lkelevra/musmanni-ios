@@ -27,7 +27,7 @@ static Singleton *instance      = nil;
 
     dispatch_once(&onceToken, ^{
         instance                        = [[Singleton alloc] init];
-        instance->_url                  = @"http://fifcoone.com/envases/public/";
+        instance->_url                  = @"http://54.165.243.221/";
         instance->_token                = @"NO";
         instance->_itemUsuario          = [[NSMutableDictionary alloc] init];
         instance->_inventario           = [[NSMutableArray alloc] init];

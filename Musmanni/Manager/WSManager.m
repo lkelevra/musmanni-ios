@@ -28,13 +28,13 @@
 
 - (id)init {
     if (self = [super init]) {
-        servidor        = @"http://envasevirtual.com/";
+        servidor        = @"http://54.165.243.221/";
         metodo          = @"GET";
         certificado     = YES;
         timeout         = [NSNumber numberWithInt:60];
         servicio        = @"";
         parametros      = [[NSMutableDictionary alloc] init];
-        apiKey          = @"6322b89f90a6e37673fc8c263fb103bb";
+        apiKey          = @"pab7OmVgyR0oW1NSaUlOUoaJDRUD7SU5";
     }
     
     return self;
@@ -57,18 +57,9 @@
 -(void) useApi:(NSString *)identificador{
     @try {
         NSDictionary* api = @{
-                              @"registro":@"ws/movil/registro", // (POST)
-                              @"login":@"ws/movil/login", //(POST)
-                              @"puntos":@"ws/movil/puntos/lista",
-                              @"promociones":@"ws/movil/promociones/lista",
-                              @"envases":@"ws/movil/envases/lista",
-                              @"usuarios":@"ws/movil/usuarios/lista",
-                              @"compartir":@"ws/movil/envases/compartir",
-                              @"historial":@"ws/movil/usuarios/historial",
-                              @"nuevo_pass":@"ws/movil/usuarios/cambiarpassword",
-                              @"recuperarpassword":@"ws/movil/usuarios/reestablecerpass"// POST
-                              
+                              @"login":@"ws/movil/login",
                               };
+        
         servicio = [api objectForKey:identificador];
     } @catch (NSException *exception) {
         resultado       =   TRUE;
@@ -90,9 +81,9 @@
         [self setPostValue:[parametersDictionary objectForKey:key] forKey:key];
     }
     
-    NSLog(@"#################################################################");
-    NSLog(@"ENVIANDO EN %@: %@",self.servicio,parametersDictionary);
-    NSLog(@"#################################################################");
+    NSLog(@"-----------------------------------------------------------------");
+    NSLog(@"Enviando en: %@: %@",self.servicio,parametersDictionary);
+    NSLog(@"-----------------------------------------------------------------");
     [self setPostValue:@"1" forKey:@"idempresa"];
     [self setPostValue:apiKey forKey:@"app_key"];
 }

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Singleton.h"
 
 @interface AppDelegate ()
 
@@ -41,6 +42,7 @@
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    [Singleton getInstance].token = token;
     NSLog(@"El token es: (%@)", token);
 }
 

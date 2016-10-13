@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ContactenosTableViewCell.h"
+#import "Singleton.h"
+#import "WSManager.h"
 
 @interface ContactenosViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tablaDatosContacto;

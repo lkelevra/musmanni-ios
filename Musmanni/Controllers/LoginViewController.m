@@ -58,6 +58,47 @@
     return YES;
 }
 
+- (IBAction)hacerLogin:(id)sender {
+    if([[txtEmail text] length] > 0 & [[txtPassword text] length] > 0 ){
+        [[Singleton getInstance] mostrarHud:self.view];
+        WSManager *consumo = [[WSManager alloc] init];
+        [consumo useWebServiceWithMethod:@"POST" withTag:@"login" withParams:@{
+                                                                               @"email":[self.txtEmail text],
+                                                                               @"password":[self.txtPassword text],
+                                                                               @"devicetoken":[Singleton getInstance].token
+                                                                               } withApi:@"login" withDelegate:self];
+    } else {
+        [[Singleton getInstance] mostrarNotificacion:@"info" mensaje:@"Todos los campos son obligatorios" titulo:@"" enVista:self.navigationController.view];
+    }
+}
+
+-(void)webServiceTaskComplete:(WSManager *)callback{
+    [[Singleton getInstance] ocultarHud];
+    if([callback.tag isEqualToString:@"login"]){
+        @try {
+            if([callback.respuesta valueForKey:@"resultado"]){
+                [txtEmail setText:@""];
+                [txtPassword setText:@""];
+                [Singleton getInstance].itemUsuario = [[NSMutableDictionary alloc] initWithDictionary:[callback.respuesta objectForKey:@"registros"]];
+                NSDictionary *data_user = @{
+                                            @"id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"id"],
+                                            @"nombre": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"nombre"],
+                                            @"email": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"email"]
+                                            };
+                [[NSUserDefaults standardUserDefaults] setObject:data_user forKey:@"data_user"];
+                [[NSUserDefaults standardUserDefaults]  synchronize];
+                [self dismissViewControllerAnimated:TRUE completion:nil];
+            }
+            else{
+                [[Singleton getInstance] mostrarNotificacion:@"error" mensaje:[callback.respuesta objectForKey:@"mensaje"] titulo:@"" enVista:self.navigationController.view];
+            }
+
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problme a en la ejecución: %@", exception);
+        } @finally { }
+    }
+}
+
 /*
 #pragma mark - Navigation
 
