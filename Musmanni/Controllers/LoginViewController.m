@@ -63,14 +63,15 @@
         [[Singleton getInstance] mostrarHud:self.view];
         WSManager *consumo = [[WSManager alloc] init];
         [consumo useWebServiceWithMethod:@"POST" withTag:@"login" withParams:@{
-                                                                               @"email":[self.txtEmail text],
-                                                                               @"password":[self.txtPassword text],
+                                                                               @"email":[txtEmail text],
+                                                                               @"password":[txtPassword text],
                                                                                @"devicetoken":[Singleton getInstance].token
                                                                                } withApi:@"login" withDelegate:self];
     } else {
         [[Singleton getInstance] mostrarNotificacion:@"info" mensaje:@"Todos los campos son obligatorios" titulo:@"" enVista:self.navigationController.view];
     }
 }
+
 
 -(void)webServiceTaskComplete:(WSManager *)callback{
     [[Singleton getInstance] ocultarHud];
@@ -83,18 +84,24 @@
                 NSDictionary *data_user = @{
                                             @"id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"id"],
                                             @"nombre": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"nombre"],
-                                            @"email": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"email"]
+                                            @"email": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"email"],
+                                            @"notarjeta": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"notarjeta"],
+                                            @"avatar": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"avatar"],
+                                            @"fb_id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fb_id"],
+                                            @"fechanacimiento": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fechanacimiento"],
+                                            @"fifcoone": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fifcoone"],
+                                            @"genero": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"genero"],
+                                            @"validado": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"]
                                             };
                 [[NSUserDefaults standardUserDefaults] setObject:data_user forKey:@"data_user"];
                 [[NSUserDefaults standardUserDefaults]  synchronize];
                 [self dismissViewControllerAnimated:TRUE completion:nil];
-            }
-            else{
+            } else{
                 [[Singleton getInstance] mostrarNotificacion:@"error" mensaje:[callback.respuesta objectForKey:@"mensaje"] titulo:@"" enVista:self.navigationController.view];
             }
 
         } @catch (NSException *exception) {
-            NSLog(@"Ocurrió un problme a en la ejecución: %@", exception);
+            NSLog(@"Ocurrió un problema en la ejecución: %@", exception);
         } @finally { }
     }
 }

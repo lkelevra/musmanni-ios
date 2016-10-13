@@ -14,7 +14,7 @@
 @end
 
 @implementation MonederoViewController
-@synthesize viewInfoPerfil, viewUserData, viewBarCode, ivProfilePicture, lblSaldo, lblNombre, btnFormaCanje, btnTerminosCondiciones;
+@synthesize viewInfoPerfil, viewUserData, viewBarCode, ivProfilePicture, lblSaldo, lblNombre, lblPuntos, btnFormaCanje, btnTerminosCondiciones;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,8 +35,25 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
-    if ([pref valueForKey:@"data_user"]) {
+    if ([pref objectForKey:@"data_user"]) {
+        WSManager *consumo = [[WSManager alloc] init];
+        [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_puntos" withParams:@{ @"notarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"] } withApi:@"obtener_puntos" withDelegate:self];
+
         
+        NSString *avatar = [Singleton getInstance].url; avatar = [avatar stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"avatar"]];
+        NSString *nombre = @"Hola "; nombre = [nombre stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"nombre"]];
+        NSString *bar_code = @"0"; bar_code = [bar_code stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"]];
+        
+        CGSize size = viewBarCode.bounds.size;
+        NSInteger width = size.width;
+        float coordenada = width - 113.0;
+        CGRect kBarCodeFrame = {{coordenada/2, 10.0},{113.0, 100.0}};
+        BarCodeView *barCodeView = [[BarCodeView alloc] initWithFrame:kBarCodeFrame];
+        [viewBarCode addSubview:barCodeView];
+        [barCodeView setBarCode:bar_code];
+        
+        ivProfilePicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:avatar]]];
+        [lblNombre setText:nombre];
     } else {
         LoginViewController *__weak loginView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginView];
@@ -53,7 +70,30 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)prueba:(UIButton *)sender{
+
+-(void)webServiceTaskComplete:(WSManager *)callback{
+    [[Singleton getInstance] ocultarHud];
+    if([callback.tag isEqualToString:@"obtener_puntos"]){
+        @try {
+            if([callback.respuesta valueForKey:@"resultado"]){
+                [lblPuntos setText:[NSString stringWithFormat:@"%@", [[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"]]];
+                [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
+                                                                                                           @"email": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"email"],
+                                                                                                           @"facebook": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"facebook"],
+                                                                                                           @"web": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"web"],
+                                                                                                           @"telefono": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"telefono"],
+                                                                                                           @"twitter": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"twitter"],
+                                                                                                           @"fbid": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"fbid"]
+                                                                                                           }];
+                
+            } else{
+                NSLog(@"Problema que devuelve el WS: %@", [callback.respuesta valueForKey:@"mensaje"]);
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución: %@", exception);
+        } @finally { }
+    }
 }
 
 

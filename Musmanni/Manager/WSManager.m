@@ -28,7 +28,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        servidor        = @"http://54.165.243.221/";
+        servidor        = @"http://54.165.243.221";
         metodo          = @"GET";
         certificado     = YES;
         timeout         = [NSNumber numberWithInt:60];
@@ -58,6 +58,7 @@
     @try {
         NSDictionary* api = @{
                               @"login":@"ws/movil/login",
+                              @"obtener_puntos":@"ws/tarjeta/consultar"
                               };
         
         servicio = [api objectForKey:identificador];

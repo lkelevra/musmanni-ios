@@ -421,7 +421,7 @@
                                     <constraint firstAttribute="height" constant="50" id="jAL-BE-tdM"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qb1-Bz-GnS">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qb1-Bz-GnS">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regálenos una calificación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yv-9r-52z">
                                         <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="20"/>
@@ -498,7 +498,7 @@
                             <constraint firstItem="L41-X8-ydN" firstAttribute="top" secondItem="k1b-Qc-sSI" secondAttribute="bottom" id="9BP-P1-hsy"/>
                             <constraint firstItem="Rf9-GZ-Fom" firstAttribute="top" secondItem="k1b-Qc-sSI" secondAttribute="bottom" constant="55" id="DNp-lI-1WV"/>
                             <constraint firstItem="pWL-Ba-X0z" firstAttribute="leading" secondItem="Byv-Yg-Fqa" secondAttribute="leading" constant="38" id="DfJ-kC-WSf"/>
-                            <constraint firstItem="aCU-Xe-lsW" firstAttribute="top" secondItem="Qb1-Bz-GnS" secondAttribute="bottom" constant="8" id="EHT-zG-gbM"/>
+                            <constraint firstItem="aCU-Xe-lsW" firstAttribute="top" secondItem="Qb1-Bz-GnS" secondAttribute="bottom" constant="-70" id="EHT-zG-gbM"/>
                             <constraint firstAttribute="trailing" secondItem="L41-X8-ydN" secondAttribute="trailing" id="EVI-Cv-uGF"/>
                             <constraint firstAttribute="trailing" secondItem="aCU-Xe-lsW" secondAttribute="trailing" id="JPg-5B-Tot"/>
                             <constraint firstItem="Bgk-5g-UlE" firstAttribute="leading" secondItem="Byv-Yg-Fqa" secondAttribute="leading" id="K53-qF-D9l"/>
@@ -521,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQd-Cg-sJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="1139"/>
+            <point key="canvasLocation" x="760.79999999999995" y="1138.3808095952024"/>
         </scene>
         <!--Monedero-->
         <scene sceneID="Nht-13-JhM">
@@ -551,7 +551,7 @@
                                             <constraint firstAttribute="height" constant="128" id="b6e-Yt-Sid"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hola David Rivera Espinoza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSu-ik-ugQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSu-ik-ugQ">
                                         <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -561,7 +561,12 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₡ 500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dS-d9-LLs">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dS-d9-LLs">
+                                        <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0V-Rj-qkQ">
                                         <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -570,12 +575,15 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="WSu-ik-ugQ" firstAttribute="top" secondItem="6pg-nC-ROZ" secondAttribute="top" constant="8" id="5g3-kB-LLS"/>
+                                    <constraint firstItem="G0V-Rj-qkQ" firstAttribute="leading" secondItem="0dS-d9-LLs" secondAttribute="trailing" constant="12.5" id="5jU-5h-AvY"/>
                                     <constraint firstItem="483-vD-dwk" firstAttribute="leading" secondItem="6pg-nC-ROZ" secondAttribute="leading" constant="21" id="LuQ-DG-rsS"/>
                                     <constraint firstAttribute="height" constant="120" id="Nlg-Bu-Ff0"/>
                                     <constraint firstAttribute="trailing" secondItem="b2J-pT-g6Z" secondAttribute="trailing" id="Yfs-c6-cBM"/>
                                     <constraint firstItem="WSu-ik-ugQ" firstAttribute="leading" secondItem="6pg-nC-ROZ" secondAttribute="leading" constant="21" id="jSb-Qx-KJ9"/>
                                     <constraint firstItem="0dS-d9-LLs" firstAttribute="top" secondItem="483-vD-dwk" secondAttribute="bottom" constant="1.5" id="lIh-aq-Zrm"/>
+                                    <constraint firstItem="G0V-Rj-qkQ" firstAttribute="top" secondItem="483-vD-dwk" secondAttribute="bottom" constant="2" id="nlK-G5-NPw"/>
                                     <constraint firstItem="b2J-pT-g6Z" firstAttribute="top" secondItem="6pg-nC-ROZ" secondAttribute="top" constant="-4" id="oE4-JE-Alp"/>
+                                    <constraint firstAttribute="trailing" secondItem="G0V-Rj-qkQ" secondAttribute="trailing" constant="156" id="vHo-kV-Wf8"/>
                                     <constraint firstItem="483-vD-dwk" firstAttribute="top" secondItem="WSu-ik-ugQ" secondAttribute="bottom" id="vJI-4Z-f70"/>
                                     <constraint firstItem="b2J-pT-g6Z" firstAttribute="leading" secondItem="6pg-nC-ROZ" secondAttribute="leading" id="xDA-hQ-NUi"/>
                                     <constraint firstItem="0dS-d9-LLs" firstAttribute="leading" secondItem="6pg-nC-ROZ" secondAttribute="leading" constant="21" id="zJe-FW-m2Y"/>
@@ -617,9 +625,6 @@
                                 <state key="normal" title="Forma de canje">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="prueba:" destination="orq-Nc-n1d" eventType="touchUpInside" id="OlW-9C-eGu"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -654,6 +659,7 @@
                         <outlet property="btnTerminosCondiciones" destination="ndU-GG-BKD" id="shp-yR-Jha"/>
                         <outlet property="ivProfilePicture" destination="CbO-RG-PVB" id="qqw-0t-alB"/>
                         <outlet property="lblNombre" destination="WSu-ik-ugQ" id="SuI-TY-T7l"/>
+                        <outlet property="lblPuntos" destination="G0V-Rj-qkQ" id="pqm-9a-d9j"/>
                         <outlet property="lblSaldo" destination="0dS-d9-LLs" id="DHs-lV-jdt"/>
                         <outlet property="viewBarCode" destination="tqe-QQ-B6S" id="s2j-vD-PEc"/>
                         <outlet property="viewInfoPerfil" destination="6pg-nC-ROZ" id="sYJ-CZ-bKx"/>
@@ -662,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4V-rq-RCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="-231"/>
+            <point key="canvasLocation" x="760.79999999999995" y="-231.63418290854574"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JZ9-Wm-Aeo">

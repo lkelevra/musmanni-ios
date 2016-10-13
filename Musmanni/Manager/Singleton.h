@@ -22,11 +22,9 @@
 @property (nonatomic, strong) NSString              *password;
 @property (nonatomic, strong) NSString              *url;
 @property (nonatomic, strong) NSString              *token;
-@property (nonatomic, strong) NSMutableDictionary    *itemUsuario;
-@property (nonatomic, strong) NSMutableArray           *inventario;
-
-@property (nonatomic, strong) JFMinimalNotification * minimalNotification;
-
+@property (nonatomic, strong) NSMutableDictionary   *itemUsuario;
+@property (nonatomic, strong) JFMinimalNotification *minimalNotification;
+@property (nonatomic, strong) NSMutableDictionary   *redes_sociales;
 
 + (Singleton* )getInstance;
 - (void) mostrarNotificacion:(NSString *)type mensaje:(NSString *)message titulo:(NSString *)title enVista:(UIView*)view;

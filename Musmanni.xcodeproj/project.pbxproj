@@ -90,6 +90,8 @@
 		4C1C3EF11DA88241009A167D /* telefono.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1C3EEE1DA88241009A167D /* telefono.png */; };
 		4C1C3EF21DA88241009A167D /* telefono@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1C3EEF1DA88241009A167D /* telefono@2x.png */; };
 		4C1C3EF31DA88241009A167D /* telefono@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1C3EF01DA88241009A167D /* telefono@3x.png */; };
+		4C273D751DB005C300EF56D9 /* BarCodeEAN13.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C273D741DB005C300EF56D9 /* BarCodeEAN13.m */; };
+		4C273D781DB0064900EF56D9 /* BarCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C273D771DB0064900EF56D9 /* BarCodeView.m */; };
 		4C36FF7E1DAEC46400EF2381 /* CuponesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C36FF7D1DAEC46400EF2381 /* CuponesViewController.m */; };
 		4C36FF821DAEC4B400EF2381 /* CuponesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C36FF801DAEC4B400EF2381 /* CuponesTableViewCell.m */; };
 		4C36FF831DAEC4B400EF2381 /* CuponesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C36FF811DAEC4B400EF2381 /* CuponesTableViewCell.xib */; };
@@ -250,6 +252,10 @@
 		4C1C3EEE1DA88241009A167D /* telefono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telefono.png; sourceTree = "<group>"; };
 		4C1C3EEF1DA88241009A167D /* telefono@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "telefono@2x.png"; sourceTree = "<group>"; };
 		4C1C3EF01DA88241009A167D /* telefono@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "telefono@3x.png"; sourceTree = "<group>"; };
+		4C273D731DB005C300EF56D9 /* BarCodeEAN13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarCodeEAN13.h; path = Otros/BarCodeEAN13.h; sourceTree = "<group>"; };
+		4C273D741DB005C300EF56D9 /* BarCodeEAN13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeEAN13.m; path = Otros/BarCodeEAN13.m; sourceTree = "<group>"; };
+		4C273D761DB0064900EF56D9 /* BarCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarCodeView.h; path = Otros/BarCodeView.h; sourceTree = "<group>"; };
+		4C273D771DB0064900EF56D9 /* BarCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeView.m; path = Otros/BarCodeView.m; sourceTree = "<group>"; };
 		4C36FF7C1DAEC46400EF2381 /* CuponesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CuponesViewController.h; path = Controllers/CuponesViewController.h; sourceTree = "<group>"; };
 		4C36FF7D1DAEC46400EF2381 /* CuponesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CuponesViewController.m; path = Controllers/CuponesViewController.m; sourceTree = "<group>"; };
 		4C36FF7F1DAEC4B400EF2381 /* CuponesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CuponesTableViewCell.h; path = Cells/CuponesTableViewCell.h; sourceTree = "<group>"; };
@@ -530,6 +536,17 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		4C273D721DB0056400EF56D9 /* Otros */ = {
+			isa = PBXGroup;
+			children = (
+				4C273D761DB0064900EF56D9 /* BarCodeView.h */,
+				4C273D771DB0064900EF56D9 /* BarCodeView.m */,
+				4C273D731DB005C300EF56D9 /* BarCodeEAN13.h */,
+				4C273D741DB005C300EF56D9 /* BarCodeEAN13.m */,
+			);
+			name = Otros;
+			sourceTree = "<group>";
+		};
 		4CE843401DA5480D00502CC9 = {
 			isa = PBXGroup;
 			children = (
@@ -555,6 +572,7 @@
 		4CE8434B1DA5480D00502CC9 /* Musmanni */ = {
 			isa = PBXGroup;
 			children = (
+				4C273D721DB0056400EF56D9 /* Otros */,
 				4C0A8BCF1DA58341008CC9F3 /* Resources */,
 				4C0A8BC81DA57479008CC9F3 /* Manager */,
 				4C0A8BC71DA5746F008CC9F3 /* Controllers */,
@@ -997,6 +1015,7 @@
 				4CE843541DA5480D00502CC9 /* ViewController.m in Sources */,
 				4CE8435A1DA5480D00502CC9 /* Musmanni.xcdatamodeld in Sources */,
 				4C0C88D01DAE7F61003FEA49 /* MapaViewController.m in Sources */,
+				4C273D781DB0064900EF56D9 /* BarCodeView.m in Sources */,
 				4CE843511DA5480D00502CC9 /* AppDelegate.m in Sources */,
 				4C0C88DF1DAE9B7E003FEA49 /* ContactenosViewController.m in Sources */,
 				4C1C3EB91DA86C3C009A167D /* MonederoViewController.m in Sources */,
@@ -1006,6 +1025,7 @@
 				4C0A8BCD1DA5749F008CC9F3 /* Singleton.m in Sources */,
 				4C36FF821DAEC4B400EF2381 /* CuponesTableViewCell.m in Sources */,
 				4C0A8BCE1DA5749F008CC9F3 /* WSManager.m in Sources */,
+				4C273D751DB005C300EF56D9 /* BarCodeEAN13.m in Sources */,
 				4C36FF7E1DAEC46400EF2381 /* CuponesViewController.m in Sources */,
 				4C0C88E51DAE9CBD003FEA49 /* ContactenosTableViewCell.m in Sources */,
 			);

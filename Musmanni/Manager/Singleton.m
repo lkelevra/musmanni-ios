@@ -17,8 +17,8 @@
 @synthesize url                 = _url;
 @synthesize token               = _token;
 @synthesize minimalNotification = _minimalNotification;
-@synthesize itemUsuario = _itemUsuario;
-@synthesize inventario = _inventario;
+@synthesize itemUsuario         = _itemUsuario;
+@synthesize redes_sociales      = _redes_sociales;
 
 + (instancetype)getInstance
 {
@@ -30,7 +30,7 @@ static Singleton *instance      = nil;
         instance->_url                  = @"http://54.165.243.221/";
         instance->_token                = @"NO";
         instance->_itemUsuario          = [[NSMutableDictionary alloc] init];
-        instance->_inventario           = [[NSMutableArray alloc] init];
+        instance->_redes_sociales       = [[NSMutableDictionary alloc] init];
     });
     return instance;
 }
