@@ -33,11 +33,12 @@
     btnFormaCanje.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
--(void) viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated{
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
     if ([pref objectForKey:@"data_user"]) {
+        [[Singleton getInstance] mostrarHud:self.navigationController.view];
         WSManager *consumo = [[WSManager alloc] init];
-        [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_puntos" withParams:@{ @"notarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"] } withApi:@"obtener_puntos" withDelegate:self];
+        [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_saldo" withParams:@{ @"notarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"] } withApi:@"obtener_saldo" withDelegate:self];
 
         
         NSString *avatar = [Singleton getInstance].url; avatar = [avatar stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"avatar"]];
@@ -73,10 +74,11 @@
 
 -(void)webServiceTaskComplete:(WSManager *)callback{
     [[Singleton getInstance] ocultarHud];
-    if([callback.tag isEqualToString:@"obtener_puntos"]){
+    if([callback.tag isEqualToString:@"obtener_saldo"]){
         @try {
-            if([callback.respuesta valueForKey:@"resultado"]){
+            if(callback.resultado){
                 [lblPuntos setText:[NSString stringWithFormat:@"%@", [[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"]]];
+                [[Singleton getInstance].itemUsuario setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"] forKey:@"saldo"];
                 [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
                                                                                                            @"email": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"email"],
                                                                                                            @"facebook": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"facebook"],
@@ -87,6 +89,14 @@
                                                                                                            }];
                 
             } else{
+                [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
+                                                                                                            @"email": @"",
+                                                                                                            @"facebook": @"",
+                                                                                                            @"web": @"",
+                                                                                                            @"telefono": @"",
+                                                                                                            @"twitter": @"",
+                                                                                                            @"fbid": @""
+                                                                                                            }];
                 NSLog(@"Problema que devuelve el WS: %@", [callback.respuesta valueForKey:@"mensaje"]);
             }
             

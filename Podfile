@@ -14,6 +14,7 @@ target 'Musmanni' do
     pod 'JFMinimalNotifications', '~> 0.0.4'
     pod 'SpinKit', '~> 1.1'
     pod 'IQKeyboardManager'
+    pod 'ISMessages'
     
   target 'MusmanniTests' do
     inherit! :search_paths

@@ -11,7 +11,7 @@
 #import "Singleton.h"
 #import "WSManager.h"
 
-@interface CuponesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CuponesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, WSManagerDelegateF>
 @property (weak, nonatomic) IBOutlet UITableView *table;
-
+@property (nonatomic, strong) NSArray *items;
 @end

@@ -17,8 +17,10 @@
 @synthesize url                 = _url;
 @synthesize token               = _token;
 @synthesize minimalNotification = _minimalNotification;
+@synthesize isNotification      = _isNotification;
 @synthesize itemUsuario         = _itemUsuario;
 @synthesize redes_sociales      = _redes_sociales;
+@synthesize datos_telco         = _datos_telco;
 
 + (instancetype)getInstance
 {
@@ -31,6 +33,7 @@ static Singleton *instance      = nil;
         instance->_token                = @"NO";
         instance->_itemUsuario          = [[NSMutableDictionary alloc] init];
         instance->_redes_sociales       = [[NSMutableDictionary alloc] init];
+        instance->_datos_telco          = [[NSMutableDictionary alloc] init];
     });
     return instance;
 }
@@ -51,52 +54,5 @@ static Singleton *instance      = nil;
 
 -(void)ocultarHud{
     [_hud setHidden:YES];
-}
-
-- (void) mostrarNotificacion:(NSString *)type mensaje:(NSString *)message titulo:(NSString *)title enVista:(UIView*)view {
-    if([type isEqualToString:@"warning"]){
-        _minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleWarning
-                                                                      title:title
-                                                                   subTitle:message dismissalDelay:2.0];
-    }
-    else if([type isEqualToString:@"success"]){
-        _minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleSuccess
-                                                                      title:title
-                                                                   subTitle:message dismissalDelay:2.0];
-    }
-    else if([type isEqualToString:@"info"]){
-        _minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleInfo
-                                                                      title:title
-                                                                   subTitle:message dismissalDelay:2.0];
-    }
-    else if([type isEqualToString:@"error"]){
-        _minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleError
-                                                                      title:title
-                                                                   subTitle:message dismissalDelay:2.0];
-    }
-    else{
-        _minimalNotification = [JFMinimalNotification notificationWithStyle:JFMinimalNotificationStyleDefault
-                                                                      title:title
-                                                                   subTitle:message dismissalDelay:2.0];
-    }
-    @try {
-        [view addSubview:_minimalNotification];
-        [_minimalNotification setPresentFromTop:YES];
-        [_minimalNotification show];
-
-    } @catch (NSException *exception) {
-        @try {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:message
-                                                            message:@""
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Cerrar"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            
-        } @catch (NSException *exception) {
-            NSLog(@"NO SE PUEDE MOSTRAR ALERTA %@",[exception description]);
-        } @finally { }
-
-    } @finally {}
 }
 @end

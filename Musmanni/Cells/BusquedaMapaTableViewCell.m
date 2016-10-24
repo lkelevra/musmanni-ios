@@ -1,21 +1,18 @@
 //
-//  CuponesTableViewCell.m
+//  BusquedaMapaTableViewCell.m
 //  Musmanni
 //
-//  Created by Erick Pac on 12/10/16.
+//  Created by Erick Pac on 13/10/16.
 //  Copyright © 2016 Florida Bebidas. All rights reserved.
 //
 
-#import "CuponesTableViewCell.h"
+#import "BusquedaMapaTableViewCell.h"
 
-@implementation CuponesTableViewCell
-@synthesize viewDescrip, ivPicture, lblTitle, lblDescrip, btnFavorite, btnShare;
+@implementation BusquedaMapaTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    viewDescrip.layer.shadowOffset = CGSizeMake(1.3, 3);
-    viewDescrip.layer.shadowOpacity = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

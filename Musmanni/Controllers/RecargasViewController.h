@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetalleRecargasViewController.h"
 #import "Singleton.h"
 #import "WSManager.h"
 

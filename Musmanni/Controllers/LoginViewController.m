@@ -26,15 +26,6 @@
     [self.view addSubview:statusBG];
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
@@ -52,7 +43,11 @@
         }
     }
 }
-    
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
@@ -60,7 +55,7 @@
 
 - (IBAction)hacerLogin:(id)sender {
     if([[txtEmail text] length] > 0 & [[txtPassword text] length] > 0 ){
-        [[Singleton getInstance] mostrarHud:self.view];
+        [[Singleton getInstance] mostrarHud:self.navigationController.view];
         WSManager *consumo = [[WSManager alloc] init];
         [consumo useWebServiceWithMethod:@"POST" withTag:@"login" withParams:@{
                                                                                @"email":[txtEmail text],
@@ -68,7 +63,14 @@
                                                                                @"devicetoken":[Singleton getInstance].token
                                                                                } withApi:@"login" withDelegate:self];
     } else {
-        [[Singleton getInstance] mostrarNotificacion:@"info" mensaje:@"Todos los campos son obligatorios" titulo:@"" enVista:self.navigationController.view];
+        [ISMessages showCardAlertWithTitle:@"Espera"
+                                   message:@"Todos los campos son obligatorios"
+                                 iconImage:nil
+                                  duration:3.f
+                               hideOnSwipe:YES
+                                 hideOnTap:YES
+                                 alertType:ISAlertTypeWarning
+                             alertPosition:ISAlertPositionTop];
     }
 }
 
@@ -77,7 +79,7 @@
     [[Singleton getInstance] ocultarHud];
     if([callback.tag isEqualToString:@"login"]){
         @try {
-            if([callback.respuesta valueForKey:@"resultado"]){
+            if(callback.resultado){
                 [txtEmail setText:@""];
                 [txtPassword setText:@""];
                 [Singleton getInstance].itemUsuario = [[NSMutableDictionary alloc] initWithDictionary:[callback.respuesta objectForKey:@"registros"]];
@@ -97,13 +99,39 @@
                 [[NSUserDefaults standardUserDefaults]  synchronize];
                 [self dismissViewControllerAnimated:TRUE completion:nil];
             } else{
-                [[Singleton getInstance] mostrarNotificacion:@"error" mensaje:[callback.respuesta objectForKey:@"mensaje"] titulo:@"" enVista:self.navigationController.view];
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:callback.mensaje
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
             }
 
         } @catch (NSException *exception) {
             NSLog(@"Ocurrió un problema en la ejecución: %@", exception);
         } @finally { }
     }
+    
+    else if ([callback.tag isEqualToString:@"enviar_token"]){
+        @try {
+            if(callback.resultado){
+                
+            } else{
+                
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución en WS enviar_token: %@", exception);
+        } @finally { }
+
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*

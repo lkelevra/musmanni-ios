@@ -10,7 +10,7 @@
 #define CONF_DEFAULT @"datosUsuario"
 #import <CoreLocation/CoreLocation.h>
 #import <JFMinimalNotifications/JFMinimalNotification.h>
-
+#import <ISMessages/ISMessages.h>
 #import "MBProgressHUD.h"
 #import "RTSpinKitView.h"
 
@@ -24,10 +24,11 @@
 @property (nonatomic, strong) NSString              *token;
 @property (nonatomic, strong) NSMutableDictionary   *itemUsuario;
 @property (nonatomic, strong) JFMinimalNotification *minimalNotification;
+@property (nonatomic, strong) ISMessages            *isNotification;
 @property (nonatomic, strong) NSMutableDictionary   *redes_sociales;
+@property (nonatomic, strong) NSMutableDictionary   *datos_telco;
 
 + (Singleton* )getInstance;
-- (void) mostrarNotificacion:(NSString *)type mensaje:(NSString *)message titulo:(NSString *)title enVista:(UIView*)view;
 -(void)mostrarHud:(UIView *)vista;
 -(void)ocultarHud;
 @end

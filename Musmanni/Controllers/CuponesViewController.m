@@ -13,7 +13,7 @@
 @end
 
 @implementation CuponesViewController
-@synthesize table;
+@synthesize table, items;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,6 +21,14 @@
     table.delegate = self;
     table.dataSource = self;
     table.backgroundColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.78 alpha:1.0];
+}
+
+
+-(void) viewDidAppear:(BOOL)animated{
+    [[Singleton getInstance] mostrarHud:self.navigationController.view];
+    WSManager *consumo = [[WSManager alloc] init];
+    [consumo useWebServiceWithMethod:@"POST" withTag:@"promociones" withParams:@{} withApi:@"promociones" withDelegate:self];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return [items count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -41,6 +49,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *item =  [items  objectAtIndex:indexPath.row];
     static NSString *identificador = @"CuponesTableViewCell";
     CuponesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identificador];
     if(!cell){
@@ -48,8 +57,39 @@
         cell = [tableView dequeueReusableCellWithIdentifier:identificador];
     }
     
+//    NSString *foto = [Singleton getInstance].url; foto = [foto stringByAppendingString:[item valueForKey:@"url_foto"]];
+//    cell.ivPicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:foto]]];
+    
+    [cell.lblTitle setText:[item valueForKey:@"descripcion" ]];
+    [cell.lblDescrip setText:[item valueForKey:@"descripcion" ]];
+    
     return cell;
 }
+
+-(void)webServiceTaskComplete:(WSManager *)callback{
+    [[Singleton getInstance] ocultarHud];
+    if([callback.tag isEqualToString:@"promociones"]){
+        @try {
+            if(callback.resultado){
+                items = [[callback respuesta] objectForKey:@"registros"];
+                [table reloadData];
+            } else{
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:callback.mensaje
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución del WS promociones: %@", exception);
+        } @finally { }
+    }
+}
+
 /*
 #pragma mark - Navigation
 

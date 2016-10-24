@@ -30,6 +30,40 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)irRecargas:(UIButton *)sender{
+    if (sender.tag == 1) {
+        NSDictionary *datos_telco = @{
+                                      @"nombre_telco": @"Movistar",
+                                      @"servicio_id": @"1",
+                                      @"autorizador_id": @"3",
+                                      @"image": @"movistar"
+                                      };
+        [Singleton getInstance].datos_telco = [[NSMutableDictionary alloc] initWithDictionary:datos_telco];
+    }
+    else if (sender.tag == 2){
+        NSDictionary *datos_telco = @{
+                                      @"nombre_telco": @"Claro",
+                                      @"servicio_id": @"2",
+                                      @"autorizador_id": @"3",
+                                      @"image": @"claro"
+                                      };
+        [Singleton getInstance].datos_telco = [[NSMutableDictionary alloc] initWithDictionary:datos_telco];
+    }
+    else if (sender.tag == 3){
+        NSDictionary *datos_telco = @{
+                                      @"nombre_telco": @"Kolbi",
+                                      @"servicio_id": @"1",
+                                      @"autorizador_id": @"1",
+                                      @"image": @"kolbi"
+                                      };
+        [Singleton getInstance].datos_telco = [[NSMutableDictionary alloc] initWithDictionary:datos_telco];
+    }
+    
+    DetalleRecargasViewController *__weak detalleRecargasView = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleRecargasView"];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:detalleRecargasView];
+    [self presentViewController:nav animated:TRUE completion:nil];
+}
+
 /*
 #pragma mark - Navigation
 

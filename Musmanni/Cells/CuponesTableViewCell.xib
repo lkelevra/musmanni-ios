@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="433" height="240"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="433" height="239"/>
+                <frame key="frameInset" width="433" height="239.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GhK-xx-WBo">
@@ -38,7 +38,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK8-he-uJS">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK8-he-uJS">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="BdA-ZQ-944"/>
                                             <constraint firstAttribute="width" constant="20" id="yhG-8T-fkg"/>
@@ -96,6 +96,12 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnFavorite" destination="zLO-Nc-wBk" id="lQT-vy-IJh"/>
+                <outlet property="btnShare" destination="zLO-Nc-wBk" id="OgO-oI-ktc"/>
+                <outlet property="ivPicture" destination="dvD-9R-pov" id="dKk-Ji-DGT"/>
+                <outlet property="lblDate" destination="5CJ-UJ-bQ9" id="MM7-dY-drd"/>
+                <outlet property="lblDescrip" destination="CAc-He-IlA" id="XGB-Gk-SgB"/>
+                <outlet property="lblTitle" destination="P9A-JL-v9P" id="pJf-G2-d7r"/>
                 <outlet property="viewDescrip" destination="hmu-Oy-1et" id="cMe-hT-MhK"/>
             </connections>
             <point key="canvasLocation" x="90.5" y="184"/>

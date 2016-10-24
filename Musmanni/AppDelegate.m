@@ -23,6 +23,9 @@
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Oswald-Regular" size:20.0]}];
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.99 green:0.15 blue:0.18 alpha:1.0]];
+    
     [[UITabBar appearance] setTranslucent:NO];
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.99 green:0.15 blue:0.18 alpha:1.0]];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.44 green:0.05 blue:0.09 alpha:1.0]];
@@ -58,6 +61,7 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

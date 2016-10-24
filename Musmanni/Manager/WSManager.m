@@ -28,7 +28,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        servidor        = @"http://54.165.243.221";
+        servidor        = [Singleton getInstance].url;
         metodo          = @"GET";
         certificado     = YES;
         timeout         = [NSNumber numberWithInt:60];
@@ -57,8 +57,11 @@
 -(void) useApi:(NSString *)identificador{
     @try {
         NSDictionary* api = @{
-                              @"login":@"ws/movil/login",
-                              @"obtener_puntos":@"ws/tarjeta/consultar"
+                              @"login":         @"ws/movil/login",
+                              @"enviar_token":  @"ws/movil/gcm/crear",
+                              @"obtener_saldo": @"ws/tarjeta/consultar",
+                              @"puntos":        @"ws/movil/puntos/obtenerporempresa",
+                              @"promociones":   @"ws/movil/promociones/obtenerporempresa"
                               };
         
         servicio = [api objectForKey:identificador];
@@ -116,8 +119,8 @@
         [formData appendPartWithFileData:imagenData name:nombreParametro fileName:@"foto.jpg" mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
-        resultado       =   [[responseObject objectForKey:@"result"] boolValue];
-        mensaje         =   [responseObject objectForKey:@"message"];
+        resultado       =   [[responseObject objectForKey:@"resultado"] boolValue];
+        mensaje         =   [responseObject objectForKey:@"mensaje"];
         respuesta       =   (NSDictionary*)responseObject;
         [delegate webServiceTaskComplete:self];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -155,8 +158,8 @@
         [formData appendPartWithFileData:imagenData name:nombreParametro fileName:name mimeType:@"application/pdf"];
         NSLog(@"FORM DATA %@",formData);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        resultado       =   [[responseObject objectForKey:@"result"] boolValue];
-        mensaje         =   [responseObject objectForKey:@"message"];
+        resultado       =   [[responseObject objectForKey:@"resultado"] boolValue];
+        mensaje         =   [responseObject objectForKey:@"mensaje"];
         respuesta       =   (NSDictionary*)responseObject;
         [delegate webServiceTaskComplete:self];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -184,8 +187,8 @@
             [manager GET:URL parameters:parametros success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
                 NSLog(@"JSON: %@", responseObject);
-                resultado       =   [[responseObject objectForKey:@"result"] boolValue];
-                mensaje         =   [responseObject objectForKey:@"message"];
+                resultado       =   [[responseObject objectForKey:@"resultado"] boolValue];
+                mensaje         =   [responseObject objectForKey:@"mensaje"];
                 respuesta       =   (NSDictionary*)responseObject;
                 [delegate webServiceTaskComplete:self];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -199,8 +202,8 @@
         else if([metodo isEqual: @"POST"]) {
             [manager POST:URL parameters:parametros success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"JSON: %@", responseObject);
-                resultado       =   [[responseObject objectForKey:@"result"] boolValue];
-                mensaje         =   [responseObject objectForKey:@"message"];
+                resultado       =   [[responseObject objectForKey:@"resultado"] boolValue];
+                mensaje         =   [responseObject objectForKey:@"mensaje"];
                 respuesta       =   (NSDictionary*)responseObject;
                 [delegate webServiceTaskComplete:self];
                 
