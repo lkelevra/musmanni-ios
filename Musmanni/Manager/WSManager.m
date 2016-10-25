@@ -57,12 +57,13 @@
 -(void) useApi:(NSString *)identificador{
     @try {
         NSDictionary* api = @{
-                              @"login":         @"ws/movil/login",
-                              @"enviar_token":  @"ws/movil/gcm/crear",
-                              @"obtener_saldo": @"ws/tarjeta/consultar",
-                              @"puntos":        @"ws/movil/puntos/obtenerporempresa",
-                              @"promociones":   @"ws/movil/promociones/obtenerporempresa",
-                              @"montos_recarga":@"ws/recargas/detallerecargas"
+                              @"login":             @"ws/movil/login",
+                              @"enviar_token":      @"ws/movil/gcm/crear",
+                              @"obtener_saldo":     @"ws/tarjeta/consultar",
+                              @"puntos":            @"ws/movil/puntos/obtenerporempresa",
+                              @"promociones":       @"ws/movil/promociones/obtenerporempresa",
+                              @"montos_recarga":    @"ws/recargas/detallerecargas",
+                              @"realizar_recarga":  @"ws/recargas/hacerrecarga"
                               };
         
         servicio = [api objectForKey:identificador];

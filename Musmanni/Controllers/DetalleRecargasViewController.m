@@ -13,19 +13,18 @@
 @end
 
 @implementation DetalleRecargasViewController
-@synthesize lblTelco, ivTelco, pvMontos, montos, lblMonto, btnPicker, lblSaldo;
+@synthesize lblTelco, ivTelco, pvMontos, montos, lblMonto, btnPicker, lblSaldo, txtPhoneNumber, txtPhoneNumberRepeat, monto_seleccionado;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"Recargas";
-    pvMontos.delegate = self;
-    pvMontos.dataSource = self;
     pvMontos.hidden = YES;
     [pvMontos setBackgroundColor:[UIColor whiteColor]];
-    
+    pvMontos.delegate = self;
+    pvMontos.dataSource = self;
+
     btnPicker.tag = 1;
-    
     
     [lblTelco setText:[[Singleton getInstance].datos_telco valueForKey:@"nombre_telco"]];
     
@@ -46,6 +45,7 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     [[Singleton getInstance] mostrarHud:self.navigationController.view];
+    
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
     [lblSaldo setText:[NSString stringWithFormat:@"%@", [pref objectForKey:@"saldo"]]];
 
@@ -56,7 +56,6 @@
                                                                            @"pMonedero_Tarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"]
                                                                            } withApi:@"montos_recarga" withDelegate:self];
 }
-
 
 - (void)goBack {
     [self dismissViewControllerAnimated:TRUE completion:nil];
@@ -70,6 +69,54 @@
     else if (sender.tag == 2){
         btnPicker.tag = 1;
         pvMontos.hidden = YES;
+    }
+}
+
+-(IBAction)realizarRecarga:(UIButton *)sender{
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    float saldo = [[pref objectForKey:@"saldo"] floatValue];
+    if ([txtPhoneNumber.text length] == 8 && [txtPhoneNumberRepeat.text length] == 8) {
+        if ([txtPhoneNumber.text isEqualToString:txtPhoneNumberRepeat.text]) {
+            if ( monto_seleccionado <= saldo ) {
+                [[Singleton getInstance] mostrarHud:self.navigationController.view];
+                
+                WSManager *consumo = [[WSManager alloc] init];
+                [consumo useWebServiceWithMethod:@"POST" withTag:@"realizar_recarga" withParams:@{
+                                                                                               @"pAutorizador_Id":[[Singleton getInstance].datos_telco valueForKey:@"autorizador_id"],
+                                                                                               @"pServicio_Id":[[Singleton getInstance].datos_telco valueForKey:@"servicio_id"],
+                                                                                               @"pMonedero_Tarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"],
+                                                                                               @"pMonto":[NSString stringWithFormat:@"%d", (int)monto_seleccionado],
+                                                                                               @"celular":txtPhoneNumber.text
+                                                                                               } withApi:@"realizar_recarga" withDelegate:self];
+            } else {
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:@"El monto seleccionado es mayor al saldo disponible"
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
+            }
+        } else {
+            [ISMessages showCardAlertWithTitle:@"Espera"
+                                       message:@"Verifica que el número de celular y el número de celular de confirmación sean iguales"
+                                     iconImage:nil
+                                      duration:3.f
+                                   hideOnSwipe:YES
+                                     hideOnTap:YES
+                                     alertType:ISAlertTypeError
+                                 alertPosition:ISAlertPositionTop];
+        }
+    } else{
+        [ISMessages showCardAlertWithTitle:@"Espera"
+                                   message:@"Verifica que el número de celular y/o el número de celular de confirmación tenga 8 dígitos"
+                                 iconImage:nil
+                                  duration:3.f
+                               hideOnSwipe:YES
+                                 hideOnTap:YES
+                                 alertType:ISAlertTypeError
+                             alertPosition:ISAlertPositionTop];
     }
 }
 
@@ -87,14 +134,20 @@
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    [lblMonto setText:[montos objectAtIndex:row]];
+    NSDictionary *item = [montos objectAtIndex:row];
+    monto_seleccionado = [[item objectForKey:@"Monto"] intValue];
+    NSString *title = [NSString stringWithFormat:@"%@", [item valueForKey:@"Monto"]];
+    [lblMonto setText:title];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return montos[row];
+    NSDictionary *item = [montos objectAtIndex:row];
+    NSString *title = [NSString stringWithFormat:@"%@", [item valueForKey:@"Monto"]];
+    return title;
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    NSDictionary *item = [montos objectAtIndex:row];
     UILabel* lbl = (UILabel*)view;
     
     if (lbl == nil) {
@@ -104,8 +157,8 @@
         [lbl setBackgroundColor:[UIColor clearColor]];
         [lbl setFont:[UIFont fontWithName:@"Oswald-Regular" size:20.0]];
     }
-    
-    [lbl setText:[montos objectAtIndex:row]];
+    NSString *title = [NSString stringWithFormat:@"%@", [item valueForKey:@"Monto"]];
+    [lbl setText:title];
     
     return lbl;
 }
@@ -115,8 +168,10 @@
     [[Singleton getInstance] ocultarHud];
     if([callback.tag isEqualToString:@"montos_recarga"]){
         @try {
-            if(callback.resultado){
+            if([[callback.respuesta valueForKey:@"result"] boolValue]){
                 montos = [callback.respuesta objectForKey:@"records"];
+                [pvMontos reloadAllComponents];
+                
             } else{
                 [self dismissViewControllerAnimated:TRUE completion:nil];
                 [ISMessages showCardAlertWithTitle:@"Espera"
@@ -130,7 +185,35 @@
             }
             
         } @catch (NSException *exception) {
-            NSLog(@"Ocurrió un problema en la ejecución : %@", exception);
+            NSLog(@"Ocurrió un problema en la ejecución : %@", [exception reason]);
+        } @finally { }
+    }
+    else if([callback.tag isEqualToString:@"realizar_recarga"]){
+        @try {
+            if([[callback.respuesta valueForKey:@"result"] boolValue]){
+                [self dismissViewControllerAnimated:TRUE completion:nil];
+                [ISMessages showCardAlertWithTitle:@"Éxito"
+                                           message:[callback.respuesta objectForKey:@"message"]
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeSuccess
+                                     alertPosition:ISAlertPositionTop];
+            } else{
+                [self dismissViewControllerAnimated:TRUE completion:nil];
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:[callback.respuesta objectForKey:@"message"]
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución : %@", [exception reason]);
         } @finally { }
     }
 }

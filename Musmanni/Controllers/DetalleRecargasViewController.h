@@ -19,5 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblMonto;
 @property (weak, nonatomic) IBOutlet UIButton *btnPicker;
 @property (weak, nonatomic) IBOutlet UILabel *lblSaldo;
+@property (weak, nonatomic) IBOutlet UITextField *txtPhoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *txtPhoneNumberRepeat;
+@property NSInteger monto_seleccionado;
 
 @end

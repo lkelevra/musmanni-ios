@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lyh-bV-BiO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lyh-bV-BiO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -469,6 +469,9 @@
                                 <state key="normal" title="Recargar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="realizarRecarga:" destination="K6q-NA-woc" eventType="touchUpInside" id="5Jd-00-yNN"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3nS-l2-Tbe">
                                 <nil key="textColor"/>
@@ -503,7 +506,7 @@
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fK8-PS-6Bb">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="151" id="890-3q-blU"/>
+                                    <constraint firstAttribute="height" constant="112" id="890-3q-blU"/>
                                 </constraints>
                             </pickerView>
                         </subviews>
@@ -524,10 +527,9 @@
                             <constraint firstItem="z2f-Sg-HHK" firstAttribute="top" secondItem="iqF-Ii-Ka4" secondAttribute="bottom" constant="51" id="EYh-ZG-ZU5"/>
                             <constraint firstItem="dvh-1i-gwd" firstAttribute="leading" secondItem="0fB-jI-Aic" secondAttribute="trailing" constant="8" id="FXI-38-bmL"/>
                             <constraint firstAttribute="trailing" secondItem="3nS-l2-Tbe" secondAttribute="trailing" constant="31" id="FXN-n7-iAP"/>
-                            <constraint firstItem="fv2-lG-Npe" firstAttribute="top" secondItem="iqF-Ii-Ka4" secondAttribute="bottom" constant="169" id="HTl-qc-aPb"/>
                             <constraint firstItem="vix-rv-vAm" firstAttribute="leading" secondItem="8zl-DZ-ILc" secondAttribute="leading" constant="49" id="IEQ-U5-cbw"/>
                             <constraint firstItem="Kmo-nh-At4" firstAttribute="top" secondItem="oUy-xI-oT0" secondAttribute="bottom" constant="51" id="M1C-Ho-TMJ"/>
-                            <constraint firstItem="fK8-PS-6Bb" firstAttribute="leading" secondItem="8zl-DZ-ILc" secondAttribute="leading" constant="-3" id="MOd-jz-YZN"/>
+                            <constraint firstItem="fK8-PS-6Bb" firstAttribute="leading" secondItem="8zl-DZ-ILc" secondAttribute="leading" id="MOd-jz-YZN"/>
                             <constraint firstItem="j0u-VH-pPu" firstAttribute="top" secondItem="fK8-PS-6Bb" secondAttribute="bottom" id="N5k-y2-0M0"/>
                             <constraint firstItem="atv-rA-os9" firstAttribute="top" secondItem="iqF-Ii-Ka4" secondAttribute="bottom" constant="-1" id="Nuh-kE-Z0W"/>
                             <constraint firstItem="WKf-mn-uZB" firstAttribute="top" secondItem="QaH-oC-LVc" secondAttribute="bottom" constant="46" id="OQN-vM-Xnm"/>
@@ -543,12 +545,13 @@
                             <constraint firstItem="3nS-l2-Tbe" firstAttribute="top" secondItem="vix-rv-vAm" secondAttribute="bottom" constant="2" id="dYU-EW-Bx5"/>
                             <constraint firstAttribute="trailing" secondItem="0jy-AJ-uPu" secondAttribute="trailing" constant="31" id="de6-Yj-1es"/>
                             <constraint firstItem="54N-3L-iUi" firstAttribute="leading" secondItem="8zl-DZ-ILc" secondAttribute="leading" constant="16" id="dyJ-Qa-K2g"/>
-                            <constraint firstItem="fv2-lG-Npe" firstAttribute="centerX" secondItem="8zl-DZ-ILc" secondAttribute="centerX" constant="6" id="eOl-qI-Twu"/>
+                            <constraint firstItem="fv2-lG-Npe" firstAttribute="centerX" secondItem="8zl-DZ-ILc" secondAttribute="centerX" id="eOl-qI-Twu"/>
                             <constraint firstItem="Y1f-6s-0GL" firstAttribute="centerX" secondItem="8zl-DZ-ILc" secondAttribute="centerX" id="eQT-tg-crc"/>
                             <constraint firstItem="54N-3L-iUi" firstAttribute="top" secondItem="zyE-Zu-tTT" secondAttribute="bottom" constant="67" id="eXw-Yn-XME"/>
                             <constraint firstItem="FIM-6V-Xgx" firstAttribute="top" secondItem="DaE-9V-vQp" secondAttribute="bottom" constant="15" id="gBq-8g-hJF"/>
                             <constraint firstAttribute="trailing" secondItem="QaH-oC-LVc" secondAttribute="trailing" constant="31" id="h3b-ev-ZSJ"/>
                             <constraint firstItem="iqF-Ii-Ka4" firstAttribute="top" secondItem="QaH-oC-LVc" secondAttribute="bottom" constant="18" id="itI-AF-WY9"/>
+                            <constraint firstItem="j0u-VH-pPu" firstAttribute="top" secondItem="Y1f-6s-0GL" secondAttribute="bottom" constant="8" id="kj1-7Y-Hxg"/>
                             <constraint firstItem="0fB-jI-Aic" firstAttribute="top" secondItem="54N-3L-iUi" secondAttribute="bottom" constant="45" id="n6i-z0-AoG"/>
                             <constraint firstItem="FIM-6V-Xgx" firstAttribute="leading" secondItem="zzk-fa-n6m" secondAttribute="trailing" constant="-6" id="nDJ-zB-utM"/>
                             <constraint firstItem="FIM-6V-Xgx" firstAttribute="leading" secondItem="8zl-DZ-ILc" secondAttribute="leadingMargin" constant="33" id="np5-Bg-Cad"/>
@@ -559,9 +562,9 @@
                             <constraint firstItem="zyE-Zu-tTT" firstAttribute="top" secondItem="8zl-DZ-ILc" secondAttribute="top" id="spV-j5-BqY"/>
                             <constraint firstItem="zyE-Zu-tTT" firstAttribute="leading" secondItem="8zl-DZ-ILc" secondAttribute="leading" id="tI6-Mr-GKo"/>
                             <constraint firstItem="iqF-Ii-Ka4" firstAttribute="leading" secondItem="8zl-DZ-ILc" secondAttribute="leading" constant="48" id="tL5-u2-Kjc"/>
+                            <constraint firstItem="Y1f-6s-0GL" firstAttribute="top" secondItem="fv2-lG-Npe" secondAttribute="bottom" constant="8" id="tMA-0t-qdx"/>
                             <constraint firstItem="26x-0m-Asu" firstAttribute="leading" secondItem="Kmo-nh-At4" secondAttribute="trailing" constant="8" id="trB-gI-bEE"/>
                             <constraint firstItem="DaE-9V-vQp" firstAttribute="top" secondItem="vix-rv-vAm" secondAttribute="bottom" constant="36" id="y28-wP-BDe"/>
-                            <constraint firstItem="Y1f-6s-0GL" firstAttribute="top" secondItem="iqF-Ii-Ka4" secondAttribute="bottom" constant="213" id="yA8-0f-TvS"/>
                             <constraint firstItem="yHl-Yb-RZi" firstAttribute="top" secondItem="zyE-Zu-tTT" secondAttribute="bottom" constant="74" id="zm0-Xu-bnv"/>
                         </constraints>
                     </view>
@@ -573,6 +576,8 @@
                         <outlet property="lblSaldo" destination="WKf-mn-uZB" id="d5z-Qm-0nL"/>
                         <outlet property="lblTelco" destination="Xmj-KQ-yaP" id="eQL-S0-1GT"/>
                         <outlet property="pvMontos" destination="fK8-PS-6Bb" id="bCc-FA-DxM"/>
+                        <outlet property="txtPhoneNumber" destination="3nS-l2-Tbe" id="Xaf-3x-xG6"/>
+                        <outlet property="txtPhoneNumberRepeat" destination="dvh-1i-gwd" id="imW-JM-e1T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T41-Ko-AFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
