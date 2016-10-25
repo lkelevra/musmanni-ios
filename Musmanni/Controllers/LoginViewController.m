@@ -82,7 +82,6 @@
             if(callback.resultado){
                 [txtEmail setText:@""];
                 [txtPassword setText:@""];
-                [Singleton getInstance].itemUsuario = [[NSMutableDictionary alloc] initWithDictionary:[callback.respuesta objectForKey:@"registros"]];
                 NSDictionary *data_user = @{
                                             @"id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"id"],
                                             @"nombre": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"nombre"],

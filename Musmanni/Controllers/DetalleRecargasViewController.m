@@ -13,7 +13,7 @@
 @end
 
 @implementation DetalleRecargasViewController
-@synthesize lblTelco, ivTelco, pvMontos, montos, lblMonto, btnPicker;
+@synthesize lblTelco, ivTelco, pvMontos, montos, lblMonto, btnPicker, lblSaldo;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,8 +24,8 @@
     pvMontos.hidden = YES;
     [pvMontos setBackgroundColor:[UIColor whiteColor]];
     
-    montos = @[@"500", @"1000", @"1500", @"2000"];
     btnPicker.tag = 1;
+    
     
     [lblTelco setText:[[Singleton getInstance].datos_telco valueForKey:@"nombre_telco"]];
     
@@ -42,6 +42,19 @@
     backBtn.frame = CGRectMake(0, 0, 30, 30);
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    [[Singleton getInstance] mostrarHud:self.navigationController.view];
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    [lblSaldo setText:[NSString stringWithFormat:@"%@", [pref objectForKey:@"saldo"]]];
+
+    WSManager *consumo = [[WSManager alloc] init];
+    [consumo useWebServiceWithMethod:@"GET" withTag:@"montos_recarga" withParams:@{
+                                                                           @"pAutorizador_Id":[[Singleton getInstance].datos_telco valueForKey:@"autorizador_id"],
+                                                                           @"pServicio_Id":[[Singleton getInstance].datos_telco valueForKey:@"servicio_id"],
+                                                                           @"pMonedero_Tarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"]
+                                                                           } withApi:@"montos_recarga" withDelegate:self];
 }
 
 
@@ -96,6 +109,32 @@
     
     return lbl;
 }
+
+
+-(void)webServiceTaskComplete:(WSManager *)callback{
+    [[Singleton getInstance] ocultarHud];
+    if([callback.tag isEqualToString:@"montos_recarga"]){
+        @try {
+            if(callback.resultado){
+                montos = [callback.respuesta objectForKey:@"records"];
+            } else{
+                [self dismissViewControllerAnimated:TRUE completion:nil];
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:[callback.respuesta objectForKey:@"message"]
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución : %@", exception);
+        } @finally { }
+    }
+}
+
 
 
 /*

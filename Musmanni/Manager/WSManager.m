@@ -61,7 +61,8 @@
                               @"enviar_token":  @"ws/movil/gcm/crear",
                               @"obtener_saldo": @"ws/tarjeta/consultar",
                               @"puntos":        @"ws/movil/puntos/obtenerporempresa",
-                              @"promociones":   @"ws/movil/promociones/obtenerporempresa"
+                              @"promociones":   @"ws/movil/promociones/obtenerporempresa",
+                              @"montos_recarga":@"ws/recargas/detallerecargas"
                               };
         
         servicio = [api objectForKey:identificador];

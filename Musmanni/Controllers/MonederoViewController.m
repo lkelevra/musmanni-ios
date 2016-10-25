@@ -78,7 +78,7 @@
         @try {
             if(callback.resultado){
                 [lblPuntos setText:[NSString stringWithFormat:@"%@", [[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"]]];
-                [[Singleton getInstance].itemUsuario setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"] forKey:@"saldo"];
+                [[NSUserDefaults standardUserDefaults] setObject:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"] forKey:@"saldo"];
                 [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
                                                                                                            @"email": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"email"],
                                                                                                            @"facebook": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"facebook"],
@@ -87,7 +87,7 @@
                                                                                                            @"twitter": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"twitter"],
                                                                                                            @"fbid": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"fbid"]
                                                                                                            }];
-                
+                [[NSUserDefaults standardUserDefaults]  synchronize];
             } else{
                 [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
                                                                                                             @"email": @"",

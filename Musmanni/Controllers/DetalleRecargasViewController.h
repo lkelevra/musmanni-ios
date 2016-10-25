@@ -10,7 +10,7 @@
 #import "Singleton.h"
 #import "WSManager.h"
 
-@interface DetalleRecargasViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface DetalleRecargasViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, WSManagerDelegateF>
 @property (weak, nonatomic) IBOutlet UILabel *lblTelco;
 @property (weak, nonatomic) IBOutlet UIImageView *ivTelco;
 @property (weak, nonatomic) IBOutlet UIImageView *ivTel1;
@@ -18,5 +18,6 @@
 @property (strong, nonatomic) NSArray *montos;
 @property (weak, nonatomic) IBOutlet UILabel *lblMonto;
 @property (weak, nonatomic) IBOutlet UIButton *btnPicker;
+@property (weak, nonatomic) IBOutlet UILabel *lblSaldo;
 
 @end
