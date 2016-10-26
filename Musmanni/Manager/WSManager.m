@@ -63,7 +63,8 @@
                               @"puntos":            @"ws/movil/puntos/obtenerporempresa",
                               @"promociones":       @"ws/movil/promociones/obtenerporempresa",
                               @"montos_recarga":    @"ws/recargas/detallerecargas",
-                              @"realizar_recarga":  @"ws/recargas/hacerrecarga"
+                              @"realizar_recarga":  @"ws/recargas/hacerrecarga",
+                              @"registro_usuario":  @"ws/movil/usuarios"
                               };
         
         servicio = [api objectForKey:identificador];

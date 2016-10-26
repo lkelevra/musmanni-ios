@@ -14,5 +14,6 @@
     @property (weak, nonatomic) IBOutlet UIButton *btnIngresar;
     @property (weak, nonatomic) IBOutlet UIButton *btnIngresarFacebook;
     @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
+    @property (weak, nonatomic) IBOutlet UIButton *btnRegistro;
     @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @end
