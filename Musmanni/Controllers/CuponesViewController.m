@@ -21,6 +21,13 @@
     table.delegate = self;
     table.dataSource = self;
     table.backgroundColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.78 alpha:1.0];
+    
+    UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
+    [conf setBackgroundImage:[UIImage imageNamed:@"Configuraciones"] forState:UIControlStateNormal];
+    [conf addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    conf.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *confButton = [[UIBarButtonItem alloc] initWithCustomView:conf] ;
+    self.navigationItem.rightBarButtonItem = confButton;
 }
 
 

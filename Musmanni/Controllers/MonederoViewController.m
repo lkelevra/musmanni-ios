@@ -31,6 +31,13 @@
     btnFormaCanje.layer.cornerRadius = 16;
     btnFormaCanje.layer.borderWidth = 2;
     btnFormaCanje.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
+    [conf setBackgroundImage:[UIImage imageNamed:@"Configuraciones"] forState:UIControlStateNormal];
+    [conf addTarget:self action:@selector(abrirConfiguraciones) forControlEvents:UIControlEventTouchUpInside];
+    conf.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *confButton = [[UIBarButtonItem alloc] initWithCustomView:conf] ;
+    self.navigationItem.rightBarButtonItem = confButton;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -68,9 +75,24 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+
+- (void)abrirConfiguraciones{
+    ConfiguracionViewController *__weak configuracionesView = [self.storyboard instantiateViewControllerWithIdentifier:@"confView"];
+    [self presentViewController:configuracionesView animated:TRUE completion:nil];
+}
+
+-(IBAction)mostrarFormaCanje:(UIButton *)sender {
+    EAIntroPage *page1 = [EAIntroPage page];
+    page1.title = @"";
+    page1.desc = @"";
+    page1.bgImage = [UIImage imageNamed:@"canjes"];
+    
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.tabBarController.view.bounds andPages:@[page1]];
+    [intro.skipButton setTitle:@"Entendido" forState:UIControlStateNormal];
+    [intro showInView:self.tabBarController.view animateDuration:0.0];
+}
 
 -(void)webServiceTaskComplete:(WSManager *)callback{
     [[Singleton getInstance] ocultarHud];

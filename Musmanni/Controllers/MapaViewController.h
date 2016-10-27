@@ -13,13 +13,14 @@
 #import "WSManager.h"
 #import "BusquedaMapaTableViewCell.h"
 #import "PinMapa.h"
-
+#import "AFURLSessionManager.h"
 
 @interface MapaViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, WSManagerDelegateF>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property(nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSMutableArray *iconos;
 @property (nonatomic, strong) NSDictionary *itemSeleccionado;
 @property BOOL ubico;
 

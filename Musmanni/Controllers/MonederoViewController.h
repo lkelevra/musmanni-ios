@@ -11,6 +11,10 @@
 #import "WSManager.h"
 #import "BarCodeView.h"
 #import "BarCodeEAN13.h"
+#import "ConfiguracionViewController.h"
+#import "TerminosCondicionesViewController.h"
+#import <EAIntroView/EAIntroPage.h>
+#import <EAIntroView/EAIntroView.h>
 
 static const CGRect kLabelFrame = {{0.0, 20.0},{320.0, 30.0}};
 static const CGRect kButtonFrame = {{85.0, 220.0},{150.0, 30.0}};

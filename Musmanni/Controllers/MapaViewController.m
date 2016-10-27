@@ -13,7 +13,7 @@
 @end
 
 @implementation MapaViewController
-@synthesize mapView, locationManager, ubico, items, itemSeleccionado;
+@synthesize mapView, locationManager, ubico, items, itemSeleccionado, iconos;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +34,13 @@
     [mapView setMapType:MKMapTypeStandard];
     [mapView setZoomEnabled:YES];
     [mapView setScrollEnabled:YES];
+    
+    UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
+    [conf setBackgroundImage:[UIImage imageNamed:@"Configuraciones"] forState:UIControlStateNormal];
+    [conf addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    conf.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *confButton = [[UIBarButtonItem alloc] initWithCustomView:conf] ;
+    self.navigationItem.rightBarButtonItem = confButton;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -59,7 +66,7 @@
     }
     [[Singleton getInstance] mostrarHud:self.navigationController.view];
     WSManager *consumo = [[WSManager alloc] init];
-    [consumo useWebServiceWithMethod:@"GET" withTag:@"puntos" withParams:@{} withApi:@"puntos" withDelegate:self];
+    [consumo useWebServiceWithMethod:@"GET" withTag:@"puntos" withParams:@{@"idempresa": @"1"} withApi:@"puntos" withDelegate:self];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
@@ -86,22 +93,80 @@
     return [NSString stringWithFormat:@"%f", self.locationManager.location.altitude];
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(PinMapa *)annotation {
+    if([annotation isKindOfClass:[MKUserLocation class]]){
+        return nil;
+    }
+    
+    else{
+        MKAnnotationView *pinView = (MKAnnotationView*)[map dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
+        
+        pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomPinAnnotationView"];
+        pinView.canShowCallout = YES;
+        [self downloadImageForAnnotation:pinView withUrl:annotation.url];
+        pinView.tag = annotation.posicion;
+        
+        return pinView;
+    }
+    return nil;
+}
+
+- (void)downloadImageForAnnotation:(MKAnnotationView *)annotation withUrl:(NSString *) urlString {
+    if([[Singleton getInstance].listaIconos objectForKey:urlString]){
+        [annotation setImage: [UIImage imageWithContentsOfFile:[[Singleton getInstance].listaIconos valueForKey:urlString]]];
+    }
+    else{
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        NSURL *URL = [NSURL URLWithString:urlString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+        NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response)
+                                                  {
+                                                      NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+                                                      return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+                                                  } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error)
+                                                  {
+                                                      [[Singleton getInstance].listaIconos setValue:filePath.path forKey:urlString];
+                                                      [annotation setImage: [UIImage imageWithContentsOfFile:filePath.path]];
+                                                  }];
+        [downloadTask resume];
+    }
+}
+
+
+- (NSMutableArray *)crearArrayPines:(NSArray *)pines {
+    NSMutableArray *arrayPines = [[NSMutableArray alloc] init];
+    int contador = 0;
+    for (NSDictionary *row in pines) {
+        NSNumber *latitude = [row valueForKey:@"latitud"];
+        NSNumber *longitude = [row valueForKey:@"longitud"];
+        NSString *title = [row valueForKey:@"nombre"];
+        NSString *subtitle = [row valueForKey:@"direccion"];
+        NSString *urlIcono = [[row objectForKey:@"tipo_punto"] valueForKey:@"icono"];
+        NSString *idPunto = [row objectForKey:@"id"];
+        CLLocationCoordinate2D coord;
+        coord.latitude = latitude.doubleValue;
+        coord.longitude = longitude.doubleValue;
+        PinMapa *annotation = [[PinMapa alloc] initWithTitle:title subtitle:subtitle AndCoordinate:coord];
+        annotation.url = urlIcono;
+        annotation.idPunto = [idPunto intValue];
+        annotation.posicion = contador;
+        [arrayPines addObject:annotation];
+        contador++;
+    }
+    return arrayPines;
+}
+
 -(void)webServiceTaskComplete:(WSManager *)callback{
     [[Singleton getInstance] ocultarHud];
     if([callback.tag isEqualToString:@"puntos"]){
         @try {
             if(callback.resultado){
-                int pos = 0;
-                items = [[NSMutableArray alloc] initWithArray:(NSArray*)[callback.respuesta valueForKey:@"registros"]];
-                for (NSDictionary *punto in items) {
-                    CLLocation *coordenadas = [[CLLocation alloc] initWithLatitude:[[punto valueForKey:@"latitud"] floatValue] longitude:[[punto valueForKey:@"longitud"] floatValue]];
-                    PinMapa *annotation = [[PinMapa alloc] initWithLocation:coordenadas.coordinate];
-                    annotation.title = [punto valueForKey:@"nombre"];
-                    annotation.subtitle = [punto valueForKey:@"direccion"];
-                    annotation.pos = pos;
-                    pos++;
-                    [mapView addAnnotation:annotation];
-                }
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                    items = [self crearArrayPines:(NSArray*)[callback.respuesta valueForKey:@"registros"]];
+                    [mapView addAnnotations:items];
+                });
+
             } else {
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:callback.mensaje
@@ -131,5 +196,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 @end

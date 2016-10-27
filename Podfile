@@ -15,6 +15,7 @@ target 'Musmanni' do
     pod 'SpinKit', '~> 1.1'
     pod 'IQKeyboardManager'
     pod 'ISMessages'
+    pod 'EAIntroView', '~> 2.7.0'
     
   target 'MusmanniTests' do
     inherit! :search_paths

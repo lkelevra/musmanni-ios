@@ -292,6 +292,35 @@
             </objects>
             <point key="canvasLocation" x="-577.5" y="-1609.8591549295775"/>
         </scene>
+        <!--Configuracion View Controller-->
+        <scene sceneID="WKf-qu-T4R">
+            <objects>
+                <viewController storyboardIdentifier="confView" id="xji-Qn-66c" customClass="ConfiguracionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U4L-X8-B7q"/>
+                        <viewControllerLayoutGuide type="bottom" id="m7U-JV-vkY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1SN-dO-vTA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHu-Ky-y6P">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dHu-Ky-y6P" secondAttribute="trailing" id="G6T-3l-BuX"/>
+                            <constraint firstItem="dHu-Ky-y6P" firstAttribute="leading" secondItem="1SN-dO-vTA" secondAttribute="leading" id="coZ-kN-kNh"/>
+                            <constraint firstItem="m7U-JV-vkY" firstAttribute="top" secondItem="dHu-Ky-y6P" secondAttribute="bottom" id="rR3-Xm-F9k"/>
+                            <constraint firstItem="dHu-Ky-y6P" firstAttribute="top" secondItem="1SN-dO-vTA" secondAttribute="top" id="zZf-Cj-p54"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gq-sa-mjn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1929.375" y="-1609.8591549295775"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -1190,6 +1219,9 @@
                                 <state key="normal" title="Términos y condiciones">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="W8d-Oy-8i3" kind="show" id="Oz6-6Z-LFC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Canje de puntos válido solamente en Musmanni Mini Super a partir  de 500 colones y por cada 500 colones acumulados." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQx-iS-8DD">
                                 <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="14"/>
@@ -1205,6 +1237,9 @@
                                 <state key="normal" title="Forma de canje">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="mostrarFormaCanje:" destination="orq-Nc-n1d" eventType="touchUpInside" id="iXB-Lm-0gR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1220,14 +1255,14 @@
                             <constraint firstAttribute="trailing" secondItem="YbK-WV-iNJ" secondAttribute="trailing" id="Rul-c3-EGT"/>
                             <constraint firstItem="aQx-iS-8DD" firstAttribute="leading" secondItem="FUr-VB-q0Z" secondAttribute="leading" constant="16" id="UkX-sQ-MAc"/>
                             <constraint firstItem="QDF-ns-IQD" firstAttribute="centerX" secondItem="FUr-VB-q0Z" secondAttribute="centerX" id="YOc-J4-CxO"/>
-                            <constraint firstItem="YbK-WV-iNJ" firstAttribute="top" secondItem="JP7-Vv-fyI" secondAttribute="bottom" constant="-30" id="enD-l3-nYb"/>
+                            <constraint firstItem="YbK-WV-iNJ" firstAttribute="top" secondItem="JP7-Vv-fyI" secondAttribute="bottom" constant="-64" id="enD-l3-nYb"/>
                             <constraint firstItem="6pg-nC-ROZ" firstAttribute="top" secondItem="FUr-VB-q0Z" secondAttribute="top" constant="20" id="iJL-EY-F6z"/>
                             <constraint firstItem="tqe-QQ-B6S" firstAttribute="top" secondItem="CbO-RG-PVB" secondAttribute="bottom" constant="11" id="jcH-fc-DpJ"/>
                             <constraint firstItem="tqe-QQ-B6S" firstAttribute="top" secondItem="6pg-nC-ROZ" secondAttribute="bottom" constant="59" id="kgi-vu-nU3"/>
                             <constraint firstItem="QDF-ns-IQD" firstAttribute="leading" secondItem="ndU-GG-BKD" secondAttribute="trailing" constant="4" id="kxz-CP-87K"/>
                             <constraint firstAttribute="trailing" secondItem="tqe-QQ-B6S" secondAttribute="trailing" id="n4k-2L-Zyh"/>
                             <constraint firstItem="ndU-GG-BKD" firstAttribute="top" secondItem="tqe-QQ-B6S" secondAttribute="bottom" constant="14" id="pI5-Tk-KKI"/>
-                            <constraint firstItem="2vL-Tj-o91" firstAttribute="top" secondItem="YbK-WV-iNJ" secondAttribute="bottom" constant="-6" id="qYJ-42-dum"/>
+                            <constraint firstItem="2vL-Tj-o91" firstAttribute="top" secondItem="YbK-WV-iNJ" secondAttribute="bottom" constant="-49" id="qYJ-42-dum"/>
                             <constraint firstItem="QDF-ns-IQD" firstAttribute="top" secondItem="tqe-QQ-B6S" secondAttribute="bottom" constant="74" id="rAU-Ei-7A8"/>
                             <constraint firstItem="AFK-Lr-bhz" firstAttribute="leading" secondItem="QDF-ns-IQD" secondAttribute="trailing" constant="3" id="xPT-Bu-XpL"/>
                         </constraints>
@@ -1248,7 +1283,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4V-rq-RCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="760.79999999999995" y="-231.63418290854574"/>
+            <point key="canvasLocation" x="759.375" y="-232.3943661971831"/>
+        </scene>
+        <!--Terminos Condiciones View Controller-->
+        <scene sceneID="q0Z-G2-v57">
+            <objects>
+                <viewController storyboardIdentifier="terminosView" hidesBottomBarWhenPushed="YES" id="W8d-Oy-8i3" customClass="TerminosCondicionesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mYc-ue-PjO"/>
+                        <viewControllerLayoutGuide type="bottom" id="f1R-Fy-YWh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="Sqn-Cr-ZOF">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQ9-14-7OD">
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bQ9-14-7OD" firstAttribute="top" secondItem="Sqn-Cr-ZOF" secondAttribute="top" id="5K0-Xe-Kn2"/>
+                            <constraint firstItem="f1R-Fy-YWh" firstAttribute="top" secondItem="bQ9-14-7OD" secondAttribute="bottom" id="ZVb-Gr-L4q"/>
+                            <constraint firstItem="bQ9-14-7OD" firstAttribute="leading" secondItem="Sqn-Cr-ZOF" secondAttribute="leading" id="dg6-v2-zBK"/>
+                            <constraint firstAttribute="trailing" secondItem="bQ9-14-7OD" secondAttribute="trailing" id="lF5-OS-jCW"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="webView" destination="bQ9-14-7OD" id="Bf1-ed-fGJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JIu-J2-by4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1473.75" y="-232.3943661971831"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JZ9-Wm-Aeo">

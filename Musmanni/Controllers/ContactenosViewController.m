@@ -19,7 +19,14 @@
     [super viewDidLoad];
     tablaDatosContacto.delegate = self;
     tablaDatosContacto.dataSource = self;
-    // Do any additional setup after loading the view.
+    
+    
+    UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
+    [conf setBackgroundImage:[UIImage imageNamed:@"Configuraciones"] forState:UIControlStateNormal];
+    [conf addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    conf.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *confButton = [[UIBarButtonItem alloc] initWithCustomView:conf] ;
+    self.navigationItem.rightBarButtonItem = confButton;
 }
 
 - (void)didReceiveMemoryWarning {

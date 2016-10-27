@@ -21,6 +21,7 @@
 @synthesize itemUsuario         = _itemUsuario;
 @synthesize redes_sociales      = _redes_sociales;
 @synthesize datos_telco         = _datos_telco;
+@synthesize listaIconos         = _listaIconos;
 
 + (instancetype)getInstance
 {
@@ -34,6 +35,7 @@ static Singleton *instance      = nil;
         instance->_itemUsuario          = [[NSMutableDictionary alloc] init];
         instance->_redes_sociales       = [[NSMutableDictionary alloc] init];
         instance->_datos_telco          = [[NSMutableDictionary alloc] init];
+        instance->_listaIconos          = [[NSMutableDictionary alloc] init];
     });
     return instance;
 }
