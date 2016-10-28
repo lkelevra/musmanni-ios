@@ -64,7 +64,9 @@
                               @"promociones":       @"ws/movil/promociones/obtenerporempresa",
                               @"montos_recarga":    @"ws/recargas/detallerecargas",
                               @"realizar_recarga":  @"ws/recargas/hacerrecarga",
-                              @"registro_usuario":  @"ws/movil/usuarios"
+                              @"registro_usuario":  @"ws/movil/usuarios",
+                              @"registro_usuario_f":@"ws/movil/usuarios",
+                              @"validar_tarjeta":   @"ws/movil/usuarios/consultar"
                               };
         
         servicio = [api objectForKey:identificador];

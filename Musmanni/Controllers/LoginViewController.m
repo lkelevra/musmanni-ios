@@ -13,7 +13,7 @@
 @end
 
 @implementation LoginViewController
-    @synthesize txtEmail, txtPassword, btnIngresar, btnIngresarFacebook, btnRegistro;
+    @synthesize txtEmail, txtPassword, btnIngresar, btnIngresarFacebook, btnRegistro, pictureURL;
     
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,6 +75,67 @@
     }
 }
 
+-(IBAction)hacerLoginFacebook:(UIButton *)sender{
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    
+    [login logInWithReadPermissions:@[@"public_profile", @"email", @"user_birthday"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        if(error){
+            [FBSDKAccessToken setCurrentAccessToken:nil];
+            [FBSDKProfile setCurrentProfile:nil];
+            [ISMessages showCardAlertWithTitle:@"Espera"
+                                       message:@"Ocurrió un error al tratar de iniciar con Facebook, intenta de nuevo"
+                                     iconImage:nil
+                                      duration:3.f
+                                   hideOnSwipe:YES
+                                     hideOnTap:YES
+                                     alertType:ISAlertTypeError
+                                 alertPosition:ISAlertPositionTop];
+        } else if (result.isCancelled) {
+            [FBSDKAccessToken setCurrentAccessToken:nil];
+            [FBSDKProfile setCurrentProfile:nil];
+            [ISMessages showCardAlertWithTitle:@"Espera"
+                                       message:@"Debes darnos permisos para poder registrarte con Facebook, de lo contrario lo puedes realizar de forma manual"
+                                     iconImage:nil
+                                      duration:3.f
+                                   hideOnSwipe:YES
+                                     hideOnTap:YES
+                                     alertType:ISAlertTypeError
+                                 alertPosition:ISAlertPositionTop];
+        } else {
+            NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+            [parameters setValue:@"id,name,email,gender,birthday" forKey:@"fields"];
+            
+            FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters];
+            [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                if (!error) {
+                    NSDictionary *userData = (NSDictionary *)result;
+                    pictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]];
+                    NSLog(@"%@", pictureURL);
+                    [[Singleton getInstance] mostrarHud:self.navigationController.view];
+                    NSDictionary *datos = @{@"email":           userData[@"email"],
+                                            @"password":        @"",
+                                            @"nombre":          userData[@"name"],
+                                            @"fechanacimiento": userData[@"birthday"],
+                                            @"genero":          userData[@"gender"],
+                                            @"fb_id":           userData[@"id"],
+                                            @"devicetoken":     [Singleton getInstance].token
+                                            };
+                    
+                    WSManager *consumo = [[WSManager alloc] init];
+                    [consumo useWebServiceWithMethod:@"POST" withTag:@"registro_usuario_f" withParams:datos withApi:@"registro_usuario_f" withDelegate:self];
+                }
+            }];
+        }
+    }];
+}
+
+-(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
+
+}
+
+-(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+    
+}
 
 -(void)webServiceTaskComplete:(WSManager *)callback{
     [[Singleton getInstance] ocultarHud];
@@ -83,18 +144,19 @@
             if(callback.resultado){
                 [txtEmail setText:@""];
                 [txtPassword setText:@""];
+                NSString *avatar = [Singleton getInstance].url; avatar = [avatar stringByAppendingString:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"avatar"]];
                 NSDictionary *data_user = @{
                                             @"id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"id"],
                                             @"nombre": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"nombre"],
                                             @"email": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"email"],
                                             @"notarjeta": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"notarjeta"],
-                                            @"avatar": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"avatar"],
+                                            @"avatar": avatar,
                                             @"fb_id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fb_id"],
                                             @"fechanacimiento": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fechanacimiento"],
                                             @"fifcoone": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fifcoone"],
                                             @"genero": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"genero"],
-                                            @"validado": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"]
                                             };
+                [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"] forKey:@"validado"];
                 [[NSUserDefaults standardUserDefaults] setObject:data_user forKey:@"data_user"];
                 [[NSUserDefaults standardUserDefaults]  synchronize];
                 [self dismissViewControllerAnimated:TRUE completion:nil];
@@ -113,13 +175,34 @@
             NSLog(@"Ocurrió un problema en la ejecución: %@", exception);
         } @finally { }
     }
-    
-    else if ([callback.tag isEqualToString:@"enviar_token"]){
+    else if ([callback.tag isEqualToString:@"registro_usuario_f"]){
         @try {
             if(callback.resultado){
+                NSDictionary *data_user = @{
+                                            @"id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"id"],
+                                            @"nombre": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"nombre"],
+                                            @"email": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"email"],
+                                            @"notarjeta": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"notarjeta"],
+                                            @"avatar": pictureURL,
+                                            @"fb_id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fb_id"],
+                                            @"fechanacimiento": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fechanacimiento"],
+                                            @"fifcoone": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fifcoone"],
+                                            @"genero": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"genero"],
+                                            };
                 
+                [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"] forKey:@"validado"];
+                [[NSUserDefaults standardUserDefaults] setObject:data_user forKey:@"data_user"];
+                [[NSUserDefaults standardUserDefaults]  synchronize];
+                [self dismissViewControllerAnimated:TRUE completion:nil];
             } else{
-                
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:callback.mensaje
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
             }
             
         } @catch (NSException *exception) {

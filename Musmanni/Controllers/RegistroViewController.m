@@ -60,7 +60,7 @@
                                 @"fechanacimiento": [txtBirthday.text isEqualToString:@"dd-mm-aa"] ? @"" : fecha_nacimiento,
                                 @"genero": scGenere.selectedSegmentIndex == 0 ? @"M" : @"F",
                                 @"fb_id": @"",
-                                @"gcm": [Singleton getInstance].token
+                                @"devicetoken": [Singleton getInstance].token
                                 };
         
         WSManager *consumo = [[WSManager alloc] init];
@@ -82,15 +82,24 @@
     if([callback.tag isEqualToString:@"registro_usuario"]){
         @try {
             if(callback.resultado){
-                [self.navigationController popViewControllerAnimated:YES];
-                [ISMessages showCardAlertWithTitle:@"Éxito"
-                                           message:callback.mensaje
-                                         iconImage:nil
-                                          duration:3.f
-                                       hideOnSwipe:YES
-                                         hideOnTap:YES
-                                         alertType:ISAlertTypeSuccess
-                                     alertPosition:ISAlertPositionTop];
+                NSLog(@"Resultado: %@", [callback.respuesta objectForKey:@"registros"]);
+                NSString *avatar = [Singleton getInstance].url; avatar = [avatar stringByAppendingString:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"avatar"]];
+                NSDictionary *data_user = @{
+                                            @"id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"id"],
+                                            @"nombre": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"nombre"],
+                                            @"email": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"email"],
+                                            @"notarjeta": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"notarjeta"],
+                                            @"avatar": avatar,
+                                            @"fb_id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fb_id"],
+                                            @"fechanacimiento": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fechanacimiento"],
+                                            @"fifcoone": @"",
+                                            @"genero": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"genero"],
+                                            };
+                
+                [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"] forKey:@"validado"];
+                [[NSUserDefaults standardUserDefaults] setObject:data_user forKey:@"data_user"];
+                [[NSUserDefaults standardUserDefaults]  synchronize];
+                [self dismissViewControllerAnimated:TRUE completion:nil];
             } else{
                 [self dismissViewControllerAnimated:TRUE completion:nil];
                 [ISMessages showCardAlertWithTitle:@"Espera"

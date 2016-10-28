@@ -43,25 +43,12 @@
 -(void)viewDidAppear:(BOOL)animated{
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
     if ([pref objectForKey:@"data_user"]) {
-        [[Singleton getInstance] mostrarHud:self.navigationController.view];
-        WSManager *consumo = [[WSManager alloc] init];
-        [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_saldo" withParams:@{ @"notarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"] } withApi:@"obtener_saldo" withDelegate:self];
-
-        
-        NSString *avatar = [Singleton getInstance].url; avatar = [avatar stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"avatar"]];
         NSString *nombre = @"Hola "; nombre = [nombre stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"nombre"]];
-        NSString *bar_code = @"0"; bar_code = [bar_code stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"]];
-        
-        CGSize size = viewBarCode.bounds.size;
-        NSInteger width = size.width;
-        float coordenada = width - 113.0;
-        CGRect kBarCodeFrame = {{coordenada/2, 10.0},{113.0, 100.0}};
-        BarCodeView *barCodeView = [[BarCodeView alloc] initWithFrame:kBarCodeFrame];
-        [viewBarCode addSubview:barCodeView];
-        [barCodeView setBarCode:bar_code];
-        
-        ivProfilePicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:avatar]]];
+        ivProfilePicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[pref objectForKey:@"data_user"] valueForKey:@"avatar"]]]];
         [lblNombre setText:nombre];
+        
+        WSManager *consumo = [[WSManager alloc] init];
+        [consumo useWebServiceWithMethod:@"POST" withTag:@"validar_tarjeta" withParams:@{ @"email":[[pref objectForKey:@"data_user"] valueForKey:@"email"] } withApi:@"validar_tarjeta" withDelegate:self];
     } else {
         LoginViewController *__weak loginView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginView];
@@ -110,6 +97,54 @@
                                                                                                            @"fbid": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"fbid"]
                                                                                                            }];
                 [[NSUserDefaults standardUserDefaults]  synchronize];
+            } else{
+                [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
+                                                                                                            @"email": @"",
+                                                                                                            @"facebook": @"",
+                                                                                                            @"web": @"",
+                                                                                                            @"telefono": @"",
+                                                                                                            @"twitter": @"",
+                                                                                                            @"fbid": @""
+                                                                                                            }];
+                NSLog(@"Problema que devuelve el WS: %@", [callback.respuesta valueForKey:@"mensaje"]);
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución: %@", exception);
+        } @finally { }
+    } else if([callback.tag isEqualToString:@"validar_tarjeta"]) {
+        @try {
+            if(callback.resultado){
+                [[NSUserDefaults standardUserDefaults] setValue:@"0" forKey:@"saldo"];
+                [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"] forKey:@"validado"];
+                [[NSUserDefaults standardUserDefaults]  synchronize];
+                
+                NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+                if ([[pref valueForKey:@"validado"] isEqualToString:@"0"]) {
+                    [ISMessages showCardAlertWithTitle:@"Información"
+                                               message:@"Aún no has confirmado tu tarjeta, revisa tu correo"
+                                             iconImage:nil
+                                              duration:3.f
+                                           hideOnSwipe:YES
+                                             hideOnTap:YES
+                                             alertType:ISAlertTypeInfo
+                                         alertPosition:ISAlertPositionTop];
+                    
+                } else {
+                    [[Singleton getInstance] mostrarHud:self.navigationController.view];
+                    WSManager *consumo = [[WSManager alloc] init];
+                    [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_saldo" withParams:@{ @"notarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"] } withApi:@"obtener_saldo" withDelegate:self];
+                    
+                    NSString *bar_code = @"0"; bar_code = [bar_code stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"]];
+                    CGSize size = viewBarCode.bounds.size;
+                    NSInteger width = size.width;
+                    float coordenada = width - 113.0;
+                    CGRect kBarCodeFrame = {{coordenada/2, 10.0},{113.0, 100.0}};
+                    BarCodeView *barCodeView = [[BarCodeView alloc] initWithFrame:kBarCodeFrame];
+                    [viewBarCode addSubview:barCodeView];
+                    [barCodeView setBarCode:bar_code];
+                }
+                
             } else{
                 [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
                                                                                                             @"email": @"",
