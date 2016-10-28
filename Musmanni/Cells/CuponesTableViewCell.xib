@@ -23,7 +23,7 @@
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmu-Oy-1et">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagen_promocion.png" translatesAutoresizingMaskIntoConstraints="NO" id="dvD-9R-pov">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dvD-9R-pov">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="5h4-4L-HEr"/>
                                         </constraints>
@@ -110,6 +110,5 @@
     <resources>
         <image name="compartir.png" width="23" height="28"/>
         <image name="favorito.png" width="30" height="28"/>
-        <image name="imagen_promocion.png" width="611" height="238"/>
     </resources>
 </document>

@@ -13,8 +13,12 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import <AFNetworking/AFHTTPRequestOperation.h>
+#import <UIImageView+AFNetworking.h>
 
-@interface CuponesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, WSManagerDelegateF, FBSDKSharingDelegate>
+@interface CuponesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, WSManagerDelegateF, FBSDKSharingDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic, strong) NSArray *items;
+@property (weak, nonatomic) IBOutlet UISearchBar *sbCupones;
+@property (strong,nonatomic) NSArray *resultadoBusqueda;
+@property BOOL isFiltered;
 @end

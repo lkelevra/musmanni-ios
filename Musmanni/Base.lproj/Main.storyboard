@@ -915,24 +915,41 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Asf-Sl-lOV">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="GGT-lq-fPE">
+                                <color key="barTintColor" red="0.65859502550000004" green="0.026579879220000002" blue="0.06009499729" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.78030639886856079" green="0.78044146299362183" blue="0.78029793500900269" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Asf-Sl-lOV" firstAttribute="top" secondItem="kze-3w-CRu" secondAttribute="bottom" id="7We-or-Rd8"/>
+                            <constraint firstItem="GGT-lq-fPE" firstAttribute="leading" secondItem="FEw-Ox-dMX" secondAttribute="leading" id="00f-rR-bNc"/>
+                            <constraint firstItem="Asf-Sl-lOV" firstAttribute="top" secondItem="kze-3w-CRu" secondAttribute="bottom" constant="44" id="7We-or-Rd8"/>
+                            <constraint firstAttribute="trailing" secondItem="GGT-lq-fPE" secondAttribute="trailing" id="A4Z-5i-Oza"/>
                             <constraint firstItem="Asf-Sl-lOV" firstAttribute="leading" secondItem="FEw-Ox-dMX" secondAttribute="leading" id="NjB-vH-Iia"/>
                             <constraint firstAttribute="trailing" secondItem="Asf-Sl-lOV" secondAttribute="trailing" id="Tug-Z5-rm4"/>
                             <constraint firstItem="5B9-XC-URg" firstAttribute="top" secondItem="Asf-Sl-lOV" secondAttribute="bottom" id="YDK-Ev-l6L"/>
+                            <constraint firstItem="GGT-lq-fPE" firstAttribute="top" secondItem="kze-3w-CRu" secondAttribute="bottom" id="loG-Yh-seW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cupones" id="1FR-bo-MOI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="sbCupones" destination="GGT-lq-fPE" id="3oQ-XX-fld"/>
+                        <outlet property="searchDisplayController" destination="9RS-4Y-n5d" id="yC1-kL-iLM"/>
                         <outlet property="table" destination="Asf-Sl-lOV" id="JNU-Fc-WgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ik4-nr-XoH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="9RS-4Y-n5d">
+                    <connections>
+                        <outlet property="delegate" destination="b7G-Ng-wNh" id="SHv-kt-co6"/>
+                        <outlet property="searchContentsController" destination="b7G-Ng-wNh" id="Gqo-Bt-duY"/>
+                        <outlet property="searchResultsDataSource" destination="b7G-Ng-wNh" id="W3Z-lk-7Ml"/>
+                        <outlet property="searchResultsDelegate" destination="b7G-Ng-wNh" id="Wgs-W6-JYJ"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="761" y="-925"/>
+            <point key="canvasLocation" x="760.79999999999995" y="-925.18740629685169"/>
         </scene>
         <!--Encuéntrenos-->
         <scene sceneID="9IK-g6-DTb">
@@ -972,7 +989,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="759.375" y="462.67605633802816"/>
+            <point key="canvasLocation" x="759.20000000000005" y="461.91904047976016"/>
         </scene>
         <!--Conctáctenos-->
         <scene sceneID="PmL-vj-dZj">

@@ -13,11 +13,13 @@
 @end
 
 @implementation CuponesViewController
-@synthesize table, items;
+@synthesize table, items, sbCupones, isFiltered, resultadoBusqueda;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    resultadoBusqueda = [[NSArray alloc] init];
+    sbCupones.delegate = self;
     table.delegate = self;
     table.dataSource = self;
     table.backgroundColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.78 alpha:1.0];
@@ -47,7 +49,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [items count];
+    if(isFiltered){
+        return [resultadoBusqueda count];
+    } else {
+        return [items count];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -63,10 +69,16 @@
         cell = [tableView dequeueReusableCellWithIdentifier:identificador];
     }
     
+    if (isFiltered) {
+        item = [resultadoBusqueda  objectAtIndex:indexPath.row];
+    } else {
+        item = [items  objectAtIndex:indexPath.row];
+    }
+    
     NSURL *picture = [NSURL URLWithString:[[NSString stringWithFormat:@"%@", [item valueForKey:@"url_foto"]] stringByRemovingPercentEncoding]];
     NSString *descripcion = [NSString stringWithFormat:@"Promoción válida hasta: %@", [item valueForKey:@"fin"]];
     
-    cell.ivPicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:picture]];
+    [cell.ivPicture setImageWithURL:picture];
     [cell.lblTitle setText:[item valueForKey:@"descripcion" ]];
     [cell.lblDescrip setText:descripcion];
     [cell.btnShare setTag:indexPath.row];
@@ -80,19 +92,74 @@
     return cell;
 }
 
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if(![sbCupones isFirstResponder]) {
+        [sbCupones resignFirstResponder];
+    }
+    
+    if(searchText.length == 0){
+        isFiltered = FALSE;
+    } else {
+        isFiltered = TRUE;
+        resultadoBusqueda = nil;
+        resultadoBusqueda = [[NSMutableArray alloc] init];
+        
+        NSPredicate *predicado = [NSPredicate predicateWithFormat:@"(descripcion contains[c] %@ OR fin contains[c] %@)", searchText, searchText];
+        resultadoBusqueda = [[Singleton getInstance].listaPromociones filteredArrayUsingPredicate:predicado];
+    }
+    
+    [table reloadData];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [sbCupones resignFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    sbCupones.text = @"";
+    [self searchBar:sbCupones textDidChange: @""];
+    [sbCupones resignFirstResponder];
+    [sbCupones setShowsCancelButton:NO animated:YES];
+    
+    [table reloadData];
+}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    
+    if ([sbCupones isFirstResponder] && [touch view] != sbCupones) {
+        [sbCupones resignFirstResponder];
+    }
+    
+    [super touchesBegan:touches withEvent:event];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [sbCupones resignFirstResponder];
+}
 
 -(IBAction)compartirPromocion:(UITapGestureRecognizer *)sender{
     NSDictionary *item = [[Singleton getInstance].listaPromociones objectAtIndex:[[sender view] tag]];
     NSURL *picture = [NSURL URLWithString:[[NSString stringWithFormat:@"%@", [item valueForKey:@"url_foto"]] stringByRemovingPercentEncoding]];
     
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:picture]];
-    FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
-    photo.image = image;
-    photo.userGenerated = YES;
-    FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
-    content.photos = @[photo];
-    
-    [FBSDKShareDialog showFromViewController:self withContent:content delegate:self];
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:[[NSURLRequest alloc] initWithURL:picture]];
+    requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        UIImage *image = responseObject;
+        FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+        photo.image = image;
+        photo.userGenerated = YES;
+        FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
+        content.photos = @[photo];
+        
+        [FBSDKShareDialog showFromViewController:self withContent:content delegate:self];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Image error: %@", error);
+        [[Singleton getInstance] ocultarHud];
+    }];
+    [requestOperation start];
 }
 
 - (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results{

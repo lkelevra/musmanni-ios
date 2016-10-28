@@ -16,5 +16,4 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnFavorite;
 @property (weak, nonatomic) IBOutlet UIButton *btnShare;
 @property (weak, nonatomic) IBOutlet UILabel *lblDate;
-
 @end

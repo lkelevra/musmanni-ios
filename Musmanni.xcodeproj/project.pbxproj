@@ -129,6 +129,7 @@
 		4C59E0BC1DC2ACE1009653F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0B81DC2ACE1009653F5 /* FBSDKLoginKit.framework */; };
 		4C59E0BD1DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0B91DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework */; };
 		4C59E0BE1DC2ACE1009653F5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0BA1DC2ACE1009653F5 /* FBSDKShareKit.framework */; };
+		4C6BE1571DC40EF600C1285E /* spin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C6BE1561DC40EF600C1285E /* spin.gif */; };
 		4C6F5ED61DB0571300E4D823 /* BusquedaMapaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F5ED41DB0571300E4D823 /* BusquedaMapaTableViewCell.m */; };
 		4C6F5ED71DB0571300E4D823 /* BusquedaMapaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C6F5ED51DB0571300E4D823 /* BusquedaMapaTableViewCell.xib */; };
 		4C70CF0F1DC1207E002AF0DC /* date_registro.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C70CF001DC1207E002AF0DC /* date_registro.png */; };
@@ -361,6 +362,7 @@
 		4C59E0B81DC2ACE1009653F5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		4C59E0B91DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
 		4C59E0BA1DC2ACE1009653F5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		4C6BE1561DC40EF600C1285E /* spin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = spin.gif; path = ../../../../../Downloads/spin.gif; sourceTree = "<group>"; };
 		4C6F5ED31DB0571300E4D823 /* BusquedaMapaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusquedaMapaTableViewCell.h; path = Cells/BusquedaMapaTableViewCell.h; sourceTree = "<group>"; };
 		4C6F5ED41DB0571300E4D823 /* BusquedaMapaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusquedaMapaTableViewCell.m; path = Cells/BusquedaMapaTableViewCell.m; sourceTree = "<group>"; };
 		4C6F5ED51DB0571300E4D823 /* BusquedaMapaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BusquedaMapaTableViewCell.xib; path = Cells/BusquedaMapaTableViewCell.xib; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 		4C0A8D841DA5AE67008CC9F3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4C6BE1561DC40EF600C1285E /* spin.gif */,
 				4CCE1E901DC2A44F00AF2608 /* canjes.png */,
 				4CC8A4CB1DC2571900894416 /* gLBnM7_icon.png */,
 				4C70CF1E1DC12B4E002AF0DC /* genere_registro.png */,
@@ -906,6 +909,9 @@
 						DevelopmentTeam = 5YEZP3WG9S;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -969,6 +975,7 @@
 				4C1C3EB51DA86BC8009A167D /* fondo_monedero@2x.png in Resources */,
 				4C36FF961DAECB6E00EF2381 /* kolbi.png in Resources */,
 				4C0A8DD81DA5AE88008CC9F3 /* Logo Central.png in Resources */,
+				4C6BE1571DC40EF600C1285E /* spin.gif in Resources */,
 				4C36FF831DAEC4B400EF2381 /* CuponesTableViewCell.xib in Resources */,
 				4C70CF161DC1207E002AF0DC /* lock_registro@2x.png in Resources */,
 				4C1C3ED31DA87F17009A167D /* recargas.png in Resources */,

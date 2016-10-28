@@ -44,7 +44,8 @@
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
     if ([pref objectForKey:@"data_user"]) {
         NSString *nombre = @"Hola "; nombre = [nombre stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"nombre"]];
-        ivProfilePicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[pref objectForKey:@"data_user"] valueForKey:@"avatar"]]]];
+        
+        [ivProfilePicture setImageWithURL:[NSURL URLWithString:[[pref objectForKey:@"data_user"] valueForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:@"blank-profile-picture-973460_960_720"]];
         [lblNombre setText:nombre];
         
         WSManager *consumo = [[WSManager alloc] init];
