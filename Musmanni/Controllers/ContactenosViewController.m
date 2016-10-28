@@ -47,6 +47,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"redes: %@", [Singleton getInstance].redes_sociales);
     static NSString *identificador = @"ContactenosTableViewCell";
     ContactenosTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identificador];
     if(!cell){
@@ -118,7 +119,6 @@
         }
     }
 }
-
 
 /*
 #pragma mark - Navigation

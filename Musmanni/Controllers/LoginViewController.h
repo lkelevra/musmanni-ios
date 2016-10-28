@@ -19,4 +19,5 @@
     @property (weak, nonatomic) IBOutlet UIButton *btnRegistro;
     @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
     @property (strong, nonatomic) NSString *pictureURL;
+    @property(nonatomic, strong)UIAlertAction *okAction;
 @end

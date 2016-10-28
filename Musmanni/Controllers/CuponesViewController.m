@@ -63,13 +63,48 @@
         cell = [tableView dequeueReusableCellWithIdentifier:identificador];
     }
     
-//    NSString *foto = [Singleton getInstance].url; foto = [foto stringByAppendingString:[item valueForKey:@"url_foto"]];
-//    cell.ivPicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:foto]]];
+    NSURL *picture = [NSURL URLWithString:[[NSString stringWithFormat:@"%@", [item valueForKey:@"url_foto"]] stringByRemovingPercentEncoding]];
+    NSString *descripcion = [NSString stringWithFormat:@"Promoción válida hasta: %@", [item valueForKey:@"fin"]];
     
+    cell.ivPicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:picture]];
     [cell.lblTitle setText:[item valueForKey:@"descripcion" ]];
-    [cell.lblDescrip setText:[item valueForKey:@"descripcion" ]];
+    [cell.lblDescrip setText:descripcion];
+    [cell.btnShare setTag:indexPath.row];
+    
+    UITapGestureRecognizer *tapImageConfigure = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(compartirPromocion:)];
+    [tapImageConfigure setNumberOfTapsRequired:1];
+    
+    [cell.btnShare setUserInteractionEnabled:true];
+    [cell.btnShare addGestureRecognizer:tapImageConfigure];
     
     return cell;
+}
+
+
+-(IBAction)compartirPromocion:(UITapGestureRecognizer *)sender{
+    NSDictionary *item = [[Singleton getInstance].listaPromociones objectAtIndex:[[sender view] tag]];
+    NSURL *picture = [NSURL URLWithString:[[NSString stringWithFormat:@"%@", [item valueForKey:@"url_foto"]] stringByRemovingPercentEncoding]];
+    
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:picture]];
+    FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+    photo.image = image;
+    photo.userGenerated = YES;
+    FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
+    content.photos = @[photo];
+    
+    [FBSDKShareDialog showFromViewController:self withContent:content delegate:self];
+}
+
+- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results{
+    
+}
+
+-(void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error {
+    
+}
+
+-(void)sharerDidCancel:(id<FBSDKSharing>)sharer {
+    
 }
 
 -(void)webServiceTaskComplete:(WSManager *)callback{
@@ -77,6 +112,7 @@
     if([callback.tag isEqualToString:@"promociones"]){
         @try {
             if(callback.resultado){
+                [Singleton getInstance].listaPromociones = (NSMutableArray *)[[callback respuesta] objectForKey:@"registros"];
                 items = [[callback respuesta] objectForKey:@"registros"];
                 [table reloadData];
             } else{

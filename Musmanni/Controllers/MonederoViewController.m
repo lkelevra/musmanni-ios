@@ -49,6 +49,11 @@
         
         WSManager *consumo = [[WSManager alloc] init];
         [consumo useWebServiceWithMethod:@"POST" withTag:@"validar_tarjeta" withParams:@{ @"email":[[pref objectForKey:@"data_user"] valueForKey:@"email"] } withApi:@"validar_tarjeta" withDelegate:self];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            WSManager *consumo = [[WSManager alloc] init];
+            [consumo useWebServiceWithMethod:@"GET" withTag:@"datos_empresa" withParams:@{} withApi:@"datos_empresa" withDelegate:self];
+        });
     } else {
         LoginViewController *__weak loginView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginView];
@@ -88,14 +93,6 @@
             if(callback.resultado){
                 [lblPuntos setText:[NSString stringWithFormat:@"%@", [[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"]]];
                 [[NSUserDefaults standardUserDefaults] setObject:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"] forKey:@"saldo"];
-                [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
-                                                                                                           @"email": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"email"],
-                                                                                                           @"facebook": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"facebook"],
-                                                                                                           @"web": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"web"],
-                                                                                                           @"telefono": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"telefono"],
-                                                                                                           @"twitter": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"twitter"],
-                                                                                                           @"fbid": [[callback.respuesta objectForKey:@"redes"] valueForKey:@"fbid"]
-                                                                                                           }];
                 [[NSUserDefaults standardUserDefaults]  synchronize];
             } else{
                 [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
@@ -112,7 +109,9 @@
         } @catch (NSException *exception) {
             NSLog(@"Ocurrió un problema en la ejecución: %@", exception);
         } @finally { }
-    } else if([callback.tag isEqualToString:@"validar_tarjeta"]) {
+    }
+    
+    else if([callback.tag isEqualToString:@"validar_tarjeta"]) {
         @try {
             if(callback.resultado){
                 [[NSUserDefaults standardUserDefaults] setValue:@"0" forKey:@"saldo"];
@@ -146,6 +145,34 @@
                 }
                 
             } else{
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:callback.mensaje
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución: %@", exception);
+        } @finally { }
+    }
+    
+    else if([callback.tag isEqualToString:@"datos_empresa"]) {
+        @try {
+            if(callback.resultado){
+                [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
+                                                                                                            @"email": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"email"],
+                                                                                                            @"facebook": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"facebook"],
+                                                                                                            @"web": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"web"],
+                                                                                                            @"telefono": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"telefono"],
+                                                                                                            @"twitter": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"twitter"],
+                                                                                                            @"fbid": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fbid"]
+                                                                                                            }];
+            } else{
+                NSLog(@"Problema que devuelve el WS: %@", callback.mensaje);
                 [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
                                                                                                             @"email": @"",
                                                                                                             @"facebook": @"",
@@ -154,7 +181,7 @@
                                                                                                             @"twitter": @"",
                                                                                                             @"fbid": @""
                                                                                                             }];
-                NSLog(@"Problema que devuelve el WS: %@", [callback.respuesta valueForKey:@"mensaje"]);
+
             }
             
         } @catch (NSException *exception) {

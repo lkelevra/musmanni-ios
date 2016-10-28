@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSMutableDictionary   *redes_sociales;
 @property (nonatomic, strong) NSMutableDictionary   *datos_telco;
 @property (nonatomic, strong) NSMutableDictionary   *listaIconos;
+@property (nonatomic, strong) NSMutableArray        *listaPromociones;
 
 + (Singleton* )getInstance;
 -(void)mostrarHud:(UIView *)vista;

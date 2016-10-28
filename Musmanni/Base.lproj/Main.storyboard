@@ -26,7 +26,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dEF-6H-bow"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FI6-Ex-fvp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jr8-zo-Mo7">
@@ -301,20 +301,9 @@
                         <viewControllerLayoutGuide type="bottom" id="m7U-JV-vkY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1SN-dO-vTA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHu-Ky-y6P">
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dHu-Ky-y6P" secondAttribute="trailing" id="G6T-3l-BuX"/>
-                            <constraint firstItem="dHu-Ky-y6P" firstAttribute="leading" secondItem="1SN-dO-vTA" secondAttribute="leading" id="coZ-kN-kNh"/>
-                            <constraint firstItem="m7U-JV-vkY" firstAttribute="top" secondItem="dHu-Ky-y6P" secondAttribute="bottom" id="rR3-Xm-F9k"/>
-                            <constraint firstItem="dHu-Ky-y6P" firstAttribute="top" secondItem="1SN-dO-vTA" secondAttribute="top" id="zZf-Cj-p54"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gq-sa-mjn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,7 +319,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTM-Q1-d23">
@@ -436,6 +425,9 @@
                                 <state key="normal" title="¿Olvidó la contraseña?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="olvidoContrasena:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HJB-eT-N5a"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -502,7 +494,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Dcv-0C-NI1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="peI-DQ-YHG">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ed8-CQ-Qfs">
@@ -516,7 +508,7 @@
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfD-N2-fKg">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="erK-M4-9ZI"/>
-                                            <constraint firstAttribute="height" constant="110" id="kxS-hj-LUM"/>
+                                            <constraint firstAttribute="height" constant="95" id="kxS-hj-LUM"/>
                                         </constraints>
                                         <state key="normal" image="movistar.png"/>
                                         <connections>
@@ -540,8 +532,8 @@
                                     <constraint firstAttribute="bottom" secondItem="W5d-wM-FVw" secondAttribute="bottom" constant="13" id="2dR-7d-RKJ"/>
                                     <constraint firstAttribute="bottom" secondItem="sAX-b3-NfO" secondAttribute="bottom" constant="8" id="54n-Ar-EdE"/>
                                     <constraint firstItem="sAX-b3-NfO" firstAttribute="leading" secondItem="2lU-Oj-9RR" secondAttribute="leading" constant="8" id="Jsj-nE-bcJ"/>
-                                    <constraint firstItem="MfD-N2-fKg" firstAttribute="centerX" secondItem="2lU-Oj-9RR" secondAttribute="centerX" constant="-2" id="ZGM-FT-3RF"/>
-                                    <constraint firstItem="MfD-N2-fKg" firstAttribute="top" secondItem="2lU-Oj-9RR" secondAttribute="top" constant="8" id="fyb-cA-c31"/>
+                                    <constraint firstItem="MfD-N2-fKg" firstAttribute="centerX" secondItem="2lU-Oj-9RR" secondAttribute="centerX" id="ZGM-FT-3RF"/>
+                                    <constraint firstItem="MfD-N2-fKg" firstAttribute="top" secondItem="2lU-Oj-9RR" secondAttribute="top" constant="20" id="fyb-cA-c31"/>
                                     <constraint firstAttribute="trailing" secondItem="W5d-wM-FVw" secondAttribute="trailing" constant="12" id="iC2-Qb-Kq0"/>
                                     <constraint firstAttribute="height" constant="158" id="o5H-xY-AWn"/>
                                 </constraints>
@@ -643,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksJ-Ui-nm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="-1609"/>
+            <point key="canvasLocation" x="760.79999999999995" y="-1609.745127436282"/>
         </scene>
         <!--Detalle Recargas View Controller-->
         <scene sceneID="xuz-y3-cAR">
@@ -654,7 +646,7 @@
                         <viewControllerLayoutGuide type="bottom" id="j0u-VH-pPu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8zl-DZ-ILc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyE-Zu-tTT">
@@ -917,7 +909,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5B9-XC-URg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FEw-Ox-dMX">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Asf-Sl-lOV">
@@ -951,7 +943,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bYx-BY-Fd9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5sR-gN-A3t">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Anq-vH-szS"/>
@@ -991,7 +983,7 @@
                         <viewControllerLayoutGuide type="bottom" id="B53-uy-SW6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Byv-Yg-Fqa">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo_contacto.png" translatesAutoresizingMaskIntoConstraints="NO" id="L41-X8-ydN">
@@ -1144,7 +1136,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2vL-Tj-o91"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FUr-VB-q0Z">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="YbK-WV-iNJ"/>
@@ -1296,8 +1288,8 @@
                         <viewControllerLayoutGuide type="top" id="mYc-ue-PjO"/>
                         <viewControllerLayoutGuide type="bottom" id="f1R-Fy-YWh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Sqn-Cr-ZOF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="Sqn-Cr-ZOF">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQ9-14-7OD">
@@ -1355,7 +1347,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C4n-jj-LhN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Monedero" image="monedero.png" selectedImage="monedero.png" id="Pyi-jI-6iR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yvl-jt-LiF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="yvl-jt-LiF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.98743730780000005" green="0.1435547173" blue="0.1826433241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1379,7 +1371,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lex-nd-kvq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ubicaciones" image="ubicaciones.png" selectedImage="ubicaciones.png" id="qCv-gA-7HN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="jk6-Um-c2h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="jk6-Um-c2h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.98743730780000005" green="0.1435547173" blue="0.1826433241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1399,7 +1391,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dm6-G0-1ij" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Contacto" image="telefono.png" selectedImage="telefono.png" id="kmc-eI-oHC"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="5wK-tg-WMJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="5wK-tg-WMJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.98743730780000005" green="0.1435547173" blue="0.1826433241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1419,7 +1411,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yLi-Mc-U2e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cupones" image="promociones.png" selectedImage="promociones.png" id="cr5-lc-rSB"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="V69-Su-JQa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="V69-Su-JQa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.98743730780000005" green="0.1435547173" blue="0.1826433241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1439,7 +1431,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PA3-dH-V8l" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recargas" image="recargas.png" selectedImage="recargas.png" id="7u2-2h-RGp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ldh-Ww-mYE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ldh-Ww-mYE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.98743730780000005" green="0.1435547173" blue="0.1826433241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

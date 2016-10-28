@@ -22,6 +22,7 @@
 @synthesize redes_sociales      = _redes_sociales;
 @synthesize datos_telco         = _datos_telco;
 @synthesize listaIconos         = _listaIconos;
+@synthesize listaPromociones    = _listaPromociones;
 
 + (instancetype)getInstance
 {
@@ -30,12 +31,13 @@ static Singleton *instance      = nil;
 
     dispatch_once(&onceToken, ^{
         instance                        = [[Singleton alloc] init];
-        instance->_url                  = @"http://54.165.243.221/";
+        instance->_url                  = @"http://52.0.9.158/";
         instance->_token                = @"NO";
         instance->_itemUsuario          = [[NSMutableDictionary alloc] init];
         instance->_redes_sociales       = [[NSMutableDictionary alloc] init];
         instance->_datos_telco          = [[NSMutableDictionary alloc] init];
         instance->_listaIconos          = [[NSMutableDictionary alloc] init];
+        instance->_listaPromociones     = [[NSMutableArray alloc] init];
     });
     return instance;
 }

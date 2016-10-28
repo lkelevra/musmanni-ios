@@ -66,7 +66,9 @@
                               @"realizar_recarga":  @"ws/recargas/hacerrecarga",
                               @"registro_usuario":  @"ws/movil/usuarios",
                               @"registro_usuario_f":@"ws/movil/usuarios",
-                              @"validar_tarjeta":   @"ws/movil/usuarios/consultar"
+                              @"validar_tarjeta":   @"ws/movil/usuarios/consultar",
+                              @"recuperar_pass":    @"ws/movil/usuarios/password/generar",
+                              @"datos_empresa":     @"ws/empresas/obtener/1"
                               };
         
         servicio = [api objectForKey:identificador];

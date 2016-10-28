@@ -13,7 +13,7 @@
 @end
 
 @implementation LoginViewController
-    @synthesize txtEmail, txtPassword, btnIngresar, btnIngresarFacebook, btnRegistro, pictureURL;
+    @synthesize txtEmail, txtPassword, btnIngresar, btnIngresarFacebook, btnRegistro, pictureURL, okAction;
     
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -137,6 +137,36 @@
     
 }
 
+- (IBAction)olvidoContrasena:(id)sender {
+    UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"Ingrese su email para recuperar tu contraseña"  message:nil  preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.delegate = self;
+    }];
+    
+    okAction =  [UIAlertAction actionWithTitle:@"Reiniciar contraseña" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[Singleton getInstance] mostrarHud:self.view];
+        WSManager *consumo = [[WSManager alloc] init];
+        [consumo useWebServiceWithMethod:@"POST" withTag:@"recuperar_pass" withParams:@{ @"email":[alertController.textFields.firstObject text] } withApi:@"recuperar_pass" withDelegate:self];
+    }];
+    
+    
+    UIAlertAction *close = [UIAlertAction actionWithTitle:@"Cerrar"
+                                                    style:UIAlertActionStyleCancel
+                                                  handler:nil];
+    okAction.enabled = NO;
+    [alertController addAction:okAction];
+    [alertController addAction:close];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *finalString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    [okAction setEnabled:(finalString.length >= 5)];
+    return YES;
+}
+
 -(void)webServiceTaskComplete:(WSManager *)callback{
     [[Singleton getInstance] ocultarHud];
     if([callback.tag isEqualToString:@"login"]){
@@ -208,7 +238,33 @@
         } @catch (NSException *exception) {
             NSLog(@"Ocurrió un problema en la ejecución en WS enviar_token: %@", exception);
         } @finally { }
-
+    }
+    
+    else if ([callback.tag isEqualToString:@"recuperar_pass"]){
+        @try {
+            if(callback.resultado){
+                [ISMessages showCardAlertWithTitle:@"Éxito"
+                                           message:callback.mensaje
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeSuccess
+                                     alertPosition:ISAlertPositionTop];
+            } else{
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:callback.mensaje
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución en WS enviar_token: %@", exception);
+        } @finally { }
     }
 }
 
