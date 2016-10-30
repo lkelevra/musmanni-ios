@@ -13,10 +13,63 @@
 @end
 
 @implementation ConfiguracionViewController
+@synthesize btnChangePass, btnCloseSesion, swNotifications;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"Configuraciones";
+    
+    btnCloseSesion.layer.cornerRadius = 16;
+    btnCloseSesion.layer.borderWidth = 2;
+    btnCloseSesion.layer.borderColor = [UIColor colorWithRed:0.72 green:0.12 blue:0.11 alpha:1.0].CGColor;
+    [swNotifications setOnTintColor:[UIColor colorWithRed:0.72 green:0.12 blue:0.11 alpha:1.0]];
+    
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    if ([pref valueForKey:@"notificaciones"] != nil) {
+        if ([[pref valueForKey:@"notificaciones"] isEqualToString:@"1"]) {
+            [swNotifications setOn:YES];
+        } else {
+            [swNotifications setOn:NO];
+        }
+    } else {
+        [swNotifications setOn:YES];
+    }
+}
+
+- (void)goBack {
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+}
+
+- (IBAction)activarNotificaciones:(UISwitch *)sender{
+    if (sender.on) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"notificaciones"];
+    } else {
+        [[NSUserDefaults standardUserDefaults] setValue:@"0" forKey:@"notificaciones"];
+    }
+    
+    [[NSUserDefaults standardUserDefaults]  synchronize];
+}
+
+-(IBAction)cerrarSesion:(UIButton *)sender{
+    [FBSDKAccessToken setCurrentAccessToken:nil];
+    [FBSDKProfile setCurrentProfile:nil];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:@"data_user"];
+    [userDefaults removeObjectForKey:@"validado"];
+    [userDefaults removeObjectForKey:@"saldo"];
+    
+    [userDefaults synchronize];
+    [self dismissViewControllerAnimated:true completion:nil];
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -19,14 +19,6 @@
     [super viewDidLoad];
     tablaDatosContacto.delegate = self;
     tablaDatosContacto.dataSource = self;
-    
-    
-    UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
-    [conf setBackgroundImage:[UIImage imageNamed:@"Configuraciones"] forState:UIControlStateNormal];
-    [conf addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    conf.frame = CGRectMake(0, 0, 30, 30);
-    UIBarButtonItem *confButton = [[UIBarButtonItem alloc] initWithCustomView:conf] ;
-    self.navigationItem.rightBarButtonItem = confButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,7 +39,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"redes: %@", [Singleton getInstance].redes_sociales);
     static NSString *identificador = @"ContactenosTableViewCell";
     ContactenosTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identificador];
     if(!cell){

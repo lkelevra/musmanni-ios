@@ -23,13 +23,6 @@
     viewClaro.layer.borderColor = [[UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0] CGColor];
     viewKolbi.layer.borderWidth = 1.5;
     viewKolbi.layer.borderColor = [[UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0] CGColor];
-    
-    UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
-    [conf setBackgroundImage:[UIImage imageNamed:@"Configuraciones"] forState:UIControlStateNormal];
-    [conf addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    conf.frame = CGRectMake(0, 0, 30, 30);
-    UIBarButtonItem *confButton = [[UIBarButtonItem alloc] initWithCustomView:conf] ;
-    self.navigationItem.rightBarButtonItem = confButton;
 }
 
 - (void)didReceiveMemoryWarning {

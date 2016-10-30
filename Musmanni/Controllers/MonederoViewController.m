@@ -73,7 +73,8 @@
 
 - (void)abrirConfiguraciones{
     ConfiguracionViewController *__weak configuracionesView = [self.storyboard instantiateViewControllerWithIdentifier:@"confView"];
-    [self presentViewController:configuracionesView animated:TRUE completion:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:configuracionesView];
+    [self presentViewController:nav animated:TRUE completion:nil];
 }
 
 -(IBAction)mostrarFormaCanje:(UIButton *)sender {
@@ -88,22 +89,15 @@
 }
 
 -(void)webServiceTaskComplete:(WSManager *)callback{
-    [[Singleton getInstance] ocultarHud];
+    
     if([callback.tag isEqualToString:@"obtener_saldo"]){
+        [[Singleton getInstance] ocultarHud];
         @try {
             if(callback.resultado){
                 [lblPuntos setText:[NSString stringWithFormat:@"%@", [[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"]]];
                 [[NSUserDefaults standardUserDefaults] setObject:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"] forKey:@"saldo"];
                 [[NSUserDefaults standardUserDefaults]  synchronize];
             } else{
-                [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{
-                                                                                                            @"email": @"",
-                                                                                                            @"facebook": @"",
-                                                                                                            @"web": @"",
-                                                                                                            @"telefono": @"",
-                                                                                                            @"twitter": @"",
-                                                                                                            @"fbid": @""
-                                                                                                            }];
                 NSLog(@"Problema que devuelve el WS: %@", [callback.respuesta valueForKey:@"mensaje"]);
             }
             
@@ -113,6 +107,7 @@
     }
     
     else if([callback.tag isEqualToString:@"validar_tarjeta"]) {
+        [[Singleton getInstance] ocultarHud];
         @try {
             if(callback.resultado){
                 [[NSUserDefaults standardUserDefaults] setValue:@"0" forKey:@"saldo"];
@@ -162,6 +157,7 @@
     }
     
     else if([callback.tag isEqualToString:@"datos_empresa"]) {
+        [[Singleton getInstance] ocultarHud];
         @try {
             if(callback.resultado){
                 [Singleton getInstance].redes_sociales = [[NSMutableDictionary alloc] initWithDictionary: @{

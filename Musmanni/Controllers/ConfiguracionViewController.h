@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface ConfiguracionViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *btnChangePass;
+@property (weak, nonatomic) IBOutlet UIButton *btnCloseSesion;
+@property (weak, nonatomic) IBOutlet UISwitch *swNotifications;
 
 @end

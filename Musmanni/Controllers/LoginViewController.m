@@ -138,7 +138,7 @@
 }
 
 - (IBAction)olvidoContrasena:(id)sender {
-    UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"Ingrese su email para recuperar tu contraseña"  message:nil  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"Para recuperar  la contraseña se validará el correo electrónico y se enviará una contraseña temporal al correo ingresado en su registro para porder ingresar."  message:nil  preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.delegate = self;
