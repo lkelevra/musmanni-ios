@@ -71,8 +71,7 @@
     NSURL *picture = [NSURL URLWithString:[[NSString stringWithFormat:@"%@", [item valueForKey:@"url_foto"]] stringByRemovingPercentEncoding]];
     NSString *descripcion = [NSString stringWithFormat:@"Promoción válida hasta: %@", [item valueForKey:@"fin"]];
     
-    [cell.ivPicture setImage:[UIImage imageNamed:@"loading"]];
-    [cell.ivPicture setImageWithURL:picture];
+    [cell.ivPicture setImageWithURL:picture placeholderImage:[UIImage imageNamed:@"loader"]];
     [cell.lblTitle setText:[item valueForKey:@"descripcion" ]];
     [cell.lblDescrip setText:descripcion];
     [cell.btnShare setTag:indexPath.row];

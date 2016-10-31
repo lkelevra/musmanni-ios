@@ -173,10 +173,12 @@
 		4C93DB811DABDC2400E7CFF9 /* monedero@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C93DB7E1DABDC2400E7CFF9 /* monedero@2x.png */; };
 		4C93DB821DABDC2400E7CFF9 /* monedero@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C93DB7F1DABDC2400E7CFF9 /* monedero@3x.png */; };
 		4CC8A4CA1DC24A1300894416 /* ConfiguracionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8A4C91DC24A1300894416 /* ConfiguracionViewController.m */; };
-		4CC8A4CC1DC2571900894416 /* gLBnM7_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC8A4CB1DC2571900894416 /* gLBnM7_icon.png */; };
 		4CCB0F6B1DB461AF0092D686 /* PinMapa.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB0F6A1DB461AF0092D686 /* PinMapa.m */; };
 		4CCE1E8F1DC2919E00AF2608 /* TerminosCondicionesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE1E8E1DC2919E00AF2608 /* TerminosCondicionesViewController.m */; };
 		4CCE1E911DC2A44F00AF2608 /* canjes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCE1E901DC2A44F00AF2608 /* canjes.png */; };
+		4CCF94841DC7D61A00202638 /* loader.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCF94811DC7D61A00202638 /* loader.png */; };
+		4CCF94851DC7D61A00202638 /* loader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCF94821DC7D61A00202638 /* loader@2x.png */; };
+		4CCF94861DC7D61A00202638 /* loader@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCF94831DC7D61A00202638 /* loader@3x.png */; };
 		4CE8434E1DA5480D00502CC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE8434D1DA5480D00502CC9 /* main.m */; };
 		4CE843511DA5480D00502CC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE843501DA5480D00502CC9 /* AppDelegate.m */; };
 		4CE843541DA5480D00502CC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE843531DA5480D00502CC9 /* ViewController.m */; };
@@ -406,12 +408,14 @@
 		4C93DB7F1DABDC2400E7CFF9 /* monedero@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monedero@3x.png"; sourceTree = "<group>"; };
 		4CC8A4C81DC24A1300894416 /* ConfiguracionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfiguracionViewController.h; path = Controllers/ConfiguracionViewController.h; sourceTree = "<group>"; };
 		4CC8A4C91DC24A1300894416 /* ConfiguracionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfiguracionViewController.m; path = Controllers/ConfiguracionViewController.m; sourceTree = "<group>"; };
-		4CC8A4CB1DC2571900894416 /* gLBnM7_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gLBnM7_icon.png; sourceTree = "<group>"; };
 		4CCB0F691DB461AF0092D686 /* PinMapa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinMapa.h; path = Controllers/PinMapa.h; sourceTree = "<group>"; };
 		4CCB0F6A1DB461AF0092D686 /* PinMapa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinMapa.m; path = Controllers/PinMapa.m; sourceTree = "<group>"; };
 		4CCE1E8D1DC2919E00AF2608 /* TerminosCondicionesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TerminosCondicionesViewController.h; path = Controllers/TerminosCondicionesViewController.h; sourceTree = "<group>"; };
 		4CCE1E8E1DC2919E00AF2608 /* TerminosCondicionesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TerminosCondicionesViewController.m; path = Controllers/TerminosCondicionesViewController.m; sourceTree = "<group>"; };
 		4CCE1E901DC2A44F00AF2608 /* canjes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canjes.png; sourceTree = "<group>"; };
+		4CCF94811DC7D61A00202638 /* loader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader.png; sourceTree = "<group>"; };
+		4CCF94821DC7D61A00202638 /* loader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader@2x.png"; sourceTree = "<group>"; };
+		4CCF94831DC7D61A00202638 /* loader@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader@3x.png"; sourceTree = "<group>"; };
 		4CE843491DA5480D00502CC9 /* Musmanni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musmanni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE8434D1DA5480D00502CC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CE8434F1DA5480D00502CC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -544,6 +548,9 @@
 		4C0A8D841DA5AE67008CC9F3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4CCF94811DC7D61A00202638 /* loader.png */,
+				4CCF94821DC7D61A00202638 /* loader@2x.png */,
+				4CCF94831DC7D61A00202638 /* loader@3x.png */,
 				4C58FF291DC66995003534A2 /* FONDO1.png */,
 				4C58FF2A1DC66995003534A2 /* FONDO1@2x.png */,
 				4C58FF2B1DC66995003534A2 /* FONDO1@3x.png */,
@@ -557,7 +564,6 @@
 				4C58FF1E1DC66943003534A2 /* tools_red@2x.png */,
 				4C58FF1F1DC66943003534A2 /* tools_red@3x.png */,
 				4CCE1E901DC2A44F00AF2608 /* canjes.png */,
-				4CC8A4CB1DC2571900894416 /* gLBnM7_icon.png */,
 				4C70CF1E1DC12B4E002AF0DC /* genere_registro.png */,
 				4C70CF1F1DC12B4E002AF0DC /* genere_registro@2x.png */,
 				4C70CF201DC12B4E002AF0DC /* genere_registro@3x.png */,
@@ -1012,7 +1018,6 @@
 				4C0A8DCC1DA5AE88008CC9F3 /* Facebook.png in Resources */,
 				4C09F23B1DBEBF0000F5368D /* down_arrow@2x.png in Resources */,
 				4C898DDB1DAF00B700CB7A20 /* claro@2x.png in Resources */,
-				4CC8A4CC1DC2571900894416 /* gLBnM7_icon.png in Resources */,
 				4C0A8E0A1DA5B25B008CC9F3 /* Oswald-HeavyItalic.ttf in Resources */,
 				4C898DD01DAEF5EC00CB7A20 /* movistar@3x.png in Resources */,
 				4C70CF151DC1207E002AF0DC /* lock_registro.png in Resources */,
@@ -1024,6 +1029,8 @@
 				4C523A5D1DC05DF20035D4E5 /* 120.png in Resources */,
 				4C891E5E1DAD7153002578C2 /* telefono_contactenos@3x.png in Resources */,
 				4C0A8DCF1DA5AE88008CC9F3 /* fondo.png in Resources */,
+				4CCF94851DC7D61A00202638 /* loader@2x.png in Resources */,
+				4CCF94841DC7D61A00202638 /* loader.png in Resources */,
 				4CE8435C1DA5480D00502CC9 /* Assets.xcassets in Resources */,
 				4C898DC51DAEEC8600CB7A20 /* flecha.png in Resources */,
 				4C93DB801DABDC2400E7CFF9 /* monedero.png in Resources */,
@@ -1071,6 +1078,7 @@
 				4C09F21E1DBE7C4D00F5368D /* back@3x.png in Resources */,
 				4C70CF0F1DC1207E002AF0DC /* date_registro.png in Resources */,
 				4C09F21D1DBE7C4D00F5368D /* back@2x.png in Resources */,
+				4CCF94861DC7D61A00202638 /* loader@3x.png in Resources */,
 				4C58FF251DC66943003534A2 /* logo_red@3x.png in Resources */,
 				4C0A8DCE1DA5AE88008CC9F3 /* Facebook@3x.png in Resources */,
 				4C58FF2E1DC66995003534A2 /* FONDO1@3x.png in Resources */,

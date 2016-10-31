@@ -44,17 +44,30 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated{
-    [[Singleton getInstance] mostrarHud:self.navigationController.view];
-    
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
-    [lblSaldo setText:[NSString stringWithFormat:@"%@", [pref objectForKey:@"saldo"]]];
-
-    WSManager *consumo = [[WSManager alloc] init];
-    [consumo useWebServiceWithMethod:@"GET" withTag:@"montos_recarga" withParams:@{
-                                                                           @"pAutorizador_Id":[[Singleton getInstance].datos_telco valueForKey:@"autorizador_id"],
-                                                                           @"pServicio_Id":[[Singleton getInstance].datos_telco valueForKey:@"servicio_id"],
-                                                                           @"pMonedero_Tarjeta":[pref valueForKey:@"notarjeta"]
-                                                                           } withApi:@"montos_recarga" withDelegate:self];
+    
+    if([pref valueForKey:@"notarjeta"]){
+        [[Singleton getInstance] mostrarHud:self.navigationController.view];
+        [lblSaldo setText:[NSString stringWithFormat:@"%@", [pref objectForKey:@"saldo"]]];
+        
+        WSManager *consumo = [[WSManager alloc] init];
+        [consumo useWebServiceWithMethod:@"GET" withTag:@"montos_recarga" withParams:@{
+                                                                                       @"pAutorizador_Id":[[Singleton getInstance].datos_telco valueForKey:@"autorizador_id"],
+                                                                                       @"pServicio_Id":[[Singleton getInstance].datos_telco valueForKey:@"servicio_id"],
+                                                                                       @"pMonedero_Tarjeta":[pref valueForKey:@"notarjeta"]
+                                                                                       } withApi:@"montos_recarga" withDelegate:self];
+    } else {
+        [self dismissViewControllerAnimated:TRUE completion:nil];
+        
+        [ISMessages showCardAlertWithTitle:@"Espera"
+                                   message:@"Aún no tienes validada tu tarjeta, no puedes realizar una recarga hasta que sea validada"
+                                 iconImage:nil
+                                  duration:3.f
+                               hideOnSwipe:YES
+                                 hideOnTap:YES
+                                 alertType:ISAlertTypeWarning
+                             alertPosition:ISAlertPositionTop];
+    }
 }
 
 - (void)goBack {

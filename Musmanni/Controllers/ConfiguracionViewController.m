@@ -84,6 +84,7 @@
 -(IBAction)aceptarCambiarContrasena:(UIButton *)sender{
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
     if ([txtNewPass.text length] > 0 && [txtOldPass.text length] > 0) {
+        [self.view endEditing:YES];
         [[Singleton getInstance] mostrarHud:self.navigationController.view];
         WSManager *consumo = [[WSManager alloc] init];
         [consumo useWebServiceWithMethod:@"POST" withTag:@"cambiar_password" withParams:@{@"email":         [[pref objectForKey:@"data_user"] valueForKey:@"email"],
@@ -103,6 +104,7 @@
 }
 
 -(IBAction)cancelarCambio:(UIButton *)sender{
+    [self.view endEditing:YES];
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
