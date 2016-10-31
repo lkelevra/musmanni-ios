@@ -10,8 +10,9 @@
 #import "ContactenosTableViewCell.h"
 #import "Singleton.h"
 #import "WSManager.h"
+#import <MessageUI/MessageUI.h>
 
-@interface ContactenosViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ContactenosViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tablaDatosContacto;
 
 @end

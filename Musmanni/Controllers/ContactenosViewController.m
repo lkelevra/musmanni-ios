@@ -86,11 +86,16 @@
         }
     }
     else if ([indexPath row] == 1){
-        NSString *mail = @"message://";
-        mail = [mail stringByAppendingString:[[Singleton getInstance].redes_sociales valueForKey:@"email"]];
-        NSURL* mailURL = [NSURL URLWithString:mail];
-        if ([[UIApplication sharedApplication] canOpenURL:mailURL]) {
-            [[UIApplication sharedApplication] openURL:mailURL];
+        if ([MFMailComposeViewController canSendMail]){
+            MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+            mc.mailComposeDelegate = self;
+            [mc setSubject:@"Contacto desde aplicación móvil"];
+            [mc setMessageBody:@"" isHTML:NO];
+            [mc setToRecipients:@[[[Singleton getInstance].redes_sociales valueForKey:@"email"]]];
+            
+            [self presentViewController:mc animated:YES completion:NULL];
+        } else {
+            NSLog(@"El dispositivo no puede enviar emails");
         }
     }
     else if ([indexPath row] == 2){
@@ -109,6 +114,28 @@
             [[UIApplication sharedApplication] openURL:fbURL];
         }
     }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    switch (result) {
+        case MFMailComposeResultSent:
+            NSLog(@"You sent the email.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"You saved a draft of this email");
+            break;
+        case MFMailComposeResultCancelled:
+            NSLog(@"You cancelled sending this email.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed:  An error occurred when trying to compose this email");
+            break;
+        default:
+            NSLog(@"An error occurred when trying to compose this email");
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 /*
