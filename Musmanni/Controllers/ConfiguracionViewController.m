@@ -44,8 +44,12 @@
     }
 }
 
+- (void) viewDidAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 - (void)goBack {
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)activarNotificaciones:(UISwitch *)sender{
@@ -66,6 +70,7 @@
     [userDefaults removeObjectForKey:@"data_user"];
     [userDefaults removeObjectForKey:@"validado"];
     [userDefaults removeObjectForKey:@"saldo"];
+    [userDefaults removeObjectForKey:@"notarjeta"];
     
     [userDefaults synchronize];
     [self dismissViewControllerAnimated:true completion:nil];

@@ -53,7 +53,7 @@
     [consumo useWebServiceWithMethod:@"GET" withTag:@"montos_recarga" withParams:@{
                                                                            @"pAutorizador_Id":[[Singleton getInstance].datos_telco valueForKey:@"autorizador_id"],
                                                                            @"pServicio_Id":[[Singleton getInstance].datos_telco valueForKey:@"servicio_id"],
-                                                                           @"pMonedero_Tarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"]
+                                                                           @"pMonedero_Tarjeta":[pref valueForKey:@"notarjeta"]
                                                                            } withApi:@"montos_recarga" withDelegate:self];
 }
 
@@ -84,7 +84,7 @@
                 [consumo useWebServiceWithMethod:@"POST" withTag:@"realizar_recarga" withParams:@{
                                                                                                @"pAutorizador_Id":[[Singleton getInstance].datos_telco valueForKey:@"autorizador_id"],
                                                                                                @"pServicio_Id":[[Singleton getInstance].datos_telco valueForKey:@"servicio_id"],
-                                                                                               @"pMonedero_Tarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"],
+                                                                                               @"pMonedero_Tarjeta":[pref valueForKey:@"notarjeta"],
                                                                                                @"pMonto":[NSString stringWithFormat:@"%d", (int)monto_seleccionado],
                                                                                                @"celular":txtPhoneNumber.text
                                                                                                } withApi:@"realizar_recarga" withDelegate:self];

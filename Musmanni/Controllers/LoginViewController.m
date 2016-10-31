@@ -187,6 +187,7 @@
                                             @"genero": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"genero"],
                                             };
                 [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"] forKey:@"validado"];
+                [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"notarjeta"] forKey:@"notarjeta"];
                 [[NSUserDefaults standardUserDefaults] setObject:data_user forKey:@"data_user"];
                 [[NSUserDefaults standardUserDefaults]  synchronize];
                 [self dismissViewControllerAnimated:TRUE completion:nil];

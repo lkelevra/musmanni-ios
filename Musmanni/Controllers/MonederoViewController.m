@@ -38,6 +38,12 @@
     conf.frame = CGRectMake(0, 0, 30, 30);
     UIBarButtonItem *confButton = [[UIBarButtonItem alloc] initWithCustomView:conf] ;
     self.navigationItem.rightBarButtonItem = confButton;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(activarCuenta:) name:@"updatetarjeta" object:nil];
+    
+    WSManager *consumo = [[WSManager alloc] init];
+    [consumo useWebServiceWithMethod:@"GET" withTag:@"datos_empresa" withParams:@{} withApi:@"datos_empresa" withDelegate:self];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -50,11 +56,7 @@
         
         WSManager *consumo = [[WSManager alloc] init];
         [consumo useWebServiceWithMethod:@"POST" withTag:@"validar_tarjeta" withParams:@{ @"email":[[pref objectForKey:@"data_user"] valueForKey:@"email"] } withApi:@"validar_tarjeta" withDelegate:self];
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-            WSManager *consumo = [[WSManager alloc] init];
-            [consumo useWebServiceWithMethod:@"GET" withTag:@"datos_empresa" withParams:@{} withApi:@"datos_empresa" withDelegate:self];
-        });
+
     } else {
         LoginViewController *__weak loginView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginView];
@@ -72,9 +74,36 @@
 
 
 - (void)abrirConfiguraciones{
-    ConfiguracionViewController *__weak configuracionesView = [self.storyboard instantiateViewControllerWithIdentifier:@"confView"];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:configuracionesView];
-    [self presentViewController:nav animated:TRUE completion:nil];
+    UIStoryboard *storybrd = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ConfiguracionViewController *viewController = [storybrd instantiateViewControllerWithIdentifier:@"confView"];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+-(void)activarCuenta:(NSNotification *)notification {
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    
+    NSString *bar_code = @"0"; bar_code = [bar_code stringByAppendingString:[pref valueForKey:@"notarjeta"]];
+    CGSize size = viewBarCode.bounds.size;
+    NSInteger width = size.width;
+    float coordenada = width - 113.0;
+    CGRect kBarCodeFrame = {{coordenada/2, 10.0},{113.0, 100.0}};
+    BarCodeView *barCodeView = [[BarCodeView alloc] initWithFrame:kBarCodeFrame];
+    [viewBarCode addSubview:barCodeView];
+    [barCodeView setBarCode:bar_code];
+    
+    [ISMessages showCardAlertWithTitle:@"Éxito"
+                               message:[NSString stringWithFormat:@"Tu tarjeta se a creado exitosamente, el número es: %@", [[notification object] valueForKey:@"notarjeta"]]
+                             iconImage:nil
+                              duration:5.f
+                           hideOnSwipe:YES
+                             hideOnTap:YES
+                             alertType:ISAlertTypeSuccess
+                         alertPosition:ISAlertPositionTop];
+    
+    [[Singleton getInstance] mostrarHud:self.navigationController.view];
+    WSManager *consumo = [[WSManager alloc] init];
+    [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_saldo" withParams:@{ @"notarjeta":[pref valueForKey:@"notarjeta"] } withApi:@"obtener_saldo" withDelegate:self];
 }
 
 -(IBAction)mostrarFormaCanje:(UIButton *)sender {
@@ -128,9 +157,9 @@
                 } else {
                     [[Singleton getInstance] mostrarHud:self.navigationController.view];
                     WSManager *consumo = [[WSManager alloc] init];
-                    [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_saldo" withParams:@{ @"notarjeta":[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"] } withApi:@"obtener_saldo" withDelegate:self];
+                    [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_saldo" withParams:@{ @"notarjeta":[pref valueForKey:@"notarjeta"] } withApi:@"obtener_saldo" withDelegate:self];
                     
-                    NSString *bar_code = @"0"; bar_code = [bar_code stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"notarjeta"]];
+                    NSString *bar_code = @"0"; bar_code = [bar_code stringByAppendingString:[pref valueForKey:@"notarjeta"]];
                     CGSize size = viewBarCode.bounds.size;
                     NSInteger width = size.width;
                     float coordenada = width - 113.0;

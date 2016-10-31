@@ -59,7 +59,14 @@
 }
 
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
-    NSLog(@"Noticación: %@", userInfo);
+    NSDictionary *contenido = [[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"loc-args"];
+    if ([[contenido objectForKey:@"tarjeta"] isEqualToString:@"1"]) {
+        [[NSUserDefaults standardUserDefaults] setValue:@"270000000434" forKey:@"notarjeta"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"validado"];
+        [[NSUserDefaults standardUserDefaults]  synchronize];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updatetarjeta" object:contenido];
+    }
 }
 
 -(void)clearNotifications{
