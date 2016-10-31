@@ -68,7 +68,8 @@
                               @"registro_usuario_f":@"ws/movil/usuarios",
                               @"validar_tarjeta":   @"ws/movil/usuarios/consultar",
                               @"recuperar_pass":    @"ws/movil/usuarios/password/generar",
-                              @"datos_empresa":     @"ws/empresas/obtener/1"
+                              @"datos_empresa":     @"ws/empresas/obtener/1",
+                              @"cambiar_password":  @"ws/movil/usuarios/password/cambiar"
                               };
         
         servicio = [api objectForKey:identificador];

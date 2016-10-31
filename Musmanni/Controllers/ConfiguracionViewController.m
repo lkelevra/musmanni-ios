@@ -13,11 +13,12 @@
 @end
 
 @implementation ConfiguracionViewController
-@synthesize btnChangePass, btnCloseSesion, swNotifications;
+@synthesize btnChangePass, btnCloseSesion, swNotifications, viewModal, txtNewPass, txtOldPass, btnAceptPass, btnCancelPass;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Configuraciones";
+    viewModal.hidden = YES;
     
     btnCloseSesion.layer.cornerRadius = 16;
     btnCloseSesion.layer.borderWidth = 2;
@@ -62,6 +63,57 @@
     [[NSUserDefaults standardUserDefaults]  synchronize];
 }
 
+-(IBAction)cambiarContrasena:(UIButton *)sender{
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    if ([[[pref objectForKey:@"data_user"] valueForKey:@"fb_id"] isEqualToString:@"0"] ) {
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.hidesBackButton = YES;
+        viewModal.hidden = NO;
+    } else {
+        [ISMessages showCardAlertWithTitle:@"Espera"
+                                   message:@"Ha iniciado sesión con facebook, esta opción no está permitida en este método de inicio de sesión"
+                                 iconImage:nil
+                                  duration:3.f
+                               hideOnSwipe:YES
+                                 hideOnTap:YES
+                                 alertType:ISAlertTypeError
+                             alertPosition:ISAlertPositionTop];
+    }
+}
+
+-(IBAction)aceptarCambiarContrasena:(UIButton *)sender{
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    if ([txtNewPass.text length] > 0 && [txtOldPass.text length] > 0) {
+        [[Singleton getInstance] mostrarHud:self.navigationController.view];
+        WSManager *consumo = [[WSManager alloc] init];
+        [consumo useWebServiceWithMethod:@"POST" withTag:@"cambiar_password" withParams:@{@"email":         [[pref objectForKey:@"data_user"] valueForKey:@"email"],
+                                                                                          @"pass_actual":   txtOldPass.text,
+                                                                                          @"pass_nueva":    txtNewPass.text,
+                                                                                          } withApi:@"cambiar_password" withDelegate:self];
+    } else {
+        [ISMessages showCardAlertWithTitle:@"Espera"
+                                   message:@"Verifique que los campos esten ingresados correctamente"
+                                 iconImage:nil
+                                  duration:3.f
+                               hideOnSwipe:YES
+                                 hideOnTap:YES
+                                 alertType:ISAlertTypeWarning
+                             alertPosition:ISAlertPositionTop];
+    }
+}
+
+-(IBAction)cancelarCambio:(UIButton *)sender{
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+    viewModal.hidden = YES;
+}
+
+
 -(IBAction)cerrarSesion:(UIButton *)sender{
     [FBSDKAccessToken setCurrentAccessToken:nil];
     [FBSDKProfile setCurrentProfile:nil];
@@ -71,9 +123,54 @@
     [userDefaults removeObjectForKey:@"validado"];
     [userDefaults removeObjectForKey:@"saldo"];
     [userDefaults removeObjectForKey:@"notarjeta"];
+    [userDefaults removeObjectForKey:@"notificaciones"];
     
     [userDefaults synchronize];
-    [self dismissViewControllerAnimated:true completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
+
+-(void)webServiceTaskComplete:(WSManager *)callback{
+    [[Singleton getInstance] ocultarHud];
+    if ([callback.tag isEqualToString:@"cambiar_password"]){
+        @try {
+            if(callback.resultado){
+                txtOldPass.text = @"";
+                txtNewPass.text = @"",
+                viewModal.hidden = YES;
+                
+                UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [backBtn setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+                [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+                backBtn.frame = CGRectMake(0, 0, 30, 30);
+                UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+                self.navigationItem.leftBarButtonItem = backButton;
+                
+                [self resignFirstResponder];
+                
+                [ISMessages showCardAlertWithTitle:@"Éxito"
+                                           message:callback.mensaje
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeSuccess
+                                     alertPosition:ISAlertPositionTop];
+            } else{
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:callback.mensaje
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución en WS cambiar_password: %@", exception);
+        } @finally { }
+    }
 
 }
 

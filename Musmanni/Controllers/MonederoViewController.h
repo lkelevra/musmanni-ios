@@ -31,5 +31,5 @@ static const CGRect kTextFieldFrame = {{60.0, 170.0},{200.0, 30.0}};
 @property (weak, nonatomic) IBOutlet UIButton *btnTerminosCondiciones;
 @property (weak, nonatomic) IBOutlet UIView *viewUserData;
 @property (weak, nonatomic) IBOutlet UIButton *btnFormaCanje;
-
+@property (strong, nonatomic) BarCodeView *barCodeView;
 @end

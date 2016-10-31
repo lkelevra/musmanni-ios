@@ -14,7 +14,7 @@
 @end
 
 @implementation MonederoViewController
-@synthesize viewInfoPerfil, viewUserData, viewBarCode, ivProfilePicture, lblSaldo, lblNombre, lblPuntos, btnFormaCanje, btnTerminosCondiciones;
+@synthesize viewInfoPerfil, viewUserData, viewBarCode, ivProfilePicture, lblSaldo, lblNombre, lblPuntos, btnFormaCanje, btnTerminosCondiciones, barCodeView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +31,11 @@
     btnFormaCanje.layer.cornerRadius = 16;
     btnFormaCanje.layer.borderWidth = 2;
     btnFormaCanje.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+//    [viewBarCode setUserInteractionEnabled:YES];
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(abrirViewBarCode:)];
+//    tapGesture.cancelsTouchesInView = NO;
+//    [viewBarCode addGestureRecognizer:tapGesture];
     
     UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
     [conf setBackgroundImage:[UIImage imageNamed:@"Configuraciones"] forState:UIControlStateNormal];
@@ -64,12 +69,22 @@
     }
 }
 
+
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+-(void)abrirViewBarCode:(UITapGestureRecognizer *)sender{
+    UIStoryboard *storybrd = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ConfiguracionViewController *viewController = [storybrd instantiateViewControllerWithIdentifier:@"barCodeView"];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 
@@ -88,7 +103,7 @@
     NSInteger width = size.width;
     float coordenada = width - 113.0;
     CGRect kBarCodeFrame = {{coordenada/2, 10.0},{113.0, 100.0}};
-    BarCodeView *barCodeView = [[BarCodeView alloc] initWithFrame:kBarCodeFrame];
+    barCodeView = [[BarCodeView alloc] initWithFrame:kBarCodeFrame];
     [viewBarCode addSubview:barCodeView];
     [barCodeView setBarCode:bar_code];
     
@@ -164,7 +179,7 @@
                     NSInteger width = size.width;
                     float coordenada = width - 113.0;
                     CGRect kBarCodeFrame = {{coordenada/2, 10.0},{113.0, 100.0}};
-                    BarCodeView *barCodeView = [[BarCodeView alloc] initWithFrame:kBarCodeFrame];
+                    barCodeView = [[BarCodeView alloc] initWithFrame:kBarCodeFrame];
                     [viewBarCode addSubview:barCodeView];
                     [barCodeView setBarCode:bar_code];
                 }
