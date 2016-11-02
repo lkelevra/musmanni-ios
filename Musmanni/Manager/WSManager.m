@@ -69,7 +69,8 @@
                               @"validar_tarjeta":   @"ws/movil/usuarios/consultar",
                               @"recuperar_pass":    @"ws/movil/usuarios/password/generar",
                               @"datos_empresa":     @"ws/empresas/obtener/1",
-                              @"cambiar_password":  @"ws/movil/usuarios/password/cambiar"
+                              @"cambiar_password":  @"ws/movil/usuarios/password/cambiar",
+                              @"cerrar_sesion":     @"ws/movil/logout"
                               };
         
         servicio = [api objectForKey:identificador];

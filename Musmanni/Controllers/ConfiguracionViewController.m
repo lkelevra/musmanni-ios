@@ -120,6 +120,10 @@
     [FBSDKAccessToken setCurrentAccessToken:nil];
     [FBSDKProfile setCurrentProfile:nil];
     
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    WSManager *consumo = [[WSManager alloc] init];
+    [consumo useWebServiceWithMethod:@"POST" withTag:@"cerrar_sesion" withParams:@{@"email": [[pref objectForKey:@"data_user"] valueForKey:@"email"]} withApi:@"cerrar_sesion" withDelegate:self];
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults removeObjectForKey:@"data_user"];
     [userDefaults removeObjectForKey:@"validado"];
@@ -173,7 +177,18 @@
             NSLog(@"Ocurrió un problema en la ejecución en WS cambiar_password: %@", exception);
         } @finally { }
     }
-
+    else if ([callback.tag isEqualToString:@"cerrar_sesion"]){
+        @try {
+            if(callback.resultado){
+                NSLog(@"Sesión cerrada");
+            } else{
+                NSLog(@"Error al cerrar sesión");
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución en WS cambiar_password: %@", exception);
+        } @finally { }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
