@@ -26,7 +26,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>17</string>
+	<string>18</string>
 	<key>FacebookAppID</key>
 	<string>1040421749332097</string>
 	<key>FacebookDisplayName</key>
@@ -42,10 +42,14 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Musmanni necesita acceder a la cámara</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Nos permite ubicar la agencia más cercana a ti</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Nos permite ubicar la agencia más cercana a ti</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Musmanni necesita acceder al carrete</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
