@@ -94,6 +94,7 @@
 		4C28BCE01DC106180082D1E9 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C28BCDD1DC106180082D1E9 /* logo@2x.png */; };
 		4C28BCE11DC106180082D1E9 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C28BCDE1DC106180082D1E9 /* logo@3x.png */; };
 		4C28BCE41DC10EAE0082D1E9 /* RegistroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C28BCE31DC10EAE0082D1E9 /* RegistroViewController.m */; };
+		4C33E36F1DD2753300BEB99E /* FormaCanjeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C33E36E1DD2753300BEB99E /* FormaCanjeViewController.m */; };
 		4C36FF7E1DAEC46400EF2381 /* CuponesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C36FF7D1DAEC46400EF2381 /* CuponesViewController.m */; };
 		4C36FF821DAEC4B400EF2381 /* CuponesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C36FF801DAEC4B400EF2381 /* CuponesTableViewCell.m */; };
 		4C36FF831DAEC4B400EF2381 /* CuponesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C36FF811DAEC4B400EF2381 /* CuponesTableViewCell.xib */; };
@@ -313,6 +314,8 @@
 		4C28BCDE1DC106180082D1E9 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		4C28BCE21DC10EAE0082D1E9 /* RegistroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistroViewController.h; path = Controllers/RegistroViewController.h; sourceTree = "<group>"; };
 		4C28BCE31DC10EAE0082D1E9 /* RegistroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistroViewController.m; path = Controllers/RegistroViewController.m; sourceTree = "<group>"; };
+		4C33E36D1DD2753300BEB99E /* FormaCanjeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormaCanjeViewController.h; path = Controllers/FormaCanjeViewController.h; sourceTree = "<group>"; };
+		4C33E36E1DD2753300BEB99E /* FormaCanjeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormaCanjeViewController.m; path = Controllers/FormaCanjeViewController.m; sourceTree = "<group>"; };
 		4C36FF7C1DAEC46400EF2381 /* CuponesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CuponesViewController.h; path = Controllers/CuponesViewController.h; sourceTree = "<group>"; };
 		4C36FF7D1DAEC46400EF2381 /* CuponesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CuponesViewController.m; path = Controllers/CuponesViewController.m; sourceTree = "<group>"; };
 		4C36FF7F1DAEC4B400EF2381 /* CuponesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CuponesTableViewCell.h; path = Cells/CuponesTableViewCell.h; sourceTree = "<group>"; };
@@ -521,6 +524,8 @@
 				4CCE1E8E1DC2919E00AF2608 /* TerminosCondicionesViewController.m */,
 				4CF5C5681DC6D13100C10B81 /* BarCodeViewController.h */,
 				4CF5C5691DC6D13100C10B81 /* BarCodeViewController.m */,
+				4C33E36D1DD2753300BEB99E /* FormaCanjeViewController.h */,
+				4C33E36E1DD2753300BEB99E /* FormaCanjeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1258,6 +1263,7 @@
 			files = (
 				4CE843541DA5480D00502CC9 /* ViewController.m in Sources */,
 				4CE8435A1DA5480D00502CC9 /* Musmanni.xcdatamodeld in Sources */,
+				4C33E36F1DD2753300BEB99E /* FormaCanjeViewController.m in Sources */,
 				4CC8A4CA1DC24A1300894416 /* ConfiguracionViewController.m in Sources */,
 				4C0C88D01DAE7F61003FEA49 /* MapaViewController.m in Sources */,
 				4C273D781DB0064900EF56D9 /* BarCodeView.m in Sources */,

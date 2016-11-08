@@ -16,12 +16,14 @@
 #import <EAIntroView/EAIntroPage.h>
 #import <EAIntroView/EAIntroView.h>
 #import <UIImageView+AFNetworking.h>
+#import "SRMModalViewController.h"
+#import "FormaCanjeViewController.h"
 
 static const CGRect kLabelFrame = {{0.0, 20.0},{320.0, 30.0}};
 static const CGRect kButtonFrame = {{85.0, 220.0},{150.0, 30.0}};
 static const CGRect kTextFieldFrame = {{60.0, 170.0},{200.0, 30.0}};
 
-@interface MonederoViewController : UIViewController <WSManagerDelegateF>
+@interface MonederoViewController : UIViewController <WSManagerDelegateF, SRMModalViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewInfoPerfil;
 @property (weak, nonatomic) IBOutlet UIView *viewBarCode;
 @property (weak, nonatomic) IBOutlet UIImageView *ivProfilePicture;

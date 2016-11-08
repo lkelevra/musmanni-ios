@@ -17,6 +17,7 @@ target 'Musmanni' do
     pod 'ISMessages'
     pod 'EAIntroView', '~> 2.7.0'
     pod 'RSBarcodes', '~> 0.1.4'
+    pod "SRMModalViewController"
     
   target 'MusmanniTests' do
     inherit! :search_paths

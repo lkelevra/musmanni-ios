@@ -39,8 +39,13 @@
     UIBarButtonItem *confButton = [[UIBarButtonItem alloc] initWithCustomView:conf] ;
     self.navigationItem.rightBarButtonItem = confButton;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(activarCuenta:) name:@"updatetarjeta" object:nil];
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(disposeModalViewControllerNotification:) name:SRMModalViewWillShowNotification object:nil];
+    [defaultCenter addObserver:self selector:@selector(disposeModalViewControllerNotification:) name:SRMModalViewDidShowNotification object:nil];
+    [defaultCenter addObserver:self selector:@selector(disposeModalViewControllerNotification:) name:SRMModalViewWillHideNotification object:nil];
+    [defaultCenter addObserver:self selector:@selector(disposeModalViewControllerNotification:) name:SRMModalViewDidHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(activarCuenta:) name:@"updatetarjeta" object:nil];
     
     WSManager *consumo = [[WSManager alloc] init];
     [consumo useWebServiceWithMethod:@"GET" withTag:@"datos_empresa" withParams:@{} withApi:@"datos_empresa" withDelegate:self];
@@ -75,6 +80,41 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (IBAction)showModalView:(id)sender {
+    [SRMModalViewController sharedInstance].delegate = self;
+    [SRMModalViewController sharedInstance].enableTapOutsideToDismiss = YES;
+    [SRMModalViewController sharedInstance].statusBarStyle = UIStatusBarStyleLightContent;
+    FormaCanjeViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"terminosCondicionesView"];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    
+    viewController.view.frame = CGRectMake(0, 0, (screenWidth - 40), (screenHeight - 200));
+    
+    [[SRMModalViewController sharedInstance] showViewWithController:viewController];
+}
+
+- (void)modalViewWillShow:(SRMModalViewController *)modalViewController {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)modalViewDidShow:(SRMModalViewController *)modalViewController {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)modalViewWillHide:(SRMModalViewController *)modalViewController {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)modalViewDidHide:(SRMModalViewController *)modalViewController {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (void)disposeModalViewControllerNotification:(NSNotification *)notification {
+    NSLog(@"%@", notification.name);
 }
 
 
@@ -119,7 +159,7 @@
     [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_saldo" withParams:@{ @"notarjeta":[pref valueForKey:@"notarjeta"] } withApi:@"obtener_saldo" withDelegate:self];
 }
 
--(IBAction)mostrarFormaCanje:(UIButton *)sender {
+-(IBAction)mostrarFormaCanje:(id)sender {
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"";
     page1.desc = @"";

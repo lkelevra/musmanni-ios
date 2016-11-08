@@ -55,6 +55,7 @@ PODS:
   - MBProgressHUD (0.9.2)
   - RSBarcodes (0.1.4)
   - SpinKit (1.2.0)
+  - SRMModalViewController (0.0.2.2)
 
 DEPENDENCIES:
   - AFNetworking (= 2.5.2)
@@ -68,6 +69,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.9.1)
   - RSBarcodes (~> 0.1.4)
   - SpinKit (~> 1.1)
+  - SRMModalViewController
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
@@ -86,7 +88,8 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   RSBarcodes: 6b062b5aba3e75a5e889b2465ef1bb256215fbd0
   SpinKit: 65906a8b534a4e14cbfd3f8b0b6c329131faef4a
+  SRMModalViewController: b6a2348f4f9657d4b494a15ed2483f0c8bf31770
 
-PODFILE CHECKSUM: 211550a959eaae2f37e96ba87d811521b0347699
+PODFILE CHECKSUM: af1f79408bac7222e2ee15e3d9f243cd495bef26
 
 COCOAPODS: 1.0.1
