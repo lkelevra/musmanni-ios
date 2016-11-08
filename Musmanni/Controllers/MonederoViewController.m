@@ -32,11 +32,6 @@
     btnFormaCanje.layer.borderWidth = 2;
     btnFormaCanje.layer.borderColor = [UIColor whiteColor].CGColor;
     
-    [viewBarCode setUserInteractionEnabled:YES];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(abrirViewBarCode:)];
-    tapGesture.cancelsTouchesInView = NO;
-    [viewBarCode addGestureRecognizer:tapGesture];
-    
     UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
     [conf setBackgroundImage:[UIImage imageNamed:@"Configuraciones"] forState:UIControlStateNormal];
     [conf addTarget:self action:@selector(abrirConfiguraciones) forControlEvents:UIControlEventTouchUpInside];
@@ -53,6 +48,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [[Singleton getInstance] ocultarHud];
+    [barCodeView removeFromSuperview];
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
     if ([pref objectForKey:@"data_user"]) {
         [[Singleton getInstance] mostrarHud:self.navigationController.view];
@@ -157,10 +153,12 @@
             if(callback.resultado){
                 [[NSUserDefaults standardUserDefaults] setValue:@"0" forKey:@"saldo"];
                 [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"] forKey:@"validado"];
+                [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"notarjeta"] forKey:@"notarjeta"];
                 [[NSUserDefaults standardUserDefaults]  synchronize];
                 
                 NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
                 if ([[pref valueForKey:@"validado"] isEqualToString:@"0"]) {
+                    [lblPuntos setText:[pref valueForKey:@"saldo"]];
                     [ISMessages showCardAlertWithTitle:@"Información"
                                                message:@"Aún no has confirmado tu tarjeta, revisa tu correo"
                                              iconImage:nil
@@ -170,6 +168,7 @@
                                              alertType:ISAlertTypeInfo
                                          alertPosition:ISAlertPositionTop];
                     
+                    [viewBarCode setUserInteractionEnabled:NO];
                 } else {
                     WSManager *consumo = [[WSManager alloc] init];
                     [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_saldo" withParams:@{ @"notarjeta":[pref valueForKey:@"notarjeta"] } withApi:@"obtener_saldo" withDelegate:self];
@@ -182,6 +181,11 @@
                     barCodeView = [[BarCodeView alloc] initWithFrame:kBarCodeFrame];
                     [viewBarCode addSubview:barCodeView];
                     [barCodeView setBarCode:bar_code];
+                    
+                    [viewBarCode setUserInteractionEnabled:YES];
+                    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(abrirViewBarCode:)];
+                    tapGesture.cancelsTouchesInView = NO;
+                    [viewBarCode addGestureRecognizer:tapGesture];
                 }
                 
             } else{

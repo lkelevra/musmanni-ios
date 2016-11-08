@@ -133,7 +133,6 @@
     
     [userDefaults synchronize];
     [self.navigationController popViewControllerAnimated:YES];
-
 }
 
 -(void)webServiceTaskComplete:(WSManager *)callback{

@@ -154,7 +154,6 @@
     [[Singleton getInstance] ocultarHud];
     if([callback.tag isEqualToString:@"puntos"]){
         @try {
-            NSLog(@"Entra a puntos");
             if(callback.resultado){
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
                     items = [self crearArrayPines:(NSArray*)[callback.respuesta valueForKey:@"registros"]];

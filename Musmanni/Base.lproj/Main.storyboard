@@ -1730,18 +1730,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z4c-DT-wOA">
-                                <rect key="frame" x="159" y="43" width="240" height="580"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="cD6-yg-t5C"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z4c-DT-wOA">
+                                <rect key="frame" x="67" y="43" width="240" height="580"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Z4c-DT-wOA" firstAttribute="centerY" secondItem="NKp-6D-xSC" secondAttribute="centerY" id="2yI-Ut-D4o"/>
-                            <constraint firstAttribute="trailing" secondItem="Z4c-DT-wOA" secondAttribute="trailing" constant="16" id="C8k-Z5-dcy"/>
-                            <constraint firstItem="Z4c-DT-wOA" firstAttribute="top" secondItem="KC1-QL-La0" secondAttribute="bottom" constant="23" id="QDr-UO-hfY"/>
+                            <constraint firstItem="Z4c-DT-wOA" firstAttribute="leading" secondItem="NKp-6D-xSC" secondAttribute="leadingMargin" constant="51" id="KfH-E5-yax"/>
+                            <constraint firstItem="Z4c-DT-wOA" firstAttribute="top" secondItem="KC1-QL-La0" secondAttribute="bottom" constant="23" id="XIN-MH-qk6"/>
+                            <constraint firstItem="Z4c-DT-wOA" firstAttribute="centerY" secondItem="NKp-6D-xSC" secondAttribute="centerY" id="qa1-cr-ITE"/>
+                            <constraint firstItem="Z4c-DT-wOA" firstAttribute="centerX" secondItem="NKp-6D-xSC" secondAttribute="centerX" id="zuc-U9-u3O"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
