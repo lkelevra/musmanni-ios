@@ -1730,29 +1730,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5b8-qq-UzF">
-                                <rect key="frame" x="67" y="158" width="240" height="350"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z4c-DT-wOA">
+                                <rect key="frame" x="159" y="43" width="240" height="580"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="1Br-pi-9VW"/>
-                                    <constraint firstAttribute="height" constant="350" id="Dgi-tR-KqU"/>
+                                    <constraint firstAttribute="width" constant="200" id="cD6-yg-t5C"/>
                                 </constraints>
-                            </view>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5b8-qq-UzF" firstAttribute="centerY" secondItem="NKp-6D-xSC" secondAttribute="centerY" id="91I-lC-jah"/>
-                            <constraint firstItem="5b8-qq-UzF" firstAttribute="centerX" secondItem="NKp-6D-xSC" secondAttribute="centerX" id="GAH-fh-cZV"/>
+                            <constraint firstItem="Z4c-DT-wOA" firstAttribute="centerY" secondItem="NKp-6D-xSC" secondAttribute="centerY" id="2yI-Ut-D4o"/>
+                            <constraint firstAttribute="trailing" secondItem="Z4c-DT-wOA" secondAttribute="trailing" constant="16" id="C8k-Z5-dcy"/>
+                            <constraint firstItem="Z4c-DT-wOA" firstAttribute="top" secondItem="KC1-QL-La0" secondAttribute="bottom" constant="23" id="QDr-UO-hfY"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
-                        <outlet property="viewBarCode" destination="5b8-qq-UzF" id="YTm-hf-NJP"/>
+                        <outlet property="ivBarCode" destination="Z4c-DT-wOA" id="dWd-wX-9cA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMC-dG-JXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2164" y="-230"/>
+            <point key="canvasLocation" x="2164" y="-230.73463268365819"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JZ9-Wm-Aeo">

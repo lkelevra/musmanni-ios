@@ -27,6 +27,7 @@
 
 
 -(void) viewDidAppear:(BOOL)animated{
+    [[Singleton getInstance] ocultarHud];
     [[Singleton getInstance] mostrarHud:self.navigationController.view];
     WSManager *consumo = [[WSManager alloc] init];
     [consumo useWebServiceWithMethod:@"POST" withTag:@"promociones" withParams:@{} withApi:@"promociones" withDelegate:self];

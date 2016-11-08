@@ -32,10 +32,10 @@
     btnFormaCanje.layer.borderWidth = 2;
     btnFormaCanje.layer.borderColor = [UIColor whiteColor].CGColor;
     
-//    [viewBarCode setUserInteractionEnabled:YES];
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(abrirViewBarCode:)];
-//    tapGesture.cancelsTouchesInView = NO;
-//    [viewBarCode addGestureRecognizer:tapGesture];
+    [viewBarCode setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(abrirViewBarCode:)];
+    tapGesture.cancelsTouchesInView = NO;
+    [viewBarCode addGestureRecognizer:tapGesture];
     
     UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
     [conf setBackgroundImage:[UIImage imageNamed:@"Configuraciones"] forState:UIControlStateNormal];
@@ -52,8 +52,10 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+    [[Singleton getInstance] ocultarHud];
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
     if ([pref objectForKey:@"data_user"]) {
+        [[Singleton getInstance] mostrarHud:self.navigationController.view];
         NSString *nombre = @"Hola "; nombre = [nombre stringByAppendingString:[[pref objectForKey:@"data_user"] valueForKey:@"nombre"]];
         
         [ivProfilePicture setImageWithURL:[NSURL URLWithString:[[pref objectForKey:@"data_user"] valueForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:@"blank-profile-picture-973460_960_720"]];
@@ -133,9 +135,8 @@
 }
 
 -(void)webServiceTaskComplete:(WSManager *)callback{
-    
+    [[Singleton getInstance] ocultarHud];
     if([callback.tag isEqualToString:@"obtener_saldo"]){
-        [[Singleton getInstance] ocultarHud];
         @try {
             if(callback.resultado){
                 [lblPuntos setText:[NSString stringWithFormat:@"%@", [[callback.respuesta objectForKey:@"registros"] valueForKey:@"Saldo"]]];
@@ -170,7 +171,6 @@
                                          alertPosition:ISAlertPositionTop];
                     
                 } else {
-                    [[Singleton getInstance] mostrarHud:self.navigationController.view];
                     WSManager *consumo = [[WSManager alloc] init];
                     [consumo useWebServiceWithMethod:@"POST" withTag:@"obtener_saldo" withParams:@{ @"notarjeta":[pref valueForKey:@"notarjeta"] } withApi:@"obtener_saldo" withDelegate:self];
                     

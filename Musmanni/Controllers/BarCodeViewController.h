@@ -11,8 +11,10 @@
 #import "WSManager.h"
 #import "BarCodeView.h"
 #import "BarCodeEAN13.h"
+#import <RSBarcodes/RSBarcodes.h>
 
 @interface BarCodeViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *viewBarCode;
-@property (strong, nonatomic) BarCodeView *barCodeView;
+@property (weak, nonatomic) IBOutlet UIImageView *ivBarCode;
+@property (nonatomic, weak) IBOutlet BarCodeView *barCodeView;
+
 @end

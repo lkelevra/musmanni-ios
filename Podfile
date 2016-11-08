@@ -16,6 +16,7 @@ target 'Musmanni' do
     pod 'IQKeyboardManager'
     pod 'ISMessages'
     pod 'EAIntroView', '~> 2.7.0'
+    pod 'RSBarcodes', '~> 0.1.4'
     
   target 'MusmanniTests' do
     inherit! :search_paths
