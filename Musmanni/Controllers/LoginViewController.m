@@ -108,14 +108,23 @@
             FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters];
             [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                 if (!error) {
+                    
                     NSDictionary *userData = (NSDictionary *)result;
                     pictureURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]];
-                    NSLog(@"%@", pictureURL);
                     [[Singleton getInstance] mostrarHud:self.navigationController.view];
+                    
+                    NSString *birthday = [[NSString alloc] init];
+                    
+                    if (userData[@"birthday"]) {
+                        birthday = userData[@"birthday"];
+                    } else {
+                        birthday = @"";
+                    }
+                    
                     NSDictionary *datos = @{@"email":           userData[@"email"],
                                             @"password":        @"",
                                             @"nombre":          userData[@"name"],
-                                            @"fechanacimiento": userData[@"birthday"],
+                                            @"fechanacimiento": birthday,
                                             @"genero":          userData[@"gender"],
                                             @"fb_id":           userData[@"id"],
                                             @"devicetoken":     [Singleton getInstance].token
@@ -138,7 +147,7 @@
 }
 
 - (IBAction)olvidoContrasena:(id)sender {
-    UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"Para recuperar  la contraseña se validará el correo electrónico y se enviará una contraseña temporal al correo ingresado en su registro para porder ingresar."  message:nil  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController  alertControllerWithTitle:@"Para recuperar  la contraseña se validará el correo electrónico y se enviará una contraseña temporal al correo ingresado en su registro para poder ingresar."  message:nil  preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.delegate = self;

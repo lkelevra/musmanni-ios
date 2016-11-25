@@ -30,7 +30,6 @@
     [[UITabBar appearance] setTranslucent:NO];
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.99 green:0.15 blue:0.18 alpha:1.0]];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.44 green:0.05 blue:0.09 alpha:1.0]];
-    [[UITabBar appearance] setUnselectedItemTintColor:[UIColor whiteColor]];
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
@@ -39,6 +38,9 @@
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     }
     
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0){
+        [[UITabBar appearance] setUnselectedItemTintColor:[UIColor whiteColor]];
+    }
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
