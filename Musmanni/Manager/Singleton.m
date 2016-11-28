@@ -23,6 +23,7 @@
 @synthesize datos_telco         = _datos_telco;
 @synthesize listaIconos         = _listaIconos;
 @synthesize listaPromociones    = _listaPromociones;
+@synthesize listaPuntos         = _listaPuntos;
 
 + (instancetype)getInstance
 {
@@ -39,6 +40,7 @@ static Singleton *instance      = nil;
         instance->_datos_telco          = [[NSMutableDictionary alloc] init];
         instance->_listaIconos          = [[NSMutableDictionary alloc] init];
         instance->_listaPromociones     = [[NSMutableArray alloc] init];
+        instance->_listaPuntos          = [[NSMutableArray alloc] init];
     });
     return instance;
 }

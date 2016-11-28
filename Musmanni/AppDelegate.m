@@ -54,6 +54,16 @@
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     [Singleton getInstance].token = token;
     NSLog(@"El token es: (%@)", token);
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    if ([pref objectForKey:@"data_user"]) {
+        WSManager *consumo = [[WSManager alloc] init];
+        [consumo useWebServiceWithMethod:@"POST" withTag:@"validar_tarjeta" withParams:@{
+                                                                                         @"email":[[pref objectForKey:@"data_user"] valueForKey:@"email"],
+                                                                                         @"devicetoken":[Singleton getInstance].token
+                                                                                         } withApi:@"validar_tarjeta" withDelegate:nil];
+        
+    }
+
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -61,6 +71,7 @@
 }
 
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo {
+    NSLog(@"NOTIFICACION RECIBIDA %@",userInfo);
     NSDictionary *contenido = [[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"loc-args"];
     if ([[contenido objectForKey:@"tarjeta"] isEqualToString:@"1"]) {
         [[NSUserDefaults standardUserDefaults] setValue:@"270000000434" forKey:@"notarjeta"];
@@ -68,6 +79,19 @@
         [[NSUserDefaults standardUserDefaults]  synchronize];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updatetarjeta" object:contenido];
+    }
+    else if ([[[contenido objectForKey:@"tipo"] stringValue] isEqualToString:@"5"]) {
+        NSLog(@"MENSAJE DE LA RECARGA ");
+        NSLog(@"msg %@",[contenido valueForKey:@"msg"]);
+        [ISMessages showCardAlertWithTitle:@"Notificación de recarga"
+                                   message:[contenido valueForKey:@"msg"]
+                                 iconImage:nil
+                                  duration:10.0
+                               hideOnSwipe:YES
+                                 hideOnTap:YES
+                                 alertType:ISAlertTypeInfo
+                             alertPosition:ISAlertPositionTop];
+        
     }
 }
 

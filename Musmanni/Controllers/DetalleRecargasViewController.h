@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Singleton.h"
 #import "WSManager.h"
+#import "SBPickerSelector.h"
 
-@interface DetalleRecargasViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, WSManagerDelegateF>
+@interface DetalleRecargasViewController : UIViewController <WSManagerDelegateF,SBPickerSelectorDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *lblTelco;
 @property (weak, nonatomic) IBOutlet UIImageView *ivTelco;
 @property (weak, nonatomic) IBOutlet UIImageView *ivTel1;
-@property (weak, nonatomic) IBOutlet UIPickerView *pvMontos;
-@property (strong, nonatomic) NSArray *montos;
+
+@property (strong, nonatomic) NSMutableArray *montos;
 @property (weak, nonatomic) IBOutlet UILabel *lblMonto;
 @property (weak, nonatomic) IBOutlet UIButton *btnPicker;
 @property (weak, nonatomic) IBOutlet UILabel *lblSaldo;

@@ -22,6 +22,7 @@
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     
+    [Singleton getInstance].listaIconos = [[NSMutableDictionary alloc] init];
     #ifdef __IPHONE_8_0
     if(IS_OS_8_OR_LATER) {
         [self.locationManager requestWhenInUseAuthorization];
@@ -34,8 +35,12 @@
     [mapView setMapType:MKMapTypeStandard];
     [mapView setZoomEnabled:YES];
     [mapView setScrollEnabled:YES];
+    
+    
 }
-
+-(IBAction)abrirUbicaciones:(id)sender{
+    [self performSegueWithIdentifier:@"ubicacionesSegue" sender:nil];
+}
 -(void)viewDidAppear:(BOOL)animated {
     [[Singleton getInstance] ocultarHud];
     [[Singleton getInstance] mostrarHud:self.navigationController.view];
@@ -105,6 +110,7 @@
 }
 
 - (void)downloadImageForAnnotation:(MKAnnotationView *)annotation withUrl:(NSString *) urlString {
+    
     if([[Singleton getInstance].listaIconos objectForKey:urlString]){
         [annotation setImage: [UIImage imageWithContentsOfFile:[[Singleton getInstance].listaIconos valueForKey:urlString]]];
     }
@@ -116,15 +122,19 @@
         NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response)
                                                   {
                                                       NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+                                                      
                                                       return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
                                                   } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error)
                                                   {
+
                                                       [[Singleton getInstance].listaIconos setValue:filePath.path forKey:urlString];
+
                                                       [annotation setImage: [UIImage imageWithContentsOfFile:filePath.path]];
                                                   }];
         [downloadTask resume];
     }
 }
+
 
 
 - (NSMutableArray *)crearArrayPines:(NSArray *)pines {
@@ -155,11 +165,19 @@
     if([callback.tag isEqualToString:@"puntos"]){
         @try {
             if(callback.resultado){
+                [Singleton getInstance].listaPuntos = [callback.respuesta valueForKey:@"registros"];
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                    
                     items = [self crearArrayPines:(NSArray*)[callback.respuesta valueForKey:@"registros"]];
                     [mapView addAnnotations:items];
                 });
 
+                UIButton *conf = [UIButton buttonWithType:UIButtonTypeCustom];
+                [conf setBackgroundImage:[UIImage imageNamed:@"find"] forState:UIControlStateNormal];
+                [conf addTarget:self action:@selector(abrirUbicaciones:) forControlEvents:UIControlEventTouchUpInside];
+                conf.frame = CGRectMake(0, 0, 30, 30);
+                UIBarButtonItem *confButton = [[UIBarButtonItem alloc] initWithCustomView:conf] ;
+                self.navigationItem.rightBarButtonItem = confButton;
             } else {
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:callback.mensaje

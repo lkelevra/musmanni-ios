@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -16,29 +19,35 @@
             <rect key="frame" x="0.0" y="0.0" width="433" height="240"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="433" height="239"/>
+                <rect key="frame" x="0.0" y="0.0" width="433" height="239"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GhK-xx-WBo">
+                        <rect key="frame" x="0.0" y="0.0" width="433" height="241"/>
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmu-Oy-1et">
+                                <rect key="frame" x="8" y="8" width="417" height="225"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dvD-9R-pov">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dvD-9R-pov">
+                                        <rect key="frame" x="0.0" y="0.0" width="417" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="5h4-4L-HEr"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título de la promoción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9A-JL-v9P">
+                                        <rect key="frame" x="8" y="158" width="401" height="20"/>
                                         <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="17"/>
                                         <color key="textColor" red="0.40779560799999998" green="0.40787053109999999" blue="0.40779092909999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acá debe ir la descripción de la promoción, a lo sumo debe llevar 2 líneas" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAc-He-IlA">
+                                        <rect key="frame" x="8" y="180" width="345" height="33"/>
                                         <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK8-he-uJS">
+                                        <rect key="frame" x="360" y="197" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="BdA-ZQ-944"/>
                                             <constraint firstAttribute="width" constant="20" id="yhG-8T-fkg"/>
@@ -46,6 +55,7 @@
                                         <state key="normal" image="favorito.png"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLO-Nc-wBk">
+                                        <rect key="frame" x="388" y="197" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="5cp-rR-6hm"/>
                                             <constraint firstAttribute="width" constant="20" id="OJy-sL-lHr"/>
@@ -53,6 +63,7 @@
                                         <state key="normal" image="compartir.png"/>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Bebidas" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CJ-UJ-bQ9">
+                                        <rect key="frame" x="8" y="8" width="401" height="20"/>
                                         <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald Regular" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -62,17 +73,17 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="P9A-JL-v9P" secondAttribute="trailing" constant="8" id="4Sp-mY-kMs"/>
                                     <constraint firstAttribute="trailing" secondItem="CAc-He-IlA" secondAttribute="trailing" constant="64" id="4ZA-8Y-yNG"/>
-                                    <constraint firstAttribute="bottom" secondItem="zLO-Nc-wBk" secondAttribute="bottom" constant="6" id="7kJ-aJ-tR7"/>
+                                    <constraint firstAttribute="bottom" secondItem="zLO-Nc-wBk" secondAttribute="bottom" constant="8" id="7kJ-aJ-tR7"/>
                                     <constraint firstItem="CAc-He-IlA" firstAttribute="leading" secondItem="hmu-Oy-1et" secondAttribute="leading" constant="8" id="Do0-oa-Wpb"/>
                                     <constraint firstItem="CAc-He-IlA" firstAttribute="top" secondItem="dvD-9R-pov" secondAttribute="bottom" constant="30" id="PBl-lY-y8P"/>
                                     <constraint firstItem="dvD-9R-pov" firstAttribute="top" secondItem="hmu-Oy-1et" secondAttribute="top" id="TMP-EX-8ap"/>
                                     <constraint firstItem="5CJ-UJ-bQ9" firstAttribute="top" secondItem="hmu-Oy-1et" secondAttribute="top" constant="8" id="UgO-Eh-lh5"/>
                                     <constraint firstItem="P9A-JL-v9P" firstAttribute="top" secondItem="dvD-9R-pov" secondAttribute="bottom" constant="8" id="VTh-6J-kYf"/>
                                     <constraint firstItem="5CJ-UJ-bQ9" firstAttribute="leading" secondItem="hmu-Oy-1et" secondAttribute="leading" constant="8" id="VyN-U1-XKm"/>
-                                    <constraint firstAttribute="bottom" secondItem="qK8-he-uJS" secondAttribute="bottom" constant="6" id="cov-FK-yEp"/>
+                                    <constraint firstAttribute="bottom" secondItem="qK8-he-uJS" secondAttribute="bottom" constant="8" id="cov-FK-yEp"/>
                                     <constraint firstAttribute="trailing" secondItem="dvD-9R-pov" secondAttribute="trailing" id="mqa-JG-Wn5"/>
                                     <constraint firstItem="dvD-9R-pov" firstAttribute="leading" secondItem="hmu-Oy-1et" secondAttribute="leading" id="o7t-NG-6z8"/>
-                                    <constraint firstAttribute="trailing" secondItem="zLO-Nc-wBk" secondAttribute="trailing" constant="8" id="s8v-hg-P4j"/>
+                                    <constraint firstAttribute="trailing" secondItem="zLO-Nc-wBk" secondAttribute="trailing" constant="9" id="s8v-hg-P4j"/>
                                     <constraint firstItem="P9A-JL-v9P" firstAttribute="leading" secondItem="hmu-Oy-1et" secondAttribute="leading" constant="8" id="sPm-xb-MgM"/>
                                     <constraint firstAttribute="trailing" secondItem="5CJ-UJ-bQ9" secondAttribute="trailing" constant="8" id="x6q-jr-X01"/>
                                     <constraint firstItem="zLO-Nc-wBk" firstAttribute="leading" secondItem="qK8-he-uJS" secondAttribute="trailing" constant="8" id="xch-S7-Y2y"/>

@@ -192,6 +192,22 @@
 		4CE843851DA5486300502CC9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE843841DA5486300502CC9 /* MapKit.framework */; };
 		4CF5C56A1DC6D13100C10B81 /* BarCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF5C5691DC6D13100C10B81 /* BarCodeViewController.m */; };
 		A7C7F4E27165CBFCCF53EBE9 /* libPods-MusmanniUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8F109A2F1A850A2D9544B8 /* libPods-MusmanniUITests.a */; };
+		AA3A62521DEB601C00797AE6 /* find.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3A624F1DEB601C00797AE6 /* find.png */; };
+		AA3A62531DEB601C00797AE6 /* find@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3A62501DEB601C00797AE6 /* find@2x.png */; };
+		AA3A62541DEB601C00797AE6 /* find@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3A62511DEB601C00797AE6 /* find@3x.png */; };
+		AA3A62571DEB64DE00797AE6 /* PuntosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3A62561DEB64DE00797AE6 /* PuntosTableViewController.m */; };
+		AA3A625B1DEB680700797AE6 /* PuntoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3A62591DEB680700797AE6 /* PuntoTableViewCell.m */; };
+		AA3A625C1DEB680700797AE6 /* PuntoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3A625A1DEB680700797AE6 /* PuntoTableViewCell.xib */; };
+		AA4500A81DEB7753007F7B95 /* PuntoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4500A71DEB7753007F7B95 /* PuntoViewController.m */; };
+		AA4500B21DEB7EBA007F7B95 /* contactoHorario.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500A91DEB7EBA007F7B95 /* contactoHorario.png */; };
+		AA4500B31DEB7EBA007F7B95 /* contactoHorario@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500AA1DEB7EBA007F7B95 /* contactoHorario@2x.png */; };
+		AA4500B41DEB7EBA007F7B95 /* contactoHorario@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500AB1DEB7EBA007F7B95 /* contactoHorario@3x.png */; };
+		AA4500B51DEB7EBA007F7B95 /* contactoTelefono.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500AC1DEB7EBA007F7B95 /* contactoTelefono.png */; };
+		AA4500B61DEB7EBA007F7B95 /* contactoTelefono@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500AD1DEB7EBA007F7B95 /* contactoTelefono@2x.png */; };
+		AA4500B71DEB7EBA007F7B95 /* contactoTelefono@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500AE1DEB7EBA007F7B95 /* contactoTelefono@3x.png */; };
+		AA4500B81DEB7EBA007F7B95 /* contactoUbicacion.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500AF1DEB7EBA007F7B95 /* contactoUbicacion.png */; };
+		AA4500B91DEB7EBA007F7B95 /* contactoUbicacion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500B01DEB7EBA007F7B95 /* contactoUbicacion@2x.png */; };
+		AA4500BA1DEB7EBA007F7B95 /* contactoUbicacion@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500B11DEB7EBA007F7B95 /* contactoUbicacion@3x.png */; };
 		E6DC0166DA1E17835DBC4A6A /* libPods-MusmanniTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B03537E8C09FC1E49F1CD9 /* libPods-MusmanniTests.a */; };
 		F3BE02549185CFF982D5495B /* libPods-Musmanni.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 909C502FF2CDAB6C3FED5199 /* libPods-Musmanni.a */; };
 /* End PBXBuildFile section */
@@ -444,6 +460,25 @@
 		694119BB3CA1AD9EC9C6528E /* Pods-MusmanniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests.release.xcconfig"; sourceTree = "<group>"; };
 		906C629B436314503A519208 /* Pods-MusmanniUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		909C502FF2CDAB6C3FED5199 /* libPods-Musmanni.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Musmanni.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA3A624F1DEB601C00797AE6 /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.png; sourceTree = "<group>"; };
+		AA3A62501DEB601C00797AE6 /* find@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "find@2x.png"; sourceTree = "<group>"; };
+		AA3A62511DEB601C00797AE6 /* find@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "find@3x.png"; sourceTree = "<group>"; };
+		AA3A62551DEB64DE00797AE6 /* PuntosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuntosTableViewController.h; sourceTree = "<group>"; };
+		AA3A62561DEB64DE00797AE6 /* PuntosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuntosTableViewController.m; sourceTree = "<group>"; };
+		AA3A62581DEB680700797AE6 /* PuntoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuntoTableViewCell.h; sourceTree = "<group>"; };
+		AA3A62591DEB680700797AE6 /* PuntoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuntoTableViewCell.m; sourceTree = "<group>"; };
+		AA3A625A1DEB680700797AE6 /* PuntoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PuntoTableViewCell.xib; sourceTree = "<group>"; };
+		AA4500A61DEB7753007F7B95 /* PuntoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuntoViewController.h; sourceTree = "<group>"; };
+		AA4500A71DEB7753007F7B95 /* PuntoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuntoViewController.m; sourceTree = "<group>"; };
+		AA4500A91DEB7EBA007F7B95 /* contactoHorario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contactoHorario.png; sourceTree = "<group>"; };
+		AA4500AA1DEB7EBA007F7B95 /* contactoHorario@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactoHorario@2x.png"; sourceTree = "<group>"; };
+		AA4500AB1DEB7EBA007F7B95 /* contactoHorario@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactoHorario@3x.png"; sourceTree = "<group>"; };
+		AA4500AC1DEB7EBA007F7B95 /* contactoTelefono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contactoTelefono.png; sourceTree = "<group>"; };
+		AA4500AD1DEB7EBA007F7B95 /* contactoTelefono@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactoTelefono@2x.png"; sourceTree = "<group>"; };
+		AA4500AE1DEB7EBA007F7B95 /* contactoTelefono@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactoTelefono@3x.png"; sourceTree = "<group>"; };
+		AA4500AF1DEB7EBA007F7B95 /* contactoUbicacion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contactoUbicacion.png; sourceTree = "<group>"; };
+		AA4500B01DEB7EBA007F7B95 /* contactoUbicacion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactoUbicacion@2x.png"; sourceTree = "<group>"; };
+		AA4500B11DEB7EBA007F7B95 /* contactoUbicacion@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactoUbicacion@3x.png"; sourceTree = "<group>"; };
 		DC8F109A2F1A850A2D9544B8 /* libPods-MusmanniUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusmanniUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47E4CA2808C5B68AB347C17 /* Pods-MusmanniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniTests/Pods-MusmanniTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9B03537E8C09FC1E49F1CD9 /* libPods-MusmanniTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusmanniTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -526,6 +561,10 @@
 				4CF5C5691DC6D13100C10B81 /* BarCodeViewController.m */,
 				4C33E36D1DD2753300BEB99E /* FormaCanjeViewController.h */,
 				4C33E36E1DD2753300BEB99E /* FormaCanjeViewController.m */,
+				AA3A62551DEB64DE00797AE6 /* PuntosTableViewController.h */,
+				AA3A62561DEB64DE00797AE6 /* PuntosTableViewController.m */,
+				AA4500A61DEB7753007F7B95 /* PuntoViewController.h */,
+				AA4500A71DEB7753007F7B95 /* PuntoViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -553,6 +592,18 @@
 		4C0A8D841DA5AE67008CC9F3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AA3A624F1DEB601C00797AE6 /* find.png */,
+				AA3A62501DEB601C00797AE6 /* find@2x.png */,
+				AA3A62511DEB601C00797AE6 /* find@3x.png */,
+				AA4500A91DEB7EBA007F7B95 /* contactoHorario.png */,
+				AA4500AA1DEB7EBA007F7B95 /* contactoHorario@2x.png */,
+				AA4500AB1DEB7EBA007F7B95 /* contactoHorario@3x.png */,
+				AA4500AC1DEB7EBA007F7B95 /* contactoTelefono.png */,
+				AA4500AD1DEB7EBA007F7B95 /* contactoTelefono@2x.png */,
+				AA4500AE1DEB7EBA007F7B95 /* contactoTelefono@3x.png */,
+				AA4500AF1DEB7EBA007F7B95 /* contactoUbicacion.png */,
+				AA4500B01DEB7EBA007F7B95 /* contactoUbicacion@2x.png */,
+				AA4500B11DEB7EBA007F7B95 /* contactoUbicacion@3x.png */,
 				4CCF94811DC7D61A00202638 /* loader.png */,
 				4CCF94821DC7D61A00202638 /* loader@2x.png */,
 				4CCF94831DC7D61A00202638 /* loader@3x.png */,
@@ -721,6 +772,9 @@
 				4C6F5ED31DB0571300E4D823 /* BusquedaMapaTableViewCell.h */,
 				4C6F5ED41DB0571300E4D823 /* BusquedaMapaTableViewCell.m */,
 				4C6F5ED51DB0571300E4D823 /* BusquedaMapaTableViewCell.xib */,
+				AA3A62581DEB680700797AE6 /* PuntoTableViewCell.h */,
+				AA3A62591DEB680700797AE6 /* PuntoTableViewCell.m */,
+				AA3A625A1DEB680700797AE6 /* PuntoTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -972,9 +1026,13 @@
 				4C0A8DD61DA5AE88008CC9F3 /* Login mail@2x.png in Resources */,
 				4C0C88D81DAE9375003FEA49 /* estrella_amarilla@2x.png in Resources */,
 				4C09F2291DBEA7C300F5368D /* monedero_gris@2x.png in Resources */,
+				AA4500B71DEB7EBA007F7B95 /* contactoTelefono@3x.png in Resources */,
+				AA4500BA1DEB7EBA007F7B95 /* contactoUbicacion@3x.png in Resources */,
 				4C523A5C1DC05DF20035D4E5 /* 87.png in Resources */,
 				4C70CF1D1DC1207E002AF0DC /* user_registro@3x.png in Resources */,
+				AA4500B31DEB7EBA007F7B95 /* contactoHorario@2x.png in Resources */,
 				4C0A8DCA1DA5AE88008CC9F3 /* Contacto@2x.png in Resources */,
+				AA3A62521DEB601C00797AE6 /* find.png in Resources */,
 				4C70CF221DC12B4E002AF0DC /* genere_registro@2x.png in Resources */,
 				4C36FF961DAECB6E00EF2381 /* kolbi.png in Resources */,
 				4C36FF831DAEC4B400EF2381 /* CuponesTableViewCell.xib in Resources */,
@@ -1003,6 +1061,7 @@
 				4C09F2281DBEA7C300F5368D /* monedero_gris.png in Resources */,
 				4C0A8DC61DA5AE88008CC9F3 /* Configuraciones.png in Resources */,
 				4C898DDA1DAF00B700CB7A20 /* claro.png in Resources */,
+				AA3A625C1DEB680700797AE6 /* PuntoTableViewCell.xib in Resources */,
 				4C09F2301DBEA7C300F5368D /* telefono_gris@3x.png in Resources */,
 				4C09F22A1DBEA7C300F5368D /* monedero_gris@3x.png in Resources */,
 				4C898DC61DAEEC8600CB7A20 /* flecha@2x.png in Resources */,
@@ -1056,6 +1115,7 @@
 				4C0A8DD51DA5AE88008CC9F3 /* Login mail.png in Resources */,
 				4C36FF951DAECB6E00EF2381 /* imagen_promocion@3x.png in Resources */,
 				4C1C3EF11DA88241009A167D /* telefono.png in Resources */,
+				AA4500B91DEB7EBA007F7B95 /* contactoUbicacion@2x.png in Resources */,
 				4C70CF1B1DC1207E002AF0DC /* user_registro.png in Resources */,
 				4C28BCDF1DC106180082D1E9 /* logo.png in Resources */,
 				4C6F5ED71DB0571300E4D823 /* BusquedaMapaTableViewCell.xib in Resources */,
@@ -1073,6 +1133,7 @@
 				4C70CF101DC1207E002AF0DC /* date_registro@2x.png in Resources */,
 				4C898DCF1DAEF5EC00CB7A20 /* movistar@2x.png in Resources */,
 				4C1C3EE51DA880AE009A167D /* promociones.png in Resources */,
+				AA4500B81DEB7EBA007F7B95 /* contactoUbicacion.png in Resources */,
 				4C36FF981DAECB6E00EF2381 /* kolbi@3x.png in Resources */,
 				4C0A8DC91DA5AE88008CC9F3 /* Contacto.png in Resources */,
 				4C09F22E1DBEA7C300F5368D /* telefono_gris.png in Resources */,
@@ -1083,6 +1144,8 @@
 				4C09F21E1DBE7C4D00F5368D /* back@3x.png in Resources */,
 				4C70CF0F1DC1207E002AF0DC /* date_registro.png in Resources */,
 				4C09F21D1DBE7C4D00F5368D /* back@2x.png in Resources */,
+				AA3A62531DEB601C00797AE6 /* find@2x.png in Resources */,
+				AA4500B51DEB7EBA007F7B95 /* contactoTelefono.png in Resources */,
 				4CCF94861DC7D61A00202638 /* loader@3x.png in Resources */,
 				4C58FF251DC66943003534A2 /* logo_red@3x.png in Resources */,
 				4C0A8DCE1DA5AE88008CC9F3 /* Facebook@3x.png in Resources */,
@@ -1095,11 +1158,14 @@
 				4C70CF1C1DC1207E002AF0DC /* user_registro@2x.png in Resources */,
 				4C898DC71DAEEC8600CB7A20 /* flecha@3x.png in Resources */,
 				4C28BCE11DC106180082D1E9 /* logo@3x.png in Resources */,
+				AA3A62541DEB601C00797AE6 /* find@3x.png in Resources */,
 				4C523A5B1DC05DF20035D4E5 /* 80.png in Resources */,
+				AA4500B61DEB7EBA007F7B95 /* contactoTelefono@2x.png in Resources */,
 				4C523A5E1DC05DF20035D4E5 /* 180.png in Resources */,
 				4C58FF241DC66943003534A2 /* logo_red@2x.png in Resources */,
 				4C0A8DE01DA5AE88008CC9F3 /* Mail@3x.png in Resources */,
 				4C09F23A1DBEBF0000F5368D /* down_arrow.png in Resources */,
+				AA4500B21DEB7EBA007F7B95 /* contactoHorario.png in Resources */,
 				4C0A8DD71DA5AE88008CC9F3 /* Login mail@3x.png in Resources */,
 				4C882D761DAEDC11000B4635 /* favorito@3x.png in Resources */,
 				4C891E5D1DAD7153002578C2 /* telefono_contactenos@2x.png in Resources */,
@@ -1114,6 +1180,7 @@
 				4CE843571DA5480D00502CC9 /* Main.storyboard in Resources */,
 				4C70CF1A1DC1207E002AF0DC /* mail_registro@3x.png in Resources */,
 				4C0A8E031DA5B25B008CC9F3 /* Oswald-Bold.ttf in Resources */,
+				AA4500B41DEB7EBA007F7B95 /* contactoHorario@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1264,6 +1331,7 @@
 				4CE843541DA5480D00502CC9 /* ViewController.m in Sources */,
 				4CE8435A1DA5480D00502CC9 /* Musmanni.xcdatamodeld in Sources */,
 				4C33E36F1DD2753300BEB99E /* FormaCanjeViewController.m in Sources */,
+				AA4500A81DEB7753007F7B95 /* PuntoViewController.m in Sources */,
 				4CC8A4CA1DC24A1300894416 /* ConfiguracionViewController.m in Sources */,
 				4C0C88D01DAE7F61003FEA49 /* MapaViewController.m in Sources */,
 				4C273D781DB0064900EF56D9 /* BarCodeView.m in Sources */,
@@ -1283,8 +1351,10 @@
 				4C273D751DB005C300EF56D9 /* BarCodeEAN13.m in Sources */,
 				4CCE1E8F1DC2919E00AF2608 /* TerminosCondicionesViewController.m in Sources */,
 				4C36FF7E1DAEC46400EF2381 /* CuponesViewController.m in Sources */,
+				AA3A625B1DEB680700797AE6 /* PuntoTableViewCell.m in Sources */,
 				4C09F2121DBE69CB00F5368D /* DetalleRecargasViewController.m in Sources */,
 				4C0C88E51DAE9CBD003FEA49 /* ContactenosTableViewCell.m in Sources */,
+				AA3A62571DEB64DE00797AE6 /* PuntosTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

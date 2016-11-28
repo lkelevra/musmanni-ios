@@ -63,7 +63,10 @@
         [lblNombre setText:nombre];
         
         WSManager *consumo = [[WSManager alloc] init];
-        [consumo useWebServiceWithMethod:@"POST" withTag:@"validar_tarjeta" withParams:@{ @"email":[[pref objectForKey:@"data_user"] valueForKey:@"email"] } withApi:@"validar_tarjeta" withDelegate:self];
+        [consumo useWebServiceWithMethod:@"POST" withTag:@"validar_tarjeta" withParams:@{
+                                                                                         @"email":[[pref objectForKey:@"data_user"] valueForKey:@"email"],
+                                                                                         @"devicetoken":[Singleton getInstance].token
+                                                                                         } withApi:@"validar_tarjeta" withDelegate:self];
 
     } else {
         LoginViewController *__weak loginView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];

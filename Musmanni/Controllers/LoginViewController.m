@@ -195,6 +195,7 @@
                                             @"fifcoone": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fifcoone"],
                                             @"genero": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"genero"],
                                             };
+                [Singleton getInstance].itemUsuario = [data_user mutableCopy];
                 [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"] forKey:@"validado"];
                 [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"notarjeta"] forKey:@"notarjeta"];
                 [[NSUserDefaults standardUserDefaults] setObject:data_user forKey:@"data_user"];

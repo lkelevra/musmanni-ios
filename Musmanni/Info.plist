@@ -26,7 +26,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>21</string>
+	<string>22</string>
 	<key>FacebookAppID</key>
 	<string>1040421749332097</string>
 	<key>FacebookDisplayName</key>
@@ -42,14 +42,29 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>yourdomain.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Musmanni necesita acceder a la cámara</string>
+	<string>Musi necesita acceder a la cámara</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Nos permite ubicar la agencia más cercana a ti</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Nos permite ubicar la agencia más cercana a ti</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Musmanni necesita acceder al carrete</string>
+	<string>Musi necesita acceder al carrete</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
