@@ -208,6 +208,7 @@
 		AA4500B81DEB7EBA007F7B95 /* contactoUbicacion.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500AF1DEB7EBA007F7B95 /* contactoUbicacion.png */; };
 		AA4500B91DEB7EBA007F7B95 /* contactoUbicacion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500B01DEB7EBA007F7B95 /* contactoUbicacion@2x.png */; };
 		AA4500BA1DEB7EBA007F7B95 /* contactoUbicacion@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4500B11DEB7EBA007F7B95 /* contactoUbicacion@3x.png */; };
+		AA4500BC1DEBB980007F7B95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA4500BB1DEBB980007F7B95 /* GoogleService-Info.plist */; };
 		E6DC0166DA1E17835DBC4A6A /* libPods-MusmanniTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9B03537E8C09FC1E49F1CD9 /* libPods-MusmanniTests.a */; };
 		F3BE02549185CFF982D5495B /* libPods-Musmanni.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 909C502FF2CDAB6C3FED5199 /* libPods-Musmanni.a */; };
 /* End PBXBuildFile section */
@@ -479,6 +480,7 @@
 		AA4500AF1DEB7EBA007F7B95 /* contactoUbicacion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contactoUbicacion.png; sourceTree = "<group>"; };
 		AA4500B01DEB7EBA007F7B95 /* contactoUbicacion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactoUbicacion@2x.png"; sourceTree = "<group>"; };
 		AA4500B11DEB7EBA007F7B95 /* contactoUbicacion@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactoUbicacion@3x.png"; sourceTree = "<group>"; };
+		AA4500BB1DEBB980007F7B95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC8F109A2F1A850A2D9544B8 /* libPods-MusmanniUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusmanniUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47E4CA2808C5B68AB347C17 /* Pods-MusmanniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniTests/Pods-MusmanniTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9B03537E8C09FC1E49F1CD9 /* libPods-MusmanniTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MusmanniTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -815,6 +817,7 @@
 		4CE8434B1DA5480D00502CC9 /* Musmanni */ = {
 			isa = PBXGroup;
 			children = (
+				AA4500BB1DEBB980007F7B95 /* GoogleService-Info.plist */,
 				4C273D721DB0056400EF56D9 /* Otros */,
 				4C0A8BCF1DA58341008CC9F3 /* Resources */,
 				4C0A8BC81DA57479008CC9F3 /* Manager */,
@@ -1124,6 +1127,7 @@
 				4C882D721DAEDC11000B4635 /* compartir@2x.png in Resources */,
 				4C0A8E071DA5B25B008CC9F3 /* Oswald-Extra-LightItalic.ttf in Resources */,
 				4C0A8E0F1DA5B25B008CC9F3 /* Oswald-Regular.ttf in Resources */,
+				AA4500BC1DEBB980007F7B95 /* GoogleService-Info.plist in Resources */,
 				4C09F22F1DBEA7C300F5368D /* telefono_gris@2x.png in Resources */,
 				4C891E501DAD6CFC002578C2 /* fondo_contacto.png in Resources */,
 				4C0A8DD31DA5AE88008CC9F3 /* Login lock@2x.png in Resources */,

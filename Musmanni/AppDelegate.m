@@ -46,6 +46,8 @@
                              didFinishLaunchingWithOptions:launchOptions];
     
     [self clearNotifications];
+    [FIRApp configure];
+
     return YES;
 }
 

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "WSManager.h"
+@import Firebase;
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
