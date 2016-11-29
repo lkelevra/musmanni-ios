@@ -71,7 +71,7 @@
     [self.lunesaviernes setFont:[UIFont fontWithName:@"Oswald-Regular" size:14.0]];
     [self.sabado setFont:[UIFont fontWithName:@"Oswald-Regular" size:14.0]];
     [self.domingo setFont:[UIFont fontWithName:@"Oswald-Regular" size:14.0]];
-    
+    [self.nombrePunto setFont:[UIFont fontWithName:@"Oswald-Regular" size:16.0]];
     [self.labelTelefono setFont:[UIFont fontWithName:@"Oswald-Regular" size:16.0]];
     [self.labelHorario setFont:[UIFont fontWithName:@"Oswald-Regular" size:16.0]];
     [self.lablelunesaviernes setFont:[UIFont fontWithName:@"Oswald-Regular" size:16.0]];
@@ -79,11 +79,20 @@
     [self.labeldomingo setFont:[UIFont fontWithName:@"Oswald-Regular" size:16.0]];
     
     
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
     
+
     
 
 }
-
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

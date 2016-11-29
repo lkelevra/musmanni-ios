@@ -48,6 +48,13 @@
     [locationManager startUpdatingLocation];
     [self fixItems];
     
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+    
     
 }
 -(void) fixItems {
@@ -133,6 +140,10 @@
     }
 }
 
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (NSString *)calculateDistanceFromLatitude:(NSString*)latitude andLongitude:(NSString*)longitude {
     @try {

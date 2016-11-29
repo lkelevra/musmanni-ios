@@ -22,6 +22,8 @@
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     
+    self.itemsJSON = [[NSMutableArray alloc] init];
+    
     [Singleton getInstance].listaIconos = [[NSMutableDictionary alloc] init];
     #ifdef __IPHONE_8_0
     if(IS_OS_8_OR_LATER) {
@@ -35,6 +37,7 @@
     [mapView setMapType:MKMapTypeStandard];
     [mapView setZoomEnabled:YES];
     [mapView setScrollEnabled:YES];
+    
     
     
 }
@@ -104,9 +107,34 @@
         [self downloadImageForAnnotation:pinView withUrl:annotation.url];
         pinView.tag = annotation.posicion;
         
+        UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        detailButton.tag = annotation.posicion;
+        [detailButton addTarget:self
+                         action:@selector(goDetailView:)
+               forControlEvents:UIControlEventTouchUpInside];
+        pinView.rightCalloutAccessoryView = detailButton;
+
+        
         return pinView;
     }
     return nil;
+}
+-(void) goDetailView:(id) sender {
+    
+    NSLog(@"DETALLE %ld",(long)[(MKAnnotationView*)sender tag]);
+    self.itemSeleccionado = [self.itemsJSON objectAtIndex:[(MKAnnotationView*)sender tag]];
+    NSLog(@"DETALLE %@",self.itemSeleccionado);
+    
+    [self performSegueWithIdentifier:@"verPuntoSegue" sender:nil];
+    
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"verPuntoSegue"]) {
+        PuntoViewController *vc = [segue destinationViewController];
+        vc.itemPunto = self.itemSeleccionado;
+        
+    }
 }
 
 - (void)downloadImageForAnnotation:(MKAnnotationView *)annotation withUrl:(NSString *) urlString {
@@ -155,6 +183,7 @@
         annotation.idPunto = [idPunto intValue];
         annotation.posicion = contador;
         [arrayPines addObject:annotation];
+        [self.itemsJSON addObject:row];
         contador++;
     }
     return arrayPines;

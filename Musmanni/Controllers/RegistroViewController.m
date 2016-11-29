@@ -7,8 +7,11 @@
 //
 
 #import "RegistroViewController.h"
+#import "SBPickerSelector.h"
 
-@interface RegistroViewController ()
+
+@interface RegistroViewController ()<SBPickerSelectorDelegate>
+@property (strong, nonatomic) SBPickerSelector *picker;
 
 @end
 
@@ -26,29 +29,51 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
     
-    dpBirthday.hidden = YES;
+//    dpBirthday.hidden = YES;
+//    
+//    btnOpendpBirthDay.tag = 0;
+//    dpBirthday.backgroundColor = [UIColor whiteColor];
     
-    btnOpendpBirthDay.tag = 0;
-    dpBirthday.backgroundColor = [UIColor whiteColor];
+    self.picker = [SBPickerSelector new];
+    
 }
 
 - (void)goBack{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(IBAction)mostrarDatePicker:(UIButton *)sender{
-    if (sender.tag == 0) {
-        dpBirthday.hidden = NO;
-        btnOpendpBirthDay.tag = 1;
-    } else {
+-(void) pickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date {
+    
+        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"dd-MM-yyyy"];
-        fecha_nacimiento = [formatter stringFromDate:[dpBirthday date]];
+        fecha_nacimiento = [formatter stringFromDate:date];
         [txtBirthday setText:fecha_nacimiento];
-        
-        dpBirthday.hidden = YES;
-        btnOpendpBirthDay.tag = 0;
-    }
+    
+}
+
+-(IBAction)mostrarDatePicker:(UIButton *)sender{
+    
+    self.picker.pickerType = SBPickerSelectorTypeDate;
+    self.picker.datePickerType = SBPickerSelectorDateTypeOnlyDay;
+
+    self.picker.delegate = self;
+    self.picker.doneButtonTitle = @"Elegir";
+    self.picker.cancelButtonTitle = @"Cancelar";
+    [self.picker showPickerOver:self];
+    NSLog(@"MOSTRANDO PICKER");
+//    if (sender.tag == 0) {
+//        dpBirthday.hidden = NO;
+//        btnOpendpBirthDay.tag = 1;
+//    } else {
+//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//        [formatter setDateFormat:@"dd-MM-yyyy"];
+//        fecha_nacimiento = [formatter stringFromDate:[dpBirthday date]];
+//        [txtBirthday setText:fecha_nacimiento];
+//        
+//        dpBirthday.hidden = YES;
+//        btnOpendpBirthDay.tag = 0;
+//    }
 }
 
 -(IBAction)crarRegistro:(UIButton *)sender{

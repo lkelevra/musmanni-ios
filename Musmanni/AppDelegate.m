@@ -76,8 +76,11 @@
     NSLog(@"NOTIFICACION RECIBIDA %@",userInfo);
     NSDictionary *contenido = [[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"loc-args"];
     if ([[contenido objectForKey:@"tarjeta"] isEqualToString:@"1"]) {
-        [[NSUserDefaults standardUserDefaults] setValue:@"270000000434" forKey:@"notarjeta"];
+//        [[NSUserDefaults standardUserDefaults] setValue:@"270000000434" forKey:@"notarjeta"];
+//        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"validado"];
         [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"validado"];
+        [[NSUserDefaults standardUserDefaults] setValue:[contenido valueForKey:@"notarjeta"] forKey:@"notarjeta"];
+
         [[NSUserDefaults standardUserDefaults]  synchronize];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updatetarjeta" object:contenido];
