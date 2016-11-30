@@ -59,7 +59,13 @@
     
     [self.nombrePunto setText:[self.itemPunto valueForKey:@"nombre"]];
     [self.direccionPunto setText:[self.itemPunto valueForKey:@"direccion"]];
-    [self.distanciaPunto setText:[NSString stringWithFormat:@"%@ KM",[self.itemPunto valueForKey:@"distancia"] ]];
+    if([self.itemPunto valueForKey:@"distancia"] != NULL )
+    {
+     [self.distanciaPunto setText:[NSString stringWithFormat:@"%@ KM",[self.itemPunto valueForKey:@"distancia"] ]];
+    }
+    else{
+        [self.distanciaPunto setText:@""];
+    }
     [self.telefonoPunto setText:[self.itemPunto valueForKey:@"telefono"]];
     [self.lunesaviernes setText:[self.itemPunto valueForKey:@"lunesviernes"]];
     [self.sabado setText:[self.itemPunto valueForKey:@"sabados"]];

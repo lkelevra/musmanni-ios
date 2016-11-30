@@ -86,8 +86,7 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updatetarjeta" object:contenido];
     }
     else if ([[[contenido objectForKey:@"tipo"] stringValue] isEqualToString:@"5"]) {
-        NSLog(@"MENSAJE DE LA RECARGA ");
-        NSLog(@"msg %@",[contenido valueForKey:@"msg"]);
+        
         [ISMessages showCardAlertWithTitle:@"Notificación de recarga"
                                    message:[contenido valueForKey:@"msg"]
                                  iconImage:nil
@@ -95,6 +94,18 @@
                                hideOnSwipe:YES
                                  hideOnTap:YES
                                  alertType:ISAlertTypeInfo
+                             alertPosition:ISAlertPositionTop];
+        
+    }
+    else if ([[[contenido objectForKey:@"tipo"] stringValue] isEqualToString:@"4"]) {
+        
+        [ISMessages showCardAlertWithTitle:@"Notificación de recarga"
+                                   message:[contenido valueForKey:@"msg"]
+                                 iconImage:nil
+                                  duration:10.0
+                               hideOnSwipe:YES
+                                 hideOnTap:YES
+                                 alertType:ISAlertTypeSuccess
                              alertPosition:ISAlertPositionTop];
         
     }

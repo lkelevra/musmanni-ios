@@ -118,7 +118,13 @@
     [cell.direccion setText:[item valueForKey:@"direccion"]];
     NSURL *picture = [NSURL URLWithString:[[NSString stringWithFormat:@"%@", [[item objectForKey:@"tipo_punto"] valueForKey:@"icono"]] stringByRemovingPercentEncoding]];
     [cell.icono setImageWithURL:picture placeholderImage:[UIImage imageNamed:@"loader"]];
-    [cell.distancia setText:[NSString stringWithFormat:@"%@ KM",[item valueForKey:@"distancia"]]];
+    if([item valueForKey:@"distancia"] != NULL )
+    {
+     [cell.distancia setText:[NSString stringWithFormat:@"%@ KM",[item valueForKey:@"distancia"]]];
+    }
+    else{
+     [cell.distancia setText:@""];
+    }
     
     return cell;
 }
@@ -145,7 +151,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (NSString *)calculateDistanceFromLatitude:(NSString*)latitude andLongitude:(NSString*)longitude {
+- (NSNumber *)calculateDistanceFromLatitude:(NSString*)latitude andLongitude:(NSString*)longitude {
     @try {
         
          if(locationManager.location.coordinate.latitude != 0){
@@ -158,14 +164,16 @@
             [numberFormatter setLocale:[NSLocale currentLocale]];
             [numberFormatter setMaximumFractionDigits:2];
             NSString *formattedString = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:([location1 distanceFromLocation:location2]/1000)]];
-            return formattedString;
+             NSNumber * myNumber=[NSNumber numberWithFloat:[formattedString floatValue]];
+
+            return myNumber;
         }
         else{
-            return @"--";
+            return 0;
         }
         
     } @catch (NSException *exception) {
-        return @"";
+        return 0;
     }
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
