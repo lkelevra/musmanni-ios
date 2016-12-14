@@ -54,9 +54,7 @@ PODS:
   - JFMinimalNotifications (0.0.7)
   - MBProgressHUD (0.9.2)
   - RSBarcodes (0.1.4)
-  - SBPickerSelector (1.1.2):
-    - SBPickerSelector/Core (= 1.1.2)
-  - SBPickerSelector/Core (1.1.2)
+  - SBPickerSelector (1.2.0)
   - SpinKit (1.2.0)
   - SRMModalViewController (0.0.2.2)
 
@@ -91,7 +89,7 @@ SPEC CHECKSUMS:
   JFMinimalNotifications: 6a879b44489bc58fa2bc17619ff7c5ddf2502856
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   RSBarcodes: 6b062b5aba3e75a5e889b2465ef1bb256215fbd0
-  SBPickerSelector: 236c1c9f1213bfc302527a1eb98f9cfeaf5284e4
+  SBPickerSelector: ca8defc713bf229a35a06100ba2e6e96c424ac6a
   SpinKit: 65906a8b534a4e14cbfd3f8b0b6c329131faef4a
   SRMModalViewController: b6a2348f4f9657d4b494a15ed2483f0c8bf31770
 
