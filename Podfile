@@ -17,7 +17,7 @@ target 'Musmanni' do
     pod 'ISMessages'
     pod 'EAIntroView', '~> 2.7.0'
     pod 'RSBarcodes', '~> 0.1.4'
-    pod "SRMModalViewController"
+    pod 'SRMModalViewController'
     pod 'SBPickerSelector'
 
     

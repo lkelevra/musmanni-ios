@@ -28,6 +28,7 @@
     backBtn.frame = CGRectMake(0, 0, 30, 30);
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
     self.navigationItem.leftBarButtonItem = backButton;
+    scGenere.selectedSegmentIndex = UISegmentedControlNoSegment;
     
 //    dpBirthday.hidden = YES;
 //    
@@ -79,14 +80,23 @@
 -(IBAction)crarRegistro:(UIButton *)sender{
     if ([txtName.text length] > 0 && [txtEmail.text length] > 0 && [txtPassword.text length] > 0) {
         [[Singleton getInstance] mostrarHud:self.navigationController.view];
+        NSString *gender = [[NSString alloc] init];
+        
+        if (scGenere.selectedSegmentIndex == -1) {
+            gender = @"M";
+        } else {
+            gender = scGenere.selectedSegmentIndex == 0 ? @"M" : @"F";
+        }
+        
         NSDictionary *datos = @{@"email":txtEmail.text,
                                 @"password": txtPassword.text,
                                 @"nombre": txtName.text,
                                 @"fechanacimiento": [txtBirthday.text isEqualToString:@"dd-mm-aa"] ? @"" : fecha_nacimiento,
-                                @"genero": scGenere.selectedSegmentIndex == 0 ? @"M" : @"F",
+                                @"genero": gender,
                                 @"fb_id": @"",
                                 @"devicetoken": [Singleton getInstance].token
                                 };
+        NSLog(@"Datos: %@", datos);
         
         WSManager *consumo = [[WSManager alloc] init];
         [consumo useWebServiceWithMethod:@"POST" withTag:@"registro_usuario" withParams:datos withApi:@"registro_usuario" withDelegate:self];
