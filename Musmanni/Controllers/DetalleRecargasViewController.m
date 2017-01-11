@@ -43,7 +43,7 @@
     
     
     
-    self.picker = [SBPickerSelector new];
+    self.picker = [SBPickerSelector picker];
     
      //classic picker display
     

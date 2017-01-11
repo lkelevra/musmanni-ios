@@ -114,6 +114,7 @@
                     [[Singleton getInstance] mostrarHud:self.navigationController.view];
                     
                     NSString *birthday = [[NSString alloc] init];
+                    NSString *gender = [[NSString alloc] init];
                     
                     if (userData[@"birthday"]) {
                         birthday = userData[@"birthday"];
@@ -121,11 +122,23 @@
                         birthday = @"";
                     }
                     
+                    if (userData[@"gender"]) {
+                        if ([userData[@"gender"] isEqualToString:@"male"]) {
+                            gender = @"M";
+                        } else {
+                            gender = @"F";
+                        }
+                    } else {
+                        gender = @"M";
+                    }
+                    
+                    NSLog(@"Data de Facebook: %@", userData);
+                    
                     NSDictionary *datos = @{@"email":           userData[@"email"],
                                             @"password":        @"",
                                             @"nombre":          userData[@"name"],
                                             @"fechanacimiento": birthday,
-                                            @"genero":          userData[@"gender"],
+                                            @"genero":          gender,
                                             @"fb_id":           userData[@"id"],
                                             @"devicetoken":     [Singleton getInstance].token
                                             };
