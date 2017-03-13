@@ -22,7 +22,7 @@
     
     self.title = @"Recargas";
     
-
+    
     btnPicker.tag = 1;
     
     [lblTelco setText:[[Singleton getInstance].datos_telco valueForKey:@"nombre_telco"]];
@@ -45,10 +45,10 @@
     
     self.picker = [SBPickerSelector picker];
     
-     //classic picker display
+    //classic picker display
     
     //[self.picker showPickerIpadFromRect:CGRectZero inView:self.view]; //if you whant a popover picker in ipad, set the view an point target(if you set this and opens in iphone, picker shows normally)
-
+    
     
 }
 
@@ -87,14 +87,14 @@
 
 -(IBAction)mostrarPicker:(UIButton *)sender{
     [self.picker showPickerOver:self];
-//    if (sender.tag == 1) {
-//        btnPicker.tag = 2;
-//        pvMontos.hidden = NO;
-//    }
-//    else if (sender.tag == 2){
-//        btnPicker.tag = 1;
-//        pvMontos.hidden = YES;
-//    }
+    //    if (sender.tag == 1) {
+    //        btnPicker.tag = 2;
+    //        pvMontos.hidden = NO;
+    //    }
+    //    else if (sender.tag == 2){
+    //        btnPicker.tag = 1;
+    //        pvMontos.hidden = YES;
+    //    }
 }
 
 -(IBAction)realizarRecarga:(UIButton *)sender{
@@ -112,31 +112,31 @@
                     if ([pref objectForKey:@"data_user"]) {
                         WSManager *consumo = [[WSManager alloc] init];
                         [consumo useWebServiceWithMethod:@"POST" withTag:@"realizar_recarga"
-                                      withParams:@{
-                                                   
-                                                   @"pAutorizador_Id":[[Singleton getInstance].datos_telco valueForKey:@"autorizador_id"],
-                                                   @"pServicio_Id":[[Singleton getInstance].datos_telco valueForKey:@"servicio_id"],
-                                                   @"pMonedero_Tarjeta":[pref valueForKey:@"notarjeta"],
-                                                   @"pMonto":[NSString stringWithFormat:@"%d", (int)monto_seleccionado],
-                                                   @"celular":txtPhoneNumber.text,
-                                                   @"usuario_id":[[pref objectForKey:@"data_user"] valueForKey:@"id"] ,
-                                                   
-                                                   } withApi:@"realizar_recarga" withDelegate:self];
-                
-                
-                [ISMessages showCardAlertWithTitle:@"En proceso"
-                                           message:@"Tu recarga esta en proceso, en unos momentos recibirás una confirmación"
-                                         iconImage:nil
-                                          duration:5.0
-                                       hideOnSwipe:YES
-                                         hideOnTap:YES
-                                         alertType:ISAlertTypeSuccess
-                                     alertPosition:ISAlertPositionTop];
-                    [self dismissViewControllerAnimated:TRUE completion:nil];
+                                              withParams:@{
+                                                           
+                                                           @"pAutorizador_Id":[[Singleton getInstance].datos_telco valueForKey:@"autorizador_id"],
+                                                           @"pServicio_Id":[[Singleton getInstance].datos_telco valueForKey:@"servicio_id"],
+                                                           @"pMonedero_Tarjeta":[pref valueForKey:@"notarjeta"],
+                                                           @"pMonto":[NSString stringWithFormat:@"%d", (int)monto_seleccionado],
+                                                           @"celular":txtPhoneNumber.text,
+                                                           @"usuario_id":[[pref objectForKey:@"data_user"] valueForKey:@"id"] ,
+                                                           
+                                                           } withApi:@"realizar_recarga" withDelegate:self];
+                        
+                        
+                        [ISMessages showCardAlertWithTitle:@"En proceso"
+                                                   message:@"Tu recarga esta en proceso, en unos momentos recibirás una confirmación"
+                                                 iconImage:nil
+                                                  duration:5.0
+                                               hideOnSwipe:YES
+                                                 hideOnTap:YES
+                                                 alertType:ISAlertTypeSuccess
+                                             alertPosition:ISAlertPositionTop];
+                        [self dismissViewControllerAnimated:TRUE completion:nil];
                     } else {
                         
                     }
-
+                    
                 }
                 else{
                     [ISMessages showCardAlertWithTitle:@"Espera"
@@ -240,7 +240,6 @@
                 self.picker.delegate = self;
                 self.picker.doneButtonTitle = @"Elegir";
                 self.picker.cancelButtonTitle = @"Cancelar";
-                
             } else{
                 [self dismissViewControllerAnimated:TRUE completion:nil];
                 [ISMessages showCardAlertWithTitle:@"Espera"
@@ -260,28 +259,28 @@
     else if([callback.tag isEqualToString:@"realizar_recarga"]){
         @try {
             if([[callback.respuesta valueForKey:@"result"] boolValue]){
-//                [self dismissViewControllerAnimated:TRUE completion:nil];
+                //                [self dismissViewControllerAnimated:TRUE completion:nil];
                 if([[Singleton getInstance].token isEqualToString:@"NO"]){
-                [ISMessages showCardAlertWithTitle:@"Éxito"
-                                           message:[callback.respuesta objectForKey:@"message"]
-                                         iconImage:nil
-                                          duration:3.f
-                                       hideOnSwipe:YES
-                                         hideOnTap:YES
-                                         alertType:ISAlertTypeSuccess
-                                     alertPosition:ISAlertPositionTop];
+                    [ISMessages showCardAlertWithTitle:@"Éxito"
+                                               message:[callback.respuesta objectForKey:@"message"]
+                                             iconImage:nil
+                                              duration:3.f
+                                           hideOnSwipe:YES
+                                             hideOnTap:YES
+                                             alertType:ISAlertTypeSuccess
+                                         alertPosition:ISAlertPositionTop];
                 }
             } else{
-//                [self dismissViewControllerAnimated:TRUE completion:nil];
+                //                [self dismissViewControllerAnimated:TRUE completion:nil];
                 if([[Singleton getInstance].token isEqualToString:@"NO"]){
-                [ISMessages showCardAlertWithTitle:@"Espera"
-                                           message:[callback.respuesta objectForKey:@"message"]
-                                         iconImage:nil
-                                          duration:3.f
-                                       hideOnSwipe:YES
-                                         hideOnTap:YES
-                                         alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                    [ISMessages showCardAlertWithTitle:@"Espera"
+                                               message:[callback.respuesta objectForKey:@"message"]
+                                             iconImage:nil
+                                              duration:3.f
+                                           hideOnSwipe:YES
+                                             hideOnTap:YES
+                                             alertType:ISAlertTypeError
+                                         alertPosition:ISAlertPositionTop];
                 }
             }
             
@@ -294,13 +293,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

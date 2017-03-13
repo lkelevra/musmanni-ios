@@ -24,7 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) NSMutableArray *itemsJSON;
 @property (nonatomic, strong) NSMutableArray *iconos;
-@property (nonatomic, strong) NSDictionary *itemSeleccionado;
+@property (nonatomic, strong) NSMutableDictionary *itemSeleccionado;
 @property BOOL ubico;
 
 @end

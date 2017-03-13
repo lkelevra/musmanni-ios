@@ -130,6 +130,9 @@
 		4C59E0BC1DC2ACE1009653F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0B81DC2ACE1009653F5 /* FBSDKLoginKit.framework */; };
 		4C59E0BD1DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0B91DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework */; };
 		4C59E0BE1DC2ACE1009653F5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0BA1DC2ACE1009653F5 /* FBSDKShareKit.framework */; };
+		4C6A4F221E26C849009016C9 /* new_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6A4F1F1E26C849009016C9 /* new_logo.png */; };
+		4C6A4F231E26C849009016C9 /* new_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6A4F201E26C849009016C9 /* new_logo@2x.png */; };
+		4C6A4F241E26C849009016C9 /* new_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6A4F211E26C849009016C9 /* new_logo@3x.png */; };
 		4C6F5ED61DB0571300E4D823 /* BusquedaMapaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F5ED41DB0571300E4D823 /* BusquedaMapaTableViewCell.m */; };
 		4C6F5ED71DB0571300E4D823 /* BusquedaMapaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C6F5ED51DB0571300E4D823 /* BusquedaMapaTableViewCell.xib */; };
 		4C70CF0F1DC1207E002AF0DC /* date_registro.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C70CF001DC1207E002AF0DC /* date_registro.png */; };
@@ -381,6 +384,9 @@
 		4C59E0B81DC2ACE1009653F5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		4C59E0B91DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
 		4C59E0BA1DC2ACE1009653F5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		4C6A4F1F1E26C849009016C9 /* new_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_logo.png; sourceTree = "<group>"; };
+		4C6A4F201E26C849009016C9 /* new_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_logo@2x.png"; sourceTree = "<group>"; };
+		4C6A4F211E26C849009016C9 /* new_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_logo@3x.png"; sourceTree = "<group>"; };
 		4C6F5ED31DB0571300E4D823 /* BusquedaMapaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusquedaMapaTableViewCell.h; path = Cells/BusquedaMapaTableViewCell.h; sourceTree = "<group>"; };
 		4C6F5ED41DB0571300E4D823 /* BusquedaMapaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusquedaMapaTableViewCell.m; path = Cells/BusquedaMapaTableViewCell.m; sourceTree = "<group>"; };
 		4C6F5ED51DB0571300E4D823 /* BusquedaMapaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BusquedaMapaTableViewCell.xib; path = Cells/BusquedaMapaTableViewCell.xib; sourceTree = "<group>"; };
@@ -594,6 +600,9 @@
 		4C0A8D841DA5AE67008CC9F3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4C6A4F1F1E26C849009016C9 /* new_logo.png */,
+				4C6A4F201E26C849009016C9 /* new_logo@2x.png */,
+				4C6A4F211E26C849009016C9 /* new_logo@3x.png */,
 				AA3A624F1DEB601C00797AE6 /* find.png */,
 				AA3A62501DEB601C00797AE6 /* find@2x.png */,
 				AA3A62511DEB601C00797AE6 /* find@3x.png */,
@@ -1035,6 +1044,7 @@
 				4C70CF1D1DC1207E002AF0DC /* user_registro@3x.png in Resources */,
 				AA4500B31DEB7EBA007F7B95 /* contactoHorario@2x.png in Resources */,
 				4C0A8DCA1DA5AE88008CC9F3 /* Contacto@2x.png in Resources */,
+				4C6A4F241E26C849009016C9 /* new_logo@3x.png in Resources */,
 				AA3A62521DEB601C00797AE6 /* find.png in Resources */,
 				4C70CF221DC12B4E002AF0DC /* genere_registro@2x.png in Resources */,
 				4C36FF961DAECB6E00EF2381 /* kolbi.png in Resources */,
@@ -1129,6 +1139,7 @@
 				4C0A8E0F1DA5B25B008CC9F3 /* Oswald-Regular.ttf in Resources */,
 				AA4500BC1DEBB980007F7B95 /* GoogleService-Info.plist in Resources */,
 				4C09F22F1DBEA7C300F5368D /* telefono_gris@2x.png in Resources */,
+				4C6A4F221E26C849009016C9 /* new_logo.png in Resources */,
 				4C891E501DAD6CFC002578C2 /* fondo_contacto.png in Resources */,
 				4C0A8DD31DA5AE88008CC9F3 /* Login lock@2x.png in Resources */,
 				4C0C88DA1DAE9375003FEA49 /* estrella_oscura.png in Resources */,
@@ -1168,6 +1179,7 @@
 				4C523A5E1DC05DF20035D4E5 /* 180.png in Resources */,
 				4C58FF241DC66943003534A2 /* logo_red@2x.png in Resources */,
 				4C0A8DE01DA5AE88008CC9F3 /* Mail@3x.png in Resources */,
+				4C6A4F231E26C849009016C9 /* new_logo@2x.png in Resources */,
 				4C09F23A1DBEBF0000F5368D /* down_arrow.png in Resources */,
 				AA4500B21DEB7EBA007F7B95 /* contactoHorario.png in Resources */,
 				4C0A8DD71DA5AE88008CC9F3 /* Login mail@3x.png in Resources */,

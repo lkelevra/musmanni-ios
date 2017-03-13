@@ -120,14 +120,39 @@
     return nil;
 }
 -(void) goDetailView:(id) sender {
-    
-    NSLog(@"DETALLE %ld",(long)[(MKAnnotationView*)sender tag]);
-    self.itemSeleccionado = [self.itemsJSON objectAtIndex:[(MKAnnotationView*)sender tag]];
-    NSLog(@"DETALLE %@",self.itemSeleccionado);
-    
+    NSMutableDictionary *punto = [[NSMutableDictionary alloc] initWithDictionary: [self.itemsJSON objectAtIndex:[(MKAnnotationView*)sender tag]]];
+    NSNumber *distancia = [self calculateDistanceFromLatitude:[self.itemSeleccionado valueForKey:@"latitud"] andLongitude:[self.itemSeleccionado valueForKey:@"longitud"]];
+    [punto setValue:distancia forKey:@"distancia"];
+    self.itemSeleccionado = punto;
     [self performSegueWithIdentifier:@"verPuntoSegue" sender:nil];
-    
 }
+
+- (NSNumber *)calculateDistanceFromLatitude:(NSString*)latitude andLongitude:(NSString*)longitude {
+    @try {
+        
+        if(locationManager.location.coordinate.latitude != 0){
+            CLLocation *location1 = [[CLLocation alloc] initWithLatitude:[latitude floatValue] longitude:[longitude floatValue]];
+            CLLocation *location2 = [[CLLocation alloc] initWithLatitude:locationManager.location.coordinate.latitude longitude:locationManager.location.coordinate.longitude];
+            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+            [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+            [numberFormatter setGroupingSize:3];
+            [numberFormatter setCurrencySymbol:@""];
+            [numberFormatter setLocale:[NSLocale currentLocale]];
+            [numberFormatter setMaximumFractionDigits:2];
+            NSString *formattedString = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:([location1 distanceFromLocation:location2]/1000)]];
+            NSNumber * myNumber=[NSNumber numberWithFloat:[formattedString floatValue]];
+            
+            return myNumber;
+        }
+        else{
+            return 0;
+        }
+        
+    } @catch (NSException *exception) {
+        return 0;
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"verPuntoSegue"]) {
