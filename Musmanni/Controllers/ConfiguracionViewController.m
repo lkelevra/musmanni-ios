@@ -133,6 +133,10 @@
     
     [userDefaults synchronize];
     [self.navigationController popViewControllerAnimated:YES];
+    [Singleton getInstance].session_externo = NO;
+    [Singleton getInstance].session_externo = NO;
+    [Singleton getInstance].datos_usuario_externo =nil;
+    
 }
 
 -(void)webServiceTaskComplete:(WSManager *)callback{

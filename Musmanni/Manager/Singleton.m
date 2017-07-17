@@ -24,6 +24,11 @@
 @synthesize listaIconos         = _listaIconos;
 @synthesize listaPromociones    = _listaPromociones;
 @synthesize listaPuntos         = _listaPuntos;
+@synthesize session_usuario     = _session_usuario;
+@synthesize session_externo     = _session_externo;
+
+
+
 
 + (instancetype)getInstance
 {
@@ -33,7 +38,7 @@ static Singleton *instance      = nil;
     dispatch_once(&onceToken, ^{
         instance                        = [[Singleton alloc] init];
         instance->_url                  = @"http://52.0.9.158/";
-//        instance->_url                  = @"http://54.165.243.221/";
+        ///instance->_url                  = @"http://54.165.243.221/";
         instance->_token                = @"NO";
         instance->_itemUsuario          = [[NSMutableDictionary alloc] init];
         instance->_redes_sociales       = [[NSMutableDictionary alloc] init];
@@ -41,6 +46,8 @@ static Singleton *instance      = nil;
         instance->_listaIconos          = [[NSMutableDictionary alloc] init];
         instance->_listaPromociones     = [[NSMutableArray alloc] init];
         instance->_listaPuntos          = [[NSMutableArray alloc] init];
+        instance->_session_usuario      = NO;
+        instance->_session_externo      = NO;
     });
     return instance;
 }

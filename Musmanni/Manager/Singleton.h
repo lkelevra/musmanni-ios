@@ -30,6 +30,10 @@
 @property (nonatomic, strong) NSMutableDictionary   *listaIconos;
 @property (nonatomic, strong) NSMutableArray        *listaPromociones;
 @property (nonatomic, strong) NSMutableArray        *listaPuntos;
+@property BOOL session_usuario;
+@property BOOL session_externo; /// session para usuario Externo
+@property (nonatomic, strong) NSDictionary  *datos_usuario_externo;
+
 
 + (Singleton* )getInstance;
 -(void)mostrarHud:(UIView *)vista;

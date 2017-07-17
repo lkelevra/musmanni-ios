@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     ivProfilePicture.layer.cornerRadius = 50;
     ivProfilePicture.clipsToBounds = YES;
     ivProfilePicture.layer.borderWidth = 7.0f;
@@ -51,8 +51,10 @@
     [consumo useWebServiceWithMethod:@"GET" withTag:@"datos_empresa" withParams:@{} withApi:@"datos_empresa" withDelegate:self];
 }
 
+
 -(void)viewDidAppear:(BOOL)animated{
     [[Singleton getInstance] ocultarHud];
+    [Singleton getInstance].session_usuario = YES;
     [barCodeView removeFromSuperview];
     NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
     if ([pref objectForKey:@"data_user"]) {
@@ -193,6 +195,7 @@
     else if([callback.tag isEqualToString:@"validar_tarjeta"]) {
         [[Singleton getInstance] ocultarHud];
         @try {
+           
             if(callback.resultado){
                 [[NSUserDefaults standardUserDefaults] setValue:@"0" forKey:@"saldo"];
                 [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"] forKey:@"validado"];
@@ -246,7 +249,18 @@
             NSLog(@"Ocurrió un problema en la ejecución: %@", exception);
         } @finally { }
     }
-    
+    else if ([callback.tag isEqualToString:@"cerrar_sesion"]){
+        @try {
+            if(callback.resultado){
+                NSLog(@"Sesión cerrada");
+            } else{
+                NSLog(@"Error al cerrar sesión");
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución en WS cambiar_password: %@", exception);
+        } @finally { }
+    } 
     else if([callback.tag isEqualToString:@"datos_empresa"]) {
         [[Singleton getInstance] ocultarHud];
         @try {
@@ -278,15 +292,40 @@
     }
 }
 
+//
+//
+//-(void)validarLoginExterno{
+//    
+//    NSLog(@"///////******* SESSION DE USUARIO EXTERNA : %s",[Singleton getInstance].session_externo ? "SI" : "NO");
+//    if ([Singleton getInstance].session_externo) {
+//        
+//        [FBSDKAccessToken setCurrentAccessToken:nil];
+//        [FBSDKProfile setCurrentProfile:nil];
+//        
+//        NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+//        WSManager *consumo = [[WSManager alloc] init];
+//        [consumo useWebServiceWithMethod:@"POST" withTag:@"cerrar_sesion" withParams:@{@"email": [[pref objectForKey:@"data_user"] valueForKey:@"email"]} withApi:@"cerrar_sesion" withDelegate:self];
+//        
+//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//        [userDefaults removeObjectForKey:@"data_user"];
+//        [userDefaults removeObjectForKey:@"validado"];
+//        [userDefaults removeObjectForKey:@"saldo"];
+//        [userDefaults removeObjectForKey:@"notarjeta"];
+//        [userDefaults removeObjectForKey:@"notificaciones"];
+//        
+//        [userDefaults synchronize];
+//        [self.navigationController popViewControllerAnimated:YES];
+//        
+//        //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+//        //    UIViewController *vc =[storyboard instantiateInitialViewController];
+//        //
+//        //    // Set root view controller and make windows visible
+//        //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        //    self.window.rootViewController = vc;
+//        //    [self.window makeKeyAndVisible];
+//        
+//    }
+//}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

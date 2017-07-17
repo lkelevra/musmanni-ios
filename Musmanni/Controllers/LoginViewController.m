@@ -30,6 +30,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    [self validarLoginExterno];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -194,6 +195,7 @@
     if([callback.tag isEqualToString:@"login"]){
         @try {
             if(callback.resultado){
+                [Singleton getInstance].session_usuario = YES;
                 [txtEmail setText:@""];
                 [txtPassword setText:@""];
                 NSString *avatar = [Singleton getInstance].url; avatar = [avatar stringByAppendingString:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"avatar"]];
@@ -291,6 +293,48 @@
             NSLog(@"Ocurrió un problema en la ejecución en WS enviar_token: %@", exception);
         } @finally { }
     }
+    else if([callback.tag isEqualToString:@"validar_usuario_externo"]){
+        @try {
+            NSLog(@"RESPUESTA DE WS VALIDAR ACCESO EXTERNO %@",[callback respuesta]);
+            if(callback.resultado){
+                [Singleton getInstance].session_usuario = NO;
+                [Singleton getInstance].session_externo = YES;
+                
+                [txtEmail setText:@""];
+                [txtPassword setText:@""];
+                NSString *avatar = [Singleton getInstance].url; avatar = [avatar stringByAppendingString:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"avatar"]];
+                NSDictionary *data_user = @{
+                                            @"id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"id"],
+                                            @"nombre": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"nombre"],
+                                            @"email": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"email"],
+                                            @"notarjeta": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"notarjeta"],
+                                            @"avatar": avatar,
+                                            @"fb_id": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fb_id"],
+                                            @"fechanacimiento": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fechanacimiento"],
+                                            @"fifcoone": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"fifcoone"],
+                                            @"genero": [[callback.respuesta objectForKey:@"registros"] valueForKey:@"genero"],
+                                            };
+                [Singleton getInstance].itemUsuario = [data_user mutableCopy];
+                [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"validado"] forKey:@"validado"];
+                [[NSUserDefaults standardUserDefaults] setValue:[[callback.respuesta objectForKey:@"registros"] valueForKey:@"notarjeta"] forKey:@"notarjeta"];
+                [[NSUserDefaults standardUserDefaults] setObject:data_user forKey:@"data_user"];
+                [[NSUserDefaults standardUserDefaults]  synchronize];
+                [self dismissViewControllerAnimated:TRUE completion:nil];
+            } else{
+                [ISMessages showCardAlertWithTitle:@"Espera"
+                                           message:@"No puedes ingresar a la aplicacion"//callback.mensaje
+                                         iconImage:nil
+                                          duration:3.f
+                                       hideOnSwipe:YES
+                                         hideOnTap:YES
+                                         alertType:ISAlertTypeError
+                                     alertPosition:ISAlertPositionTop];
+            }
+            
+        } @catch (NSException *exception) {
+            NSLog(@"Ocurrió un problema en la ejecución: %@", exception);
+        } @finally { }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -307,5 +351,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)validarLoginExterno{
+    
+    if([Singleton getInstance].session_externo)
+    {
+        [[Singleton getInstance] mostrarHud:self.view];
+        WSManager *consumo2 = [[WSManager alloc] init];
+        [consumo2 useWebServiceWithMethod:@"POST" withTag:@"validar_usuario_externo" withParams:@{ @"email":[[[Singleton getInstance] datos_usuario_externo] valueForKey:@"uid_usuario"], @"nombre":[[[Singleton getInstance] datos_usuario_externo] valueForKey:@"token"],@"password":@"123",@"devicetoken":[Singleton getInstance].token } withApi:@"validar_usuario_externo" withDelegate:self];
+    }
+}
 
 @end

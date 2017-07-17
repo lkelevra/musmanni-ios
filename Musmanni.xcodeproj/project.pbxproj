@@ -194,6 +194,7 @@
 		4CE843751DA5480D00502CC9 /* MusmanniUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE843741DA5480D00502CC9 /* MusmanniUITests.m */; };
 		4CE843851DA5486300502CC9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE843841DA5486300502CC9 /* MapKit.framework */; };
 		4CF5C56A1DC6D13100C10B81 /* BarCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF5C5691DC6D13100C10B81 /* BarCodeViewController.m */; };
+		6278AB481E96F8C00085A70B /* ValidarDatosExternosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6278AB471E96F8C00085A70B /* ValidarDatosExternosViewController.m */; };
 		A7C7F4E27165CBFCCF53EBE9 /* libPods-MusmanniUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8F109A2F1A850A2D9544B8 /* libPods-MusmanniUITests.a */; };
 		AA3A62521DEB601C00797AE6 /* find.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3A624F1DEB601C00797AE6 /* find.png */; };
 		AA3A62531DEB601C00797AE6 /* find@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3A62501DEB601C00797AE6 /* find@2x.png */; };
@@ -464,6 +465,8 @@
 		4CF5C5681DC6D13100C10B81 /* BarCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarCodeViewController.h; path = Controllers/BarCodeViewController.h; sourceTree = "<group>"; };
 		4CF5C5691DC6D13100C10B81 /* BarCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarCodeViewController.m; path = Controllers/BarCodeViewController.m; sourceTree = "<group>"; };
 		594FEDF291A57A01BAA66C5E /* Pods-Musmanni.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musmanni.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musmanni/Pods-Musmanni.release.xcconfig"; sourceTree = "<group>"; };
+		6278AB461E96F8C00085A70B /* ValidarDatosExternosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidarDatosExternosViewController.h; sourceTree = "<group>"; };
+		6278AB471E96F8C00085A70B /* ValidarDatosExternosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidarDatosExternosViewController.m; sourceTree = "<group>"; };
 		694119BB3CA1AD9EC9C6528E /* Pods-MusmanniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests.release.xcconfig"; sourceTree = "<group>"; };
 		906C629B436314503A519208 /* Pods-MusmanniUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusmanniUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		909C502FF2CDAB6C3FED5199 /* libPods-Musmanni.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Musmanni.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -573,6 +576,8 @@
 				AA3A62561DEB64DE00797AE6 /* PuntosTableViewController.m */,
 				AA4500A61DEB7753007F7B95 /* PuntoViewController.h */,
 				AA4500A71DEB7753007F7B95 /* PuntoViewController.m */,
+				6278AB461E96F8C00085A70B /* ValidarDatosExternosViewController.h */,
+				6278AB471E96F8C00085A70B /* ValidarDatosExternosViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -954,6 +959,7 @@
 				4CE8436D1DA5480D00502CC9 /* Frameworks */,
 				4CE8436E1DA5480D00502CC9 /* Resources */,
 				AC9741A1BD6BD93560A4EEA2 /* [CP] Copy Pods Resources */,
+				48664572FFFC4CE5669021C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1244,7 +1250,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		48664572FFFC4CE5669021C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		76E0E52290B4B74925373042 /* [CP] Check Pods Manifest.lock */ = {
@@ -1259,7 +1280,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		84FC683ED8BA10D11486C1D5 /* [CP] Check Pods Manifest.lock */ = {
@@ -1274,7 +1295,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AC9741A1BD6BD93560A4EEA2 /* [CP] Copy Pods Resources */ = {
@@ -1352,6 +1373,7 @@
 				4C0C88D01DAE7F61003FEA49 /* MapaViewController.m in Sources */,
 				4C273D781DB0064900EF56D9 /* BarCodeView.m in Sources */,
 				4CE843511DA5480D00502CC9 /* AppDelegate.m in Sources */,
+				6278AB481E96F8C00085A70B /* ValidarDatosExternosViewController.m in Sources */,
 				4CF5C56A1DC6D13100C10B81 /* BarCodeViewController.m in Sources */,
 				4C28BCE41DC10EAE0082D1E9 /* RegistroViewController.m in Sources */,
 				4C0C88DF1DAE9B7E003FEA49 /* ContactenosViewController.m in Sources */,

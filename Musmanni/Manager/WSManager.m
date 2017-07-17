@@ -57,20 +57,21 @@
 -(void) useApi:(NSString *)identificador{
     @try {
         NSDictionary* api = @{
-                              @"login":             @"ws/movil/login",
-                              @"enviar_token":      @"ws/movil/gcm/crear",
-                              @"obtener_saldo":     @"ws/tarjeta/consultar",
-                              @"puntos":            @"ws/movil/puntos/obtenerporempresa",
-                              @"promociones":       @"ws/movil/promociones/obtenerporempresa",
-                              @"montos_recarga":    @"ws/recargas/detallerecargas",
-                              @"realizar_recarga":  @"ws/recargas/hacerrecarga",
-                              @"registro_usuario":  @"ws/movil/usuarios",
-                              @"registro_usuario_f":@"ws/movil/usuarios",
-                              @"validar_tarjeta":   @"ws/movil/usuarios/consultar",
-                              @"recuperar_pass":    @"ws/movil/usuarios/password/generar",
-                              @"datos_empresa":     @"ws/empresas/obtener/1",
-                              @"cambiar_password":  @"ws/movil/usuarios/password/cambiar",
-                              @"cerrar_sesion":     @"ws/movil/logout"
+                              @"login":                     @"ws/movil/login",
+                              @"enviar_token":              @"ws/movil/gcm/crear",
+                              @"obtener_saldo":             @"ws/tarjeta/consultar",
+                              @"puntos":                    @"ws/movil/puntos/obtenerporempresa",
+                              @"promociones":               @"ws/movil/promociones/obtenerporempresa",
+                              @"montos_recarga":            @"ws/recargas/detallerecargas",
+                              @"realizar_recarga":          @"ws/recargas/hacerrecarga",
+                              @"registro_usuario":          @"ws/movil/usuarios",
+                              @"registro_usuario_f":        @"ws/movil/usuarios",
+                              @"validar_tarjeta":           @"ws/movil/usuarios/consultar",
+                              @"recuperar_pass":            @"ws/movil/usuarios/password/generar",
+                              @"datos_empresa":             @"ws/empresas/obtener/1",
+                              @"cambiar_password":          @"ws/movil/usuarios/password/cambiar",
+                              @"cerrar_sesion":             @"ws/movil/logout",
+                              @"validar_usuario_externo":   @"ws/movil/tarjeta/crear"
                               };
         
         servicio = [api objectForKey:identificador];

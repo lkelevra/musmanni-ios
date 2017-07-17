@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Singleton.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "ValidarDatosExternosViewController.h"
 
 @interface AppDelegate ()
 
@@ -140,11 +141,77 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+
+    // Check the calling application Bundle ID
+    if ([sourceApplication isEqualToString:@"lg.AprobacionesFifco"])
+    {
+        NSLog(@"Calling Application Bundle ID: %@", sourceApplication);
+        NSLog(@"URL scheme:%@", [url scheme]);
+        NSLog(@"URL query: %@", [url query]);
+        NSLog(@"URL %@ ", url);
+        NSDictionary *dict = [self parseQueryString:[url query]];
+        NSLog(@"query dict: %@", dict);//// esta variable almaccenena en un diccionario todos los parametros que vienen en la url
+        NSLog(@"***************** SESION INICIADA : %s ",[Singleton getInstance].session_usuario ? "SI" : "NO");
+        //
+        
+        NSDictionary *valor = [[NSDictionary alloc] init];
+        valor = dict;
+        
+        [Singleton getInstance].datos_usuario_externo = valor;
+        NSLog(@"Singleton DATOS EXTETRNOS %@ ",[Singleton getInstance].datos_usuario_externo);
+        
+        if([Singleton getInstance].session_usuario)
+        {
+            [Singleton getInstance].session_externo = YES;
+            ValidarDatosExternosViewController *validar = [[ValidarDatosExternosViewController alloc] init];
+            [validar cerrarSession];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                UIViewController *vc =[storyboard instantiateInitialViewController];
+            
+                // Set root view controller and make windows visible
+                self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+                self.window.rootViewController = vc;
+                [self.window makeKeyAndVisible];
+
+        }
+        else
+        {
+            [Singleton getInstance].session_externo = NO;
+        }
+        
+        NSString *Mensaje = [valor valueForKey:@"uid_usuario"];//[NSString stringWithFormat:@"Usuario logueado en fifco es : %@ ",[[[Singleton getInstance] datosEXTERNO] valueForKey:@"uid_usuario"] ];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"FifcoOne" message:Mensaje delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        
+       //[alert show];
+        
+        
+        return YES;
+    }
+    else
+        return NO;
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                                           openURL:url
                                                 sourceApplication:sourceApplication
                                                        annotation:annotation
             ];
+    
+
+
+}
+
+- (NSDictionary *)parseQueryString:(NSString *)query {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:6];
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    
+    for (NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [dict setObject:val forKey:key];
+    }
+    return dict;
 }
 
 
@@ -199,5 +266,6 @@
         abort();
     }
 }
+
 
 @end
