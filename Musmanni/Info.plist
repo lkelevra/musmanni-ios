@@ -19,8 +19,6 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleURLName</key>
-			<string>fifco.musmanni</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb1040421749332097</string>
