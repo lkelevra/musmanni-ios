@@ -126,10 +126,6 @@
 		4C58FF2E1DC66995003534A2 /* FONDO1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C58FF2B1DC66995003534A2 /* FONDO1@3x.png */; };
 		4C59E0B21DC2AC8A009653F5 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0B11DC2AC8A009653F5 /* Accounts.framework */; };
 		4C59E0B41DC2AC9C009653F5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0B31DC2AC9C009653F5 /* Security.framework */; };
-		4C59E0BB1DC2ACE1009653F5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0B71DC2ACE1009653F5 /* FBSDKCoreKit.framework */; };
-		4C59E0BC1DC2ACE1009653F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0B81DC2ACE1009653F5 /* FBSDKLoginKit.framework */; };
-		4C59E0BD1DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0B91DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework */; };
-		4C59E0BE1DC2ACE1009653F5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C59E0BA1DC2ACE1009653F5 /* FBSDKShareKit.framework */; };
 		4C6A4F221E26C849009016C9 /* new_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6A4F1F1E26C849009016C9 /* new_logo.png */; };
 		4C6A4F231E26C849009016C9 /* new_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6A4F201E26C849009016C9 /* new_logo@2x.png */; };
 		4C6A4F241E26C849009016C9 /* new_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6A4F211E26C849009016C9 /* new_logo@3x.png */; };
@@ -381,10 +377,6 @@
 		4C59E0B11DC2AC8A009653F5 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		4C59E0B31DC2AC9C009653F5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4C59E0B51DC2ACB1009653F5 /* FacebookSDKs-iOS-4.17.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "FacebookSDKs-iOS-4.17.0"; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0"; sourceTree = "<group>"; };
-		4C59E0B71DC2ACE1009653F5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
-		4C59E0B81DC2ACE1009653F5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		4C59E0B91DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
-		4C59E0BA1DC2ACE1009653F5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.17.0/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		4C6A4F1F1E26C849009016C9 /* new_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_logo.png; sourceTree = "<group>"; };
 		4C6A4F201E26C849009016C9 /* new_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_logo@2x.png"; sourceTree = "<group>"; };
 		4C6A4F211E26C849009016C9 /* new_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_logo@3x.png"; sourceTree = "<group>"; };
@@ -500,10 +492,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C59E0BB1DC2ACE1009653F5 /* FBSDKCoreKit.framework in Frameworks */,
-				4C59E0BC1DC2ACE1009653F5 /* FBSDKLoginKit.framework in Frameworks */,
-				4C59E0BD1DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework in Frameworks */,
-				4C59E0BE1DC2ACE1009653F5 /* FBSDKShareKit.framework in Frameworks */,
 				4C59E0B41DC2AC9C009653F5 /* Security.framework in Frameworks */,
 				4C59E0B21DC2AC8A009653F5 /* Accounts.framework in Frameworks */,
 				4CE843851DA5486300502CC9 /* MapKit.framework in Frameworks */,
@@ -881,10 +869,6 @@
 		4CE843831DA5486300502CC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4C59E0B71DC2ACE1009653F5 /* FBSDKCoreKit.framework */,
-				4C59E0B81DC2ACE1009653F5 /* FBSDKLoginKit.framework */,
-				4C59E0B91DC2ACE1009653F5 /* FBSDKMessengerShareKit.framework */,
-				4C59E0BA1DC2ACE1009653F5 /* FBSDKShareKit.framework */,
 				4C59E0B51DC2ACB1009653F5 /* FacebookSDKs-iOS-4.17.0 */,
 				4C59E0B31DC2AC9C009653F5 /* Security.framework */,
 				4C59E0B11DC2AC8A009653F5 /* Accounts.framework */,
@@ -917,7 +901,6 @@
 				4CE843451DA5480D00502CC9 /* Sources */,
 				4CE843461DA5480D00502CC9 /* Frameworks */,
 				4CE843471DA5480D00502CC9 /* Resources */,
-				CD1499B7DB4316C0E2C03A7B /* [CP] Embed Pods Frameworks */,
 				DFB444E8276E44493460A434 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -937,8 +920,6 @@
 				4CE843611DA5480D00502CC9 /* Sources */,
 				4CE843621DA5480D00502CC9 /* Frameworks */,
 				4CE843631DA5480D00502CC9 /* Resources */,
-				139C34F16A7E80DA46A186CE /* [CP] Embed Pods Frameworks */,
-				CA124159B88CAB33C8987A87 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -958,8 +939,6 @@
 				4CE8436C1DA5480D00502CC9 /* Sources */,
 				4CE8436D1DA5480D00502CC9 /* Frameworks */,
 				4CE8436E1DA5480D00502CC9 /* Resources */,
-				AC9741A1BD6BD93560A4EEA2 /* [CP] Copy Pods Resources */,
-				48664572FFFC4CE5669021C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1223,21 +1202,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		139C34F16A7E80DA46A186CE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusmanniTests/Pods-MusmanniTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1ADC059B590B6F5BAA95DA7F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1254,21 +1218,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48664572FFFC4CE5669021C1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		76E0E52290B4B74925373042 /* [CP] Check Pods Manifest.lock */ = {
@@ -1307,51 +1256,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AC9741A1BD6BD93560A4EEA2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusmanniUITests/Pods-MusmanniUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA124159B88CAB33C8987A87 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusmanniTests/Pods-MusmanniTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CD1499B7DB4316C0E2C03A7B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Musmanni/Pods-Musmanni-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DFB444E8276E44493460A434 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1359,12 +1263,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Musmanni/Pods-Musmanni-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ISMessages/ISMessages.bundle",
 				"${PODS_ROOT}/SBPickerSelector/SBPickerSelector/Resources/SBPickerSelector.xib",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ISMessages.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SBPickerSelector.nib",

@@ -179,12 +179,12 @@
             } else{
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             }
             
         } @catch (NSException *exception) {

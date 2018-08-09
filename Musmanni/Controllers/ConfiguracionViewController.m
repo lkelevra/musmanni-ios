@@ -72,12 +72,12 @@
     } else {
         [ISMessages showCardAlertWithTitle:@"Espera"
                                    message:@"Ha iniciado sesión con facebook, esta opción no está permitida en este método de inicio de sesión"
-                                 iconImage:nil
                                   duration:3.f
                                hideOnSwipe:YES
                                  hideOnTap:YES
                                  alertType:ISAlertTypeError
-                             alertPosition:ISAlertPositionTop];
+                             alertPosition:ISAlertPositionTop
+                                   didHide:nil];
     }
 }
 
@@ -94,12 +94,12 @@
     } else {
         [ISMessages showCardAlertWithTitle:@"Espera"
                                    message:@"Verifique que los campos esten ingresados correctamente"
-                                 iconImage:nil
                                   duration:3.f
                                hideOnSwipe:YES
                                  hideOnTap:YES
                                  alertType:ISAlertTypeWarning
-                             alertPosition:ISAlertPositionTop];
+                             alertPosition:ISAlertPositionTop
+                                   didHide:nil];
     }
 }
 
@@ -159,21 +159,21 @@
                 
                 [ISMessages showCardAlertWithTitle:@"Éxito"
                                            message:callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeSuccess
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             } else{
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             }
             
         } @catch (NSException *exception) {

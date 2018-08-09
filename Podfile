@@ -19,6 +19,11 @@ target 'Musmanni' do
     pod 'RSBarcodes', '~> 0.1.4'
     pod 'SRMModalViewController' 
     pod 'SBPickerSelector'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKShareKit'
+    pod 'FBSDKPlacesKit'
+    pod 'FBSDKMessengerShareKit'
 
     
   target 'MusmanniTests' do

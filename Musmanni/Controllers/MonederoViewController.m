@@ -152,12 +152,12 @@
     
     [ISMessages showCardAlertWithTitle:@"Éxito"
                                message:[NSString stringWithFormat:@"Tu tarjeta se a creado exitosamente, el número es: %@", [[notification object] valueForKey:@"notarjeta"]]
-                             iconImage:nil
                               duration:5.f
                            hideOnSwipe:YES
                              hideOnTap:YES
                              alertType:ISAlertTypeSuccess
-                         alertPosition:ISAlertPositionTop];
+                         alertPosition:ISAlertPositionTop
+                               didHide:nil];
     
     [[Singleton getInstance] mostrarHud:self.navigationController.view];
     WSManager *consumo = [[WSManager alloc] init];
@@ -207,12 +207,12 @@
                     [lblPuntos setText:[pref valueForKey:@"saldo"]];
                     [ISMessages showCardAlertWithTitle:@"Información"
                                                message:@"Aún no has confirmado tu tarjeta, revisa tu correo"
-                                             iconImage:nil
                                               duration:3.f
                                            hideOnSwipe:YES
                                              hideOnTap:YES
                                              alertType:ISAlertTypeInfo
-                                         alertPosition:ISAlertPositionTop];
+                                         alertPosition:ISAlertPositionTop
+                                               didHide:nil];
                     
                     [viewBarCode setUserInteractionEnabled:NO];
                 } else {
@@ -237,12 +237,12 @@
             } else{
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                            didHide:nil];
             }
             
         } @catch (NSException *exception) {

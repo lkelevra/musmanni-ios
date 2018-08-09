@@ -103,12 +103,12 @@
     } else {
         [ISMessages showCardAlertWithTitle:@"Espera"
                                    message:@"Verifique que todos los campos esten llenos"
-                                 iconImage:nil
                                   duration:3.f
                                hideOnSwipe:YES
                                  hideOnTap:YES
                                  alertType:ISAlertTypeWarning
-                             alertPosition:ISAlertPositionTop];
+                             alertPosition:ISAlertPositionTop
+                                   didHide:nil];
     }
 }
 
@@ -140,12 +140,12 @@
                 [self dismissViewControllerAnimated:TRUE completion:nil];
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             }
             
         } @catch (NSException *exception) {

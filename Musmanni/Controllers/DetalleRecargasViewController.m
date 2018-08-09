@@ -71,12 +71,12 @@
         
         [ISMessages showCardAlertWithTitle:@"Espera"
                                    message:@"Aún no tienes validada tu tarjeta, no puedes realizar una recarga hasta que sea validada"
-                                 iconImage:nil
                                   duration:3.f
                                hideOnSwipe:YES
                                  hideOnTap:YES
                                  alertType:ISAlertTypeWarning
-                             alertPosition:ISAlertPositionTop];
+                             alertPosition:ISAlertPositionTop
+                                   didHide:nil];
     }
 }
 
@@ -126,12 +126,12 @@
                         
                         [ISMessages showCardAlertWithTitle:@"En proceso"
                                                    message:@"Tu recarga esta en proceso, en unos momentos recibirás una confirmación"
-                                                 iconImage:nil
                                                   duration:5.0
                                                hideOnSwipe:YES
                                                  hideOnTap:YES
                                                  alertType:ISAlertTypeSuccess
-                                             alertPosition:ISAlertPositionTop];
+                                             alertPosition:ISAlertPositionTop
+                                                   didHide:nil];
                         [self dismissViewControllerAnimated:TRUE completion:nil];
                     } else {
                         
@@ -141,42 +141,42 @@
                 else{
                     [ISMessages showCardAlertWithTitle:@"Espera"
                                                message:@"Elije un monto a recargar"
-                                             iconImage:nil
                                               duration:3.f
                                            hideOnSwipe:YES
                                              hideOnTap:YES
                                              alertType:ISAlertTypeError
-                                         alertPosition:ISAlertPositionTop];
+                                         alertPosition:ISAlertPositionTop
+                                               didHide:nil];
                 }
             } else {
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:@"El monto seleccionado es mayor al saldo disponible"
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             }
         } else {
             [ISMessages showCardAlertWithTitle:@"Espera"
                                        message:@"Verifica que el número de celular y el número de celular de confirmación sean iguales"
-                                     iconImage:nil
                                       duration:3.f
                                    hideOnSwipe:YES
                                      hideOnTap:YES
                                      alertType:ISAlertTypeError
-                                 alertPosition:ISAlertPositionTop];
+                                 alertPosition:ISAlertPositionTop
+                                       didHide:nil];
         }
     } else{
         [ISMessages showCardAlertWithTitle:@"Espera"
                                    message:@"Verifica que el número de celular y/o el número de celular de confirmación tenga 8 dígitos"
-                                 iconImage:nil
                                   duration:3.f
                                hideOnSwipe:YES
                                  hideOnTap:YES
                                  alertType:ISAlertTypeError
-                             alertPosition:ISAlertPositionTop];
+                             alertPosition:ISAlertPositionTop
+                                   didHide:nil];
     }
 }
 
@@ -244,12 +244,12 @@
                 [self dismissViewControllerAnimated:TRUE completion:nil];
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:[callback.respuesta objectForKey:@"message"]
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             }
             
         } @catch (NSException *exception) {
@@ -263,24 +263,24 @@
                 if([[Singleton getInstance].token isEqualToString:@"NO"]){
                     [ISMessages showCardAlertWithTitle:@"Éxito"
                                                message:[callback.respuesta objectForKey:@"message"]
-                                             iconImage:nil
                                               duration:3.f
                                            hideOnSwipe:YES
                                              hideOnTap:YES
                                              alertType:ISAlertTypeSuccess
-                                         alertPosition:ISAlertPositionTop];
+                                         alertPosition:ISAlertPositionTop
+                                               didHide:nil];
                 }
             } else{
                 //                [self dismissViewControllerAnimated:TRUE completion:nil];
                 if([[Singleton getInstance].token isEqualToString:@"NO"]){
                     [ISMessages showCardAlertWithTitle:@"Espera"
                                                message:[callback.respuesta objectForKey:@"message"]
-                                             iconImage:nil
                                               duration:3.f
                                            hideOnSwipe:YES
                                              hideOnTap:YES
                                              alertType:ISAlertTypeError
-                                         alertPosition:ISAlertPositionTop];
+                                         alertPosition:ISAlertPositionTop
+                                               didHide:nil];
                 }
             }
             

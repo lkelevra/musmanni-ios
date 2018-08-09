@@ -67,12 +67,12 @@
     } else {
         [ISMessages showCardAlertWithTitle:@"Espera"
                                    message:@"Todos los campos son obligatorios"
-                                 iconImage:nil
                                   duration:3.f
                                hideOnSwipe:YES
                                  hideOnTap:YES
                                  alertType:ISAlertTypeWarning
-                             alertPosition:ISAlertPositionTop];
+                             alertPosition:ISAlertPositionTop
+                                   didHide:nil];
     }
 }
 
@@ -85,23 +85,23 @@
             [FBSDKProfile setCurrentProfile:nil];
             [ISMessages showCardAlertWithTitle:@"Espera"
                                        message:@"Ocurrió un error al tratar de iniciar con Facebook, intenta de nuevo"
-                                     iconImage:nil
                                       duration:3.f
                                    hideOnSwipe:YES
                                      hideOnTap:YES
                                      alertType:ISAlertTypeError
-                                 alertPosition:ISAlertPositionTop];
+                                 alertPosition:ISAlertPositionTop
+                                       didHide:nil];
         } else if (result.isCancelled) {
             [FBSDKAccessToken setCurrentAccessToken:nil];
             [FBSDKProfile setCurrentProfile:nil];
             [ISMessages showCardAlertWithTitle:@"Espera"
                                        message:@"Debes darnos permisos para poder registrarte con Facebook, de lo contrario lo puedes realizar de forma manual"
-                                     iconImage:nil
                                       duration:3.f
                                    hideOnSwipe:YES
                                      hideOnTap:YES
                                      alertType:ISAlertTypeError
-                                 alertPosition:ISAlertPositionTop];
+                                 alertPosition:ISAlertPositionTop
+                                       didHide:nil];
         } else {
             NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
             [parameters setValue:@"id,name,email,gender,birthday" forKey:@"fields"];
@@ -219,12 +219,12 @@
             } else{
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             }
 
         } @catch (NSException *exception) {
@@ -254,12 +254,12 @@
             } else{
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             }
             
         } @catch (NSException *exception) {
@@ -272,21 +272,21 @@
             if(callback.resultado){
                 [ISMessages showCardAlertWithTitle:@"Éxito"
                                            message:callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeSuccess
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             } else{
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             }
             
         } @catch (NSException *exception) {
@@ -323,12 +323,12 @@
             } else{
                 [ISMessages showCardAlertWithTitle:@"Espera"
                                            message:@"No puedes ingresar a la aplicacion"//callback.mensaje
-                                         iconImage:nil
                                           duration:3.f
                                        hideOnSwipe:YES
                                          hideOnTap:YES
                                          alertType:ISAlertTypeError
-                                     alertPosition:ISAlertPositionTop];
+                                     alertPosition:ISAlertPositionTop
+                                           didHide:nil];
             }
             
         } @catch (NSException *exception) {
